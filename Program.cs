@@ -1,126 +1,163 @@
 ﻿internal class Program
 {
-    private static void Spiral()
+
+    public struct FullName
     {
-        int N = 10;
+        public String firstName;
+        public String lastName;
+        public String? fatherName;
 
-        int[,] arr = new int[N, N];
-
-        int[][] directions = new int[][]
+        public void PrintFullName()
         {
-            new int[] {0, -1}, // Up
-            new int[] {0, 1}, // Down
-            new int[] {1, 0}, // Right
-            new int[] {-1, 0}, // left
-        };
-
-        int step = 1;
-
-        int number = 1;
-
-        int x = N / 2;
-        int y = x;
-        arr[y,x] = number++;
-
-        while (number < N * N)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-
-            }
-        }
-    }
-
-    static void Task2()
-    {
-        int rows = 10;
-        int colms = 6;
-        int[,] matrix = new int[rows, colms];
-
-        int number = 1;
-
-        for (int y = 0; y < rows; y++)
-        {
-            for (int x = 0; x < colms; x++)
-            {
-                matrix[y, x] = number++;
-                Console.Write(matrix[y, x] + " ");
-            }
+            Console.Write("{0} {1} {2}", lastName, firstName, fatherName);
             Console.WriteLine();
         }
     }
-
-    static void Task3()
+    public class Scores
     {
-        int rows = 10;
-        int colms = 6;
-        int[,] matrix = new int[rows, colms];
+        private List<int> courseWorks;
+        private List<int> exams;
+        private List<int> tests;
 
-        int number = 1;
-
-        for (int y = 0; y < rows; y++)
+        public Scores()
         {
-            if (y % 2 != 0)
-            {
-                for (int x = colms - 1; x >= 0; x--)
-                {
-                    matrix[y, x] = number++;
-                }
-            }
-            else
-            {
-                for (int x = 0; x < colms; x++)
-                {
-                    matrix[y, x] = number++;
-                }
-            }
-
+            this.courseWorks = new List<int>();
+            this.exams = new List<int>();
+            this.tests= new List<int>();
         }
-
-        for (int y = 0; y < rows; y++)
+        public void PrintScores()
         {
-            for (int x = 0; x < colms; x++)
+            Console.Write("Course work: ");
+            foreach (int item in courseWorks)
             {
-                Console.Write(matrix[y, x] + " ");
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Console.Write("Exams: ");
+            foreach (int item in exams)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Console.Write("Tests: ");
+            foreach (int item in tests)
+            {
+                Console.Write(item + " ");
             }
             Console.WriteLine();
         }
 
-    }
-
-    static void Task4()
-    {
-        int size = 20;
-
-        int radius = size / 2;
-
-        int[,,] matrix = new int[size, size, size];
-
-        for (int z = 0, a = - radius; z < size; z++, a++)
+        public void AddExam(int score)
         {
-            for (int y = 0, b = - radius; y < size; y++, b++)
-            {
-                for (int x = 0, c = -radius; x < size; x++, c++)
-                {
-                    if (a*a + b*b + c*c <= radius*radius)
-                    {
-                        matrix[z, y, x] = 1;
-                        Console.Write("*");
-                    }
-                    else
-                    {
-                        matrix[z, y, x] = 0;
-                        Console.Write(".");
-                    }
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
+            this.exams.Add(score);
+        }
+
+        public void AddTest(int score)
+        {
+            this.tests.Add(score);
+        }
+
+        public void AddCourseWork(int score)
+        {
+            this.courseWorks.Add(score);
+        }
+
+        //accessors
+        // getters
+        public List<int> GetExams()
+        {
+            return this.exams;
+        }
+
+        public List<int> GetTests()
+        {
+            return this.tests;
+        }
+
+        public List<int> GEtCourseWork()
+        {
+            return this.courseWorks;
         }
     }
 
+    public class Student
+    {
+        private FullName fullName;
+        private DateTime dateOfBirth;
+        private double? phoneNumber;
+        private Scores scores;
+
+        public Student() : this("Alex", "Mart", "", new DateTime(), 0) { }
+        public Student(String firstName, String lastName, DateTime dayOfBirth) : this(firstName, lastName, "", dayOfBirth, 0) { }
+        public Student(String firstName, String lastName, String? fatherName, DateTime dateOfBirth, double? phoneNumber)
+        {
+            SetFullName(firstName, lastName, fatherName);
+            SetDateOfBirth(dateOfBirth);
+            SetPhoneNumber(phoneNumber);
+            SetScores();
+        }
+    
+        // accessors 
+        // Setters
+        public void SetFullName(String firstName, String lastName, String? fatherName)
+        {
+            this.fullName.firstName = firstName;
+            this.fullName.lastName = lastName;
+            this.fullName.fatherName = fatherName;
+        }      
+
+        public void SetScores()
+        {
+            scores = new Scores();
+        }
+
+        public void SetDateOfBirth(DateTime dateOfBirth)
+        {
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        public void SetPhoneNumber(double? phoneNumber)
+        {
+            this.phoneNumber = phoneNumber;
+        }
+
+        // Getters
+        public FullName GetFullName()
+        {
+            return this.fullName;
+        }
+
+        public Scores GetScores()
+        {
+            return this.scores;
+        }
+
+        public DateTime GetDateOfBirth()
+        {
+            return this.dateOfBirth;
+        }
+
+        public double? GetPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+
+        public void PrintStudentInfo()
+        {
+            Console.Write("Full Name: ");
+            fullName.PrintFullName();
+            Console.WriteLine("Date of birth: " + this.dateOfBirth);
+            Console.WriteLine("Phone number: " + this.phoneNumber);
+            Console.WriteLine("Scores:");
+            scores.PrintScores();
+        }
+
+    }
     private static void Main(string[] args)
     {
-        Task4();
+        Student st = new Student();
+        st.GetScores().AddExam(10);
+        st.PrintStudentInfo();
+
     }
 }
