@@ -74,12 +74,18 @@
             return this.tests;
         }
 
-        public List<int> GEtCourseWork()
+        public List<int> GetCourseWork()
         {
             return this.courseWorks;
         }
-    }
 
+        public double AverageScore()
+        {
+            double averageScore = (exams.Average() + tests.Average() + courseWorks.Average()) / 3;
+
+            return averageScore;
+        }
+    }
     public class Student
     {
         private FullName fullName;
@@ -87,7 +93,8 @@
         private double? phoneNumber;
         private Scores scores;
 
-        public Student() : this("Alex", "Mart", "", new DateTime(), 0) { }
+        public Student() : this("Alex", "Mart") { }
+        public Student(String firstName, String lastName) : this(firstName, lastName, new DateTime()) { }
         public Student(String firstName, String lastName, DateTime dayOfBirth) : this(firstName, lastName, "", dayOfBirth, 0) { }
         public Student(String firstName, String lastName, String? fatherName, DateTime dateOfBirth, double? phoneNumber)
         {
@@ -153,11 +160,143 @@
         }
 
     }
+
+    public class Group
+    {
+        private String name;
+        private String specialization;
+        private uint number;
+        private List<Student> students;
+
+        private void SortStudents()
+        {
+            students.Sort((st1, st2) => st1.GetFullName().lastName.CompareTo(st2.GetFullName().lastName));
+        }
+
+        public Group() : this("Default", "build", 0, new List<Student>()) { }
+        public Group(String name, String specialization, uint number, List<Student> students)
+        {
+            SetStudents(students);
+            SetName(name);
+            SetSpecialization(specialization);
+            SetNumber(number);
+        }
+
+        public void ShowGroup()
+        {
+            Console.WriteLine("Name: " + this.name);
+            Console.WriteLine("Specialization: " + this.specialization);
+            Console.WriteLine("Group number: " + this.number);
+            for (int i = 0; i < this.students.Count; i++)
+            {
+                Console.Write((i + 1) + ". ");
+                students[i].GetFullName().PrintFullName();
+            }
+            Console.WriteLine();
+        }
+
+        public void AddStudent(Student student)
+        {
+            this.students.Add(student);
+            this.SortStudents();
+        }
+
+        public void TransferStudent(ref Group group, int studentNumber) 
+        {
+            group.AddStudent(this.students[studentNumber - 1]);
+            this.students.RemoveAt(studentNumber - 1);
+        }
+
+        public void ExpelStudent()
+        {
+            //Student student = students.OrderBy(st => st.GetScores().AverageScore()).First();
+            int index = 0;
+            double min = students[index].GetScores().AverageScore();
+
+            for (int i = 0; i < this.students.Count; i++)
+            {
+                if (students[i].GetScores().AverageScore() < min)
+                {
+                    index = i;
+                }
+                
+            }
+
+            this.students.RemoveAt(index);
+        }
+
+        // accessors
+        // setters
+        public void SetName(String name)
+        {
+            this.name = name;
+        }
+
+        public void SetSpecialization(String specialization)
+        {
+            this.specialization = specialization;
+        }
+
+        public void SetNumber(uint number)
+        {
+            this.number = number;
+        }
+
+        public void SetStudents(List<Student> students)
+        {
+            this.students = students;
+            this.SortStudents();
+        }
+
+        // getters
+        public String GetName()
+        {
+            return this.name;
+        }
+
+        public String GetSpecialization()
+        {
+            return this.specialization;
+        }
+
+        public uint GetNumber()
+        {
+            return this.number;
+        }
+
+        public List<Student> GetStudents()
+        {
+            return this.students;
+        }
+    }
     private static void Main(string[] args)
     {
         Student st = new Student();
-        st.GetScores().AddExam(10);
-        st.PrintStudentInfo();
+        Student st1 = new Student("Some", "test");
+        Student st2 = new Student("test2", "Alfa");
+        Student st3 = new Student();
+        List<Student> l = new List<Student> { st, st1, st2, st3 };
+        Group group = new Group();
+        group.SetStudents(l);
+        group.AddStudent(new Student("Name", "Bravo"));
+        Console.WriteLine();
+        Group group2 = new Group();
+        group.TransferStudent(ref group2, 2);
+        group.ShowGroup();
+        group2.ShowGroup();
+
+        Random random = new Random();
+
+        for (int i = 0; i < group.GetStudents().Count; i++)
+        {
+            group.GetStudents()[i].GetScores().AddCourseWork(random.Next(1, 12));
+            group.GetStudents()[i].GetScores().AddExam(random.Next(1, 12));
+            group.GetStudents()[i].GetScores().AddTest(random.Next(1, 12));
+
+        }
+
+        group.ExpelStudent();
+        group.ShowGroup();
 
     }
 }
