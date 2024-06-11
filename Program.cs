@@ -1,126 +1,144 @@
-﻿internal class Program
+﻿
+using System.Collections;
+
+namespace Example6
 {
-    private static void Spiral()
+    public class Program
     {
-        int N = 10;
-
-        int[,] arr = new int[N, N];
-
-        int[][] directions = new int[][]
+        struct Item
         {
-            new int[] {0, -1}, // Up
-            new int[] {0, 1}, // Down
-            new int[] {1, 0}, // Right
-            new int[] {-1, 0}, // left
-        };
+            private String name;
+            private uint price;
+            private double discount;
 
-        int step = 1;
-
-        int number = 1;
-
-        int x = N / 2;
-        int y = x;
-        arr[y,x] = number++;
-
-        while (number < N * N)
-        {
-            for (int i = 0; i < 2; i++)
+            public Item(String name, uint price, double discount = 0)
             {
-
+                SetDiscount(discount);
+                SetName(name);
+                SetPrice(price);
             }
-        }
-    }
 
-    static void Task2()
-    {
-        int rows = 10;
-        int colms = 6;
-        int[,] matrix = new int[rows, colms];
-
-        int number = 1;
-
-        for (int y = 0; y < rows; y++)
-        {
-            for (int x = 0; x < colms; x++)
+            public void SetName(String name)
             {
-                matrix[y, x] = number++;
-                Console.Write(matrix[y, x] + " ");
+                this.name = name.ToUpper();
             }
-            Console.WriteLine();
-        }
-    }
 
-    static void Task3()
-    {
-        int rows = 10;
-        int colms = 6;
-        int[,] matrix = new int[rows, colms];
-
-        int number = 1;
-
-        for (int y = 0; y < rows; y++)
-        {
-            if (y % 2 != 0)
+            public void SetPrice(uint price)
             {
-                for (int x = colms - 1; x >= 0; x--)
+                this.price = (uint)(price - price * this.discount);
+            }
+
+            public void SetDiscount(double discount)
+            {
+                if(discount <= 1 && discount >= 0)
                 {
-                    matrix[y, x] = number++;
+                    this.discount = discount;
                 }
-            }
-            else
-            {
-                for (int x = 0; x < colms; x++)
+                else
                 {
-                    matrix[y, x] = number++;
+                    throw new ArgumentException("Discount Value shout be between 0 and 1");
                 }
             }
 
-        }
-
-        for (int y = 0; y < rows; y++)
-        {
-            for (int x = 0; x < colms; x++)
+            public String GetName()
             {
-                Console.Write(matrix[y, x] + " ");
+                return this.name;
             }
-            Console.WriteLine();
-        }
 
-    }
-
-    static void Task4()
-    {
-        int size = 20;
-
-        int radius = size / 2;
-
-        int[,,] matrix = new int[size, size, size];
-
-        for (int z = 0, a = - radius; z < size; z++, a++)
-        {
-            for (int y = 0, b = - radius; y < size; y++, b++)
+            public uint GetPrice()
             {
-                for (int x = 0, c = -radius; x < size; x++, c++)
+                return this.price;
+            }
+
+            public double GetDiscount()
+            {
+                return this.discount;
+            }
+        }
+        struct Check
+        {
+            private Hashtable items;
+            private uint totalBill;
+            public Check()
+            {
+                this.items = new Hashtable();
+                this.totalBill = 0;
+            }
+
+            public void AddItem(Item item)
+            {
+                this.totalBill += item.GetPrice();
+
+                if (items.ContainsKey(item))
                 {
-                    if (a*a + b*b + c*c <= radius*radius)
+                    items[item] = (int)items[item] + 1;
+                }
+                else
+                {
+                    items[item] = 1;
+                }
+            }
+
+            public void AddItems(List<Item> itemList)
+            {
+                foreach  (Item item in itemList)
+                {
+                    this.totalBill += item.GetPrice();
+
+                    if (items.ContainsKey(item))
                     {
-                        matrix[z, y, x] = 1;
-                        Console.Write("*");
+                        items[item] = (int)items[item] + 1;
                     }
                     else
                     {
-                        matrix[z, y, x] = 0;
-                        Console.Write(".");
+                        items[item] = 1;
                     }
                 }
-                Console.WriteLine();
+               
             }
-            Console.WriteLine();
-        }
-    }
 
-    private static void Main(string[] args)
-    {
-        Task4();
+            public void PrintCheck()
+            {
+                Console.WriteLine("Your check:");
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("{0,-10} {1,8} {2,8}", "Name", "Count", "Price");
+                Console.WriteLine("---------------------------");
+                foreach (DictionaryEntry item in this.items)
+                {
+                    Item key = (Item)item.Key;
+                    int price = (int)key.GetPrice() * (int)item.Value;
+                    Console.WriteLine("{0,-10} {1,5} {2,9}$", key.GetName(), (int)item.Value, price);
+                }
+
+                Console.WriteLine("---------------------------");
+                Console.WriteLine("Total: " + this.totalBill + "$");
+            }
+
+            public uint GetTotalBill()
+            {
+                return this.totalBill;
+            }
+
+            public Hashtable GetItems()
+            {
+                return this.items;
+            }
+
+        }
+        public static void Main()
+        {
+            Check check = new Check();
+            Item apple = new Item("Apple", 10);
+            Item orange = new Item("Orange", 15, 0.2);
+            List<Item> apples = new List<Item>();
+            apples.Add(apple);
+            apples.Add(apple);
+            apples.Add(apple);
+            apples.Add(apple);
+            apples.Add(apple);
+            check.AddItems(apples);
+            check.AddItem(orange);
+            check.PrintCheck();
+        }
     }
 }
