@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
 
 internal class Program
@@ -100,18 +101,23 @@ internal class Program
         private DateTime dateOfBirth;
         private double? phoneNumber;
         private Scores scores;
+        private uint age;
         public uint Age
-        {
-            get { return this.Age;}
+        { 
+            get
+            {
+                return this.age;
+            }
+
             set
             {
                 if (value >= 18 && value < 100)
                 {
-                    this.Age = value;
+                    this.age = value;
                 }
                 else
                 {
-                    throw new Exception("Error");
+                    throw new Exception("error");
                 }
             }
         }
@@ -173,14 +179,25 @@ internal class Program
             return this.phoneNumber;
         }
 
-        public void PrintStudentInfo()
+        public virtual void PrintStudentInfo()
         {
             Console.Write("Full Name: ");
             fullName.PrintFullName();
+            Console.WriteLine("Age: "+ this.Age);
             Console.WriteLine("Date of birth: " + this.dateOfBirth);
             Console.WriteLine("Phone number: " + this.phoneNumber);
             Console.WriteLine("Scores:");
             scores.PrintScores();
+        }
+
+        public virtual void Study()
+        {
+            Console.WriteLine("this student is study");
+        }
+
+        public virtual void TakeExam()
+        {
+            Console.WriteLine("This student taking exam");
         }
 
         public static bool operator ==(Student right, Student left) 
@@ -370,8 +387,49 @@ internal class Program
             }
         }
     }
+
+    public class Aspirant : Student
+    {
+        private string thesisTheme;
+        public string ThesisTheme { get { return this.thesisTheme; } set { this.thesisTheme = value; } }
+        public Aspirant() : this("Thesis theme") { }
+        public Aspirant(string thesisTheme) : this("FirstName", "LastName", thesisTheme) { }
+        public Aspirant(string firstName, string lastName, string thesisTheme) : this(firstName, lastName, "", 0, new DateTime(), 18, thesisTheme)  { }
+        public Aspirant(string firstName, string lastName, string fatherName, uint phoneNumber, DateTime dateOfBirth, uint age, string thesisTheme) : base(firstName, lastName, fatherName, dateOfBirth, phoneNumber, age)
+        {
+            this.ThesisTheme = thesisTheme;
+        }
+
+        public void DoInternship()
+        {
+            Console.WriteLine("What is internship???");
+        }
+
+        public void DefendThesis()
+        {
+            Console.WriteLine("defending thesis.");
+        }
+
+        public override void PrintStudentInfo()
+        {
+            base.PrintStudentInfo();
+            Console.WriteLine("Thesis theme: " + this.ThesisTheme);
+        }
+
+        public override void Study()
+        {
+            Console.WriteLine("This aspirant is study");
+        }
+
+        public override void TakeExam()
+        {
+            Console.WriteLine("This aspirant taking exam");
+        }
+    }
+
     private static void Main(string[] args)
     {
+        
         Student st = new Student();
         Student st1 = new Student("Some", "test");
         Student st2 = new Student("test2", "Alfa");
@@ -385,7 +443,7 @@ internal class Program
         group.TransferStudent(ref group2, 2);
         group.ShowGroup();
         group2.ShowGroup();
-        st.Age = 10;
+        st.Age = 20;
         Random random = new Random();
 
         for (int i = 0; i < group.GetStudents().Count; i++)
@@ -398,6 +456,8 @@ internal class Program
 
         group.ExpelStudent();
         group.ShowGroup();
-
+        
+        Aspirant asp = new Aspirant("new theme");
+        asp.PrintStudentInfo();
     }
 }
