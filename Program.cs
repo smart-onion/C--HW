@@ -1,6 +1,9 @@
 ﻿
+using System;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
+using static Program;
 
 internal class Program
 {
@@ -95,7 +98,7 @@ internal class Program
             return averageScore;
         }
     }
-    public class Student
+    public class Student : IComparable
     {
         private FullName fullName;
         private DateTime dateOfBirth;
@@ -200,6 +203,56 @@ internal class Program
             Console.WriteLine("This student taking exam");
         }
 
+        public int CompareTo(object? obj)
+        {
+            Student? student = obj as Student;
+            return this.scores.AverageScore().CompareTo(student.scores.AverageScore());
+        }
+
+        public class CompareByName : IComparer
+        {
+            public int Compare(object? left, object? right)
+            {
+                Student x = (Student)left;
+                Student y = (Student)right;
+
+                return x.fullName.lastName.CompareTo(y.fullName.lastName);
+            }
+        }
+
+        public class CompareByAge : IComparer
+        {
+            public int Compare(object? left, object? right)
+            {
+                Student x = (Student)left;
+                Student y = (Student)right;
+
+                return x.age.CompareTo(y.age);
+            }
+        }
+
+        public class CompareByDayOfBirth : IComparer
+        {
+            public int Compare(object? left, object? right)
+            {
+                Student x = (Student)left;
+                Student y = (Student)right;
+
+                return x.dateOfBirth.CompareTo(y.dateOfBirth);
+            }
+        }
+
+        public class CompareByScore : IComparer
+        {
+            public int Compare(object? left, object? right)
+            {
+                Student x = (Student)left;
+                Student y = (Student)right;
+
+                return x.scores.AverageScore().CompareTo(y.scores.AverageScore());
+            }
+        }
+
         public static bool operator ==(Student right, Student left) 
         {
             if (right.fullName.GetFullName() == left.fullName.GetFullName() &&
@@ -257,7 +310,27 @@ internal class Program
 
         private void SortStudents()
         {
-            students.Sort((st1, st2) => st1.GetFullName().lastName.CompareTo(st2.GetFullName().lastName));
+            students.Sort(new Student.CompareByName().Compare);
+        }
+
+        public void SortStudents(IComparer comparer)
+        {
+            students.Sort(comparer.Compare);
+        }
+
+        public int FindStudent(Student studentToFind, IComparer comparer)
+        {
+            int index = 0;
+            foreach(Student student in students)
+            {
+                if (comparer.Compare(student, studentToFind) == 0)
+                {
+                    return index;
+                }
+                index++;
+            }
+
+            return -1;
         }
 
         public Group() : this("Default", "build", 0, new List<Student>()) { }
@@ -439,11 +512,7 @@ internal class Program
         group.SetStudents(l);
         group.AddStudent(new Student("Name", "Bravo"));
         Console.WriteLine();
-        Group group2 = new Group();
-        group.TransferStudent(ref group2, 2);
         group.ShowGroup();
-        group2.ShowGroup();
-        st.Age = 20;
         Random random = new Random();
 
         for (int i = 0; i < group.GetStudents().Count; i++)
@@ -454,10 +523,10 @@ internal class Program
 
         }
 
-        group.ExpelStudent();
+        group.SortStudents(new Student.CompareByScore());
         group.ShowGroup();
-        
-        Aspirant asp = new Aspirant("new theme");
-        asp.PrintStudentInfo();
+        Student newStudent = new Student("One", "test");
+        int fst = group.FindStudent(newStudent, new Student.CompareByName());
+        group[fst].PrintStudentInfo();
     }
 }
