@@ -1,44 +1,78 @@
 ﻿
-using System;
 using System.Collections;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-using static Program;
+using System.Reflection;
 
-internal class Program
-{
-
-   
-  
-   
-    private static void Main(string[] args)
+public class Program
+ {
+    public class Game
     {
-        
-        Student st = new Student();
-        Student st1 = new Student("Some", "test");
-        Student st2 = new Student("test2", "Alfa");
-        Student st3 = new Student();
-        List<Student> l = new List<Student> { st, st1, st2, st3 };
-        Group group = new Group();
-        group.SetStudents(l);
-        group.AddStudent(new Student("Name", "Bravo"));
-        Console.WriteLine();
-        Random random = new Random();
+        private int action;
+        public int Action { get => this.action;}
 
-        foreach (Student sd in group)
+        delegate void GameMenu();
+
+        public Game()
         {
-            sd.GetScores().AddCourseWork(random.Next(1, 12));
-            sd.GetScores().AddExam(random.Next(1, 12));
-            sd.GetScores().AddTest(random.Next(1, 12));
+            this.action = -1;
+        }
+
+        public void Init()
+        {
+            GameMenu menu = Exit;
+            menu += PlayGame;
+            menu += LoadGame;
+            menu += Settings;
+            menu += About;
+
+
+
+            while (this.action != 0)
+            {
+                Console.WriteLine("1 - Play Game");
+                Console.WriteLine("2 - Load Game");
+                Console.WriteLine("3 - Settings");
+                Console.WriteLine("4 - About");
+                Console.WriteLine("0 - Exit");
+
+                Console.Write("Select number: ");
+                this.action = Convert.ToInt32(Console.ReadLine());
+
+               MethodInfo go = menu.GetInvocationList()[this.action].Method;
+                go.Invoke(menu.GetInvocationList()[this.action].Target, null);
+                Console.ReadKey();
+                Console.Clear();
+            }
 
         }
-        group.ShowGroup();
 
-        foreach (Student sd in group)
+        public  void PlayGame()
         {
-            sd.PrintStudentInfo();
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("playing game...");
+        }
+
+        public void LoadGame()
+        {
+            Console.WriteLine("loading game...");
+        }
+
+        public void Settings()
+        {
+            Console.WriteLine("Settings");
+        }
+
+        public void About()
+        {
+            Console.WriteLine("About author..");
+        }
+        public void Exit()
+        {
+            Console.WriteLine("Exit game...");
         }
     }
-}
+    
+    public static void Main()
+    {
+        Game game = new Game();
+        game.Init();
+    }
+ }
