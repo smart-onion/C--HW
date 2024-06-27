@@ -1,78 +1,33 @@
 ﻿
+using System;
 using System.Collections;
-using System.Reflection;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using static Program;
 
-public class Program
- {
-    public class Game
+internal class Program
+{
+
+    private static void Main(string[] args)
     {
-        private int action;
-        public int Action { get => this.action;}
+        Student student = new Student();
+        Teacher teacher = new Teacher();
+        Scheduler schedule = new Scheduler();
+        Group group = new Group();
 
-        delegate void GameMenu();
+        student.OnAbsenteeism += teacher.MaskNotPresent;
+        student.OnOversleep += teacher.PunishStudent;
+        student.OnExam += teacher.TakeExam;
 
-        public Game()
-        {
-            this.action = -1;
-        }
+        student.Oversleep(schedule.GetRandomTime(), schedule.GetCelebrationDay());
+        student.PassExam();
+        student.SkipLesson();
 
-        public void Init()
-        {
-            GameMenu menu = Exit;
-            menu += PlayGame;
-            menu += LoadGame;
-            menu += Settings;
-            menu += About;
+        group.OnChangeCourse += schedule.NewYear;
+        group.OnParty += teacher.JoinGroup;
 
+        group.ChangeCourse();
 
-
-            while (this.action != 0)
-            {
-                Console.WriteLine("1 - Play Game");
-                Console.WriteLine("2 - Load Game");
-                Console.WriteLine("3 - Settings");
-                Console.WriteLine("4 - About");
-                Console.WriteLine("0 - Exit");
-
-                Console.Write("Select number: ");
-                this.action = Convert.ToInt32(Console.ReadLine());
-
-               MethodInfo go = menu.GetInvocationList()[this.action].Method;
-                go.Invoke(menu.GetInvocationList()[this.action].Target, null);
-                Console.ReadKey();
-                Console.Clear();
-            }
-
-        }
-
-        public  void PlayGame()
-        {
-            Console.WriteLine("playing game...");
-        }
-
-        public void LoadGame()
-        {
-            Console.WriteLine("loading game...");
-        }
-
-        public void Settings()
-        {
-            Console.WriteLine("Settings");
-        }
-
-        public void About()
-        {
-            Console.WriteLine("About author..");
-        }
-        public void Exit()
-        {
-            Console.WriteLine("Exit game...");
-        }
+        group.MakeGroupParty(schedule.GetCelebrationDay());
     }
-    
-    public static void Main()
-    {
-        Game game = new Game();
-        game.Init();
-    }
- }
+}
