@@ -1,33 +1,44 @@
 ﻿
-using System;
 using System.Collections;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-using static Program;
-
-internal class Program
-{
-
-    private static void Main(string[] args)
+using System.Reflection;
+using System.Text.RegularExpressions;
+public class Program
+ {
+    public static void Main()
     {
-        Student student = new Student();
-        Teacher teacher = new Teacher();
-        Scheduler schedule = new Scheduler();
-        Group group = new Group();
+        StreamReader sr = new StreamReader("./Kobzar.txt");
+        string source = sr.ReadToEnd();
+        Regex reg = new Regex(@"\w{3,20}");
 
-        student.OnAbsenteeism += teacher.MaskNotPresent;
-        student.OnOversleep += teacher.PunishStudent;
-        student.OnExam += teacher.TakeExam;
+        SortedList<string, int> dict = new SortedList<string, int>();
 
-        student.Oversleep(schedule.GetRandomTime(), schedule.GetCelebrationDay());
-        student.PassExam();
-        student.SkipLesson();
+        foreach(Match match in reg.Matches(source))
+        {
+            string stringMatch = match.ToString().ToLower();
 
-        group.OnChangeCourse += schedule.NewYear;
-        group.OnParty += teacher.JoinGroup;
 
-        group.ChangeCourse();
+            if (dict.ContainsKey(stringMatch))
+            {
+                dict[stringMatch]++;
+            }
+            else
+            {
+                dict.Add(stringMatch, 1);
+            }
+        }
+        var sortedByCount = dict.OrderBy(v => v.Value).Reverse();
 
-        group.MakeGroupParty(schedule.GetCelebrationDay());
+        int number = 1;
+        Console.WriteLine("+----+----------------------+-------+");
+        Console.WriteLine("| No | Word                 | Count |");
+        Console.WriteLine("+----+----------------------+-------+");
+
+        foreach (var item in sortedByCount.Take(50))
+        {
+            Console.WriteLine("| {0,-2} | {1,-20} | {2,5} |", number, item.Key, item.Value);
+            number++;
+        }
+        Console.WriteLine("+----+----------------------+-------+");
+
     }
 }
