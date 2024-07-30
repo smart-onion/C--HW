@@ -1,38 +1,61 @@
-﻿
-using System;
-using System.Collections;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Serialization;
-using static Program;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 internal class Program
 {
+    public class Student
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Student() : this("ALex", 18) { }
+
+        [JsonConstructor]
+        public Student(string name, int age)
+        {
+            this.Name = name;
+            this.Age = age;
+        }
+    }
+    public class Group
+    {
+        public string Name { get; set; }
+        public string Specialization { get; set; }
+        public int Number { get; set; }
+        public List<Student> Students { get; set; }
+
+        public Group () : this("Group", "Test", 1, new List<Student>()){ }
+
+        [JsonConstructor]
+        public Group(string name, string specialization, int number, List<Student> students)
+        {
+            Name = name;
+            Specialization = specialization;
+            Number = number;
+            Students = students;
+        }
+    }
 
     private static void Main(string[] args)
     {
-        Student student = new Student("student1", "st1");
-        Student studen2 = new Student("student2", "st2");
-        Student studen3 = new Student("student3", "st3");
-        Student studen4 = new Student("student4", "st4");
-        Student studen5 = new Student("student5", "st5");
-        Student studen6 = new Student("student6", "st6");
-        Group group = new Group();
+        Group gr = new Group();
 
-        group.AddStudent(student);
-        group.AddStudent(studen6);
-        group.AddStudent(studen2);
-        group.AddStudent(studen3);
-        group.AddStudent(studen4);
-        group.AddStudent(studen5);
+        gr.Students.Add(new Student());
+        gr.Students.Add(new Student());
+        gr.Students.Add(new Student());
+        gr.Students.Add(new Student());
+        gr.Students.Add(new Student());
 
-        group.ShowGroup();
-
-        var s = new XmlSerializer(typeof(Group));
-
-        TextWriter sw = new StreamWriter("./file.xml");
-
-        s.Serialize(sw, group);
+        var sw = new StreamWriter("./file.json");
+        string jsonString = JsonSerializer.Serialize(gr);
+        Console.WriteLine(jsonString);
+        sw.Write(jsonString);
         sw.Close();
+
+        jsonString = File.ReadAllText("./file.json");
+        Console.WriteLine();
+        Group gr2 = JsonSerializer.Deserialize<Group>(jsonString);
+        Console.WriteLine(gr2);
     }
 }
