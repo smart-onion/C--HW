@@ -4,58 +4,70 @@ using System.Text.RegularExpressions;
 
 internal class Program
 {
-    public class Student
+
+    class Name
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-
-        public Student() : this("ALex", 18) { }
-
-        [JsonConstructor]
-        public Student(string name, int age)
-        {
-            this.Name = name;
-            this.Age = age;
-        }
+        public string? FirstName { get; set; }
+        public string? Surname { get; set; }
+        public string? Lastname { get; set; }
     }
-    public class Group
+
+    class Place
     {
-        public string Name { get; set; }
-        public string Specialization { get; set; }
-        public int Number { get; set; }
+        public string? Country { get; set; }
+        public string? Region { get; set; }
+        public string? City { get; set; }
+        public string? Street { get; set; }
+        public int HouseNumber { get; set; }
+        public char Korpus { get; set; }
+    }
+
+    class Group
+    {
+        public int Kurs { get; set; }
+        public string? GroupName { get; set; }
+        public string? Specialization { get; set; }
         public List<Student> Students { get; set; }
+        public Schedule Schedule { get; set; }
 
-        public Group () : this("Group", "Test", 1, new List<Student>()){ }
+    }
 
-        [JsonConstructor]
-        public Group(string name, string specialization, int number, List<Student> students)
-        {
-            Name = name;
-            Specialization = specialization;
-            Number = number;
-            Students = students;
-        }
+    class Subject
+    {
+        public string? TeacherName { get; set; }
+        public string? SubjectName { get; set; }
+    }
+
+    class Schedule
+    {
+        List<Subject> Subjects { get; set; }
+    }
+
+    class Rating
+    {
+        public int LessonsVisited { get; set; }
+        public int LessonsLate { get; set; }
+        public int[]? DzRates { get; set; }
+        public int[]? PracticeRates { get; set; }
+        public int[]? ExamRates { get; set; }
+        public int[]? ZachetRates { get; set; }
+        public int ZachetCount { get; set; }
+        public double TotalAverageRate { get; set; }
+    }
+
+    class Student
+    {
+        public Name Name { get; set; }
+        public Place Place { get; set; }
+        public DateTime Birthday { get; set; }
+        public DateTime StartDate { get; set; }
+        public int GroupNumber { get; set; }
+        public Rating Rating { get; set; }
     }
 
     private static void Main(string[] args)
     {
-        Group gr = new Group();
-
-        gr.Students.Add(new Student());
-        gr.Students.Add(new Student());
-        gr.Students.Add(new Student());
-        gr.Students.Add(new Student());
-        gr.Students.Add(new Student());
-
-        var sw = new StreamWriter("./file.json");
-        string jsonString = JsonSerializer.Serialize(gr);
-        Console.WriteLine(jsonString);
-        sw.Write(jsonString);
-        sw.Close();
-
-        jsonString = File.ReadAllText("./file.json");
-        Console.WriteLine();
-        Group gr2 = JsonSerializer.Deserialize<Group>(jsonString);
-        Console.WriteLine(gr2);
+       
     }
 }
+
