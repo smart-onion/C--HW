@@ -7,10 +7,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-
+        Task1();
         Task2();
-
-
     }
 
     static void Task1()
@@ -27,17 +25,17 @@ internal class Program
         using (ApplicationContext db = new ApplicationContext(options))
         {
             TrainStoreManager.SetDatabase(db);
-            /*TrainStoreManager.AddTrain(new Train
+            TrainStoreManager.AddTrain(new Train
             {
                 UniqNumber = "A12",
                 Model = "model",
                 Company = "Company",
                 numberOfCarriage = 10,
                 Cargo = "cargo"
-            });*/
+            });
 
-            //TrainStoreManager.EditTrainById(0, new Train { Cargo = "ttt", numberOfCarriage = 100});
-            //var t = TrainStoreManager.GetTrainById(2);
+            TrainStoreManager.EditTrainById(0, new Train { Cargo = "ttt", numberOfCarriage = 100 });
+            var t = TrainStoreManager.GetTrainById(2);
 
             TrainStoreManager.RemoveTrainById(2);
         }
