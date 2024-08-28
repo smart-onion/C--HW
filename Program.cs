@@ -1,73 +1,92 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using HW1;
+using System;
+using System.Reflection;
 internal class Program
 {
-
-    class Name
-    {
-        public string? FirstName { get; set; }
-        public string? Surname { get; set; }
-        public string? Lastname { get; set; }
-    }
-
-    class Place
-    {
-        public string? Country { get; set; }
-        public string? Region { get; set; }
-        public string? City { get; set; }
-        public string? Street { get; set; }
-        public int HouseNumber { get; set; }
-        public char Korpus { get; set; }
-    }
-
-    class Group
-    {
-        public int Kurs { get; set; }
-        public string? GroupName { get; set; }
-        public string? Specialization { get; set; }
-        public List<Student> Students { get; set; }
-        public Schedule Schedule { get; set; }
-
-    }
-
-    class Subject
-    {
-        public string? TeacherName { get; set; }
-        public string? SubjectName { get; set; }
-    }
-
-    class Schedule
-    {
-        List<Subject> Subjects { get; set; }
-    }
-
-    class Rating
-    {
-        public int LessonsVisited { get; set; }
-        public int LessonsLate { get; set; }
-        public int[]? DzRates { get; set; }
-        public int[]? PracticeRates { get; set; }
-        public int[]? ExamRates { get; set; }
-        public int[]? ZachetRates { get; set; }
-        public int ZachetCount { get; set; }
-        public double TotalAverageRate { get; set; }
-    }
-
-    class Student
-    {
-        public Name Name { get; set; }
-        public Place Place { get; set; }
-        public DateTime Birthday { get; set; }
-        public DateTime StartDate { get; set; }
-        public int GroupNumber { get; set; }
-        public Rating Rating { get; set; }
-    }
-
     private static void Main(string[] args)
     {
-       
+
+        Task2();
+
+
+    }
+
+    static void Task1()
+    {
+        var builder = new ConfigurationBuilder();
+        builder.SetBasePath(Directory.GetCurrentDirectory());
+        builder.AddJsonFile("application.json");
+        var config = builder.Build();
+
+        string connectionString = config.GetConnectionString("DefaultConnection");
+        var optionBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+        var options = optionBuilder.UseSqlServer(connectionString).Options;
+
+        using (ApplicationContext db = new ApplicationContext(options))
+        {
+            TrainStoreManager.SetDatabase(db);
+            /*TrainStoreManager.AddTrain(new Train
+            {
+                UniqNumber = "A12",
+                Model = "model",
+                Company = "Company",
+                numberOfCarriage = 10,
+                Cargo = "cargo"
+            });*/
+
+            //TrainStoreManager.EditTrainById(0, new Train { Cargo = "ttt", numberOfCarriage = 100});
+            //var t = TrainStoreManager.GetTrainById(2);
+
+            TrainStoreManager.RemoveTrainById(2);
+        }
+
+
+
+    }
+
+    static void Task2() // Reverse Engineering
+    {
+        var builder = new ConfigurationBuilder();
+        builder.SetBasePath(Directory.GetCurrentDirectory());
+        builder.AddJsonFile("application.json");
+        var config = builder.Build();
+
+        string connectionString = config.GetConnectionString("ReverceDB");
+        var optionBuilder = new DbContextOptionsBuilder<InventoryContext>();
+        var options = optionBuilder.UseSqlServer(connectionString).Options;
+
+        using (InventoryContext db = new InventoryContext(options))
+        {
+            var products = db.Equipment.ToList();
+            ShowTable<Equipment>(products);
+
+            db.Equipment.Add(new Equipment
+            {
+                Name = "fromC#",
+                Model = "new Model",
+                Category = " new Category",
+                Quantity = 10
+            });
+
+            db.SaveChanges();
+
+            ShowTable<Equipment>(db.Equipment.ToList());
+
+        }
+    }
+
+    static void ShowTable<T>(List<T> list)
+    {
+        Type objType= typeof(T);
+        foreach (var item in list)
+        {
+            foreach (var eq in objType.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            {
+                Console.Write(eq.GetValue(item) + " ");
+            }
+            Console.WriteLine();
+        }
     }
 }
-
