@@ -1,90 +1,87 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using HW1;
-using System;
+using HW2;
 using System.Reflection;
+using System.Runtime.InteropServices;
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Task1();
-        Task2();
-    }
+        var options = DbOptions<ApplicationContext>.GetOptions("application.json", "DefaultConnection");
 
-    static void Task1()
-    {
-        var builder = new ConfigurationBuilder();
-        builder.SetBasePath(Directory.GetCurrentDirectory());
-        builder.AddJsonFile("application.json");
-        var config = builder.Build();
-
-        string connectionString = config.GetConnectionString("DefaultConnection");
-        var optionBuilder = new DbContextOptionsBuilder<ApplicationContext>();
-        var options = optionBuilder.UseSqlServer(connectionString).Options;
-
-        using (ApplicationContext db = new ApplicationContext(options))
+        using (ApplicationContext db = new ApplicationContext())
         {
-            TrainStoreManager.SetDatabase(db);
-            TrainStoreManager.AddTrain(new Train
-            {
-                UniqNumber = "A12",
-                Model = "model",
-                Company = "Company",
-                numberOfCarriage = 10,
-                Cargo = "cargo"
-            });
+            /*            ShopManager.SetDbContext(db);
 
-            TrainStoreManager.EditTrainById(0, new Train { Cargo = "ttt", numberOfCarriage = 100 });
-            var t = TrainStoreManager.GetTrainById(2);
+                        var products = new List<Product> {
+                            new Product
+                            {
+                            Name = "Apple",
+                            Category = "Fruits",
+                            Price = 4.99
+                            },
+                            new Product
+                            {
+                                Name = "Potato",
+                                Category = "Vegetables",
+                                Price = 5.49
+                            },
+                            new Product
+                            {
+                                Name = "Water",
+                                Category = "Beverage",
+                                Price = 1.99
+                            }
+                        };
 
-            TrainStoreManager.RemoveTrainById(2);
+                        ShopManager.AddProducts(products);
+
+                        ShopManager.AddOrder(new Order
+                        {
+                            Date = DateTime.Now,
+                            Name = "Alex"
+                        });
+
+                        ShopManager.AddOrderLine(new OrderLine
+                        {
+                            OrderId = 1,
+                            ProductId = 2
+                        });*/
+
+            /*var products = db.Products.ToList();
+            ShopManager.ShowTable<Product>(products);*/
+
+            PostgreTask();
         }
-
-
-
     }
 
-    static void Task2() // Reverse Engineering
+   
+    static void PostgreTask()
     {
-        var builder = new ConfigurationBuilder();
-        builder.SetBasePath(Directory.GetCurrentDirectory());
-        builder.AddJsonFile("application.json");
-        var config = builder.Build();
-
-        string connectionString = config.GetConnectionString("ReverceDB");
-        var optionBuilder = new DbContextOptionsBuilder<InventoryContext>();
-        var options = optionBuilder.UseSqlServer(connectionString).Options;
-
-        using (InventoryContext db = new InventoryContext(options))
+        using (PostreSQLContext db = new PostreSQLContext())
         {
-            var products = db.Equipment.ToList();
-            ShowTable<Equipment>(products);
-
-            db.Equipment.Add(new Equipment
+            db.Product.Add(new Product
             {
-                Name = "fromC#",
-                Model = "new Model",
-                Category = " new Category",
-                Quantity = 10
+                Name = "Water",
+                Category = "Beverage",
+                Price = 1.99
             });
-
             db.SaveChanges();
-
-            ShowTable<Equipment>(db.Equipment.ToList());
-
+            var products = db.Product.ToList();
+            ShopManager.ShowTable<Product>(products);
         }
     }
-
-    static void ShowTable<T>(List<T> list)
+    class PostreSQLContext : DbContext
     {
-        Type objType= typeof(T);
-        foreach (var item in list)
+        public DbSet<Product> Product { get; set; }
+        public PostreSQLContext() { }
+        public PostreSQLContext(DbContextOptions options) : base(options)
         {
-            foreach (var eq in objType.GetProperties(BindingFlags.Public | BindingFlags.Instance))
-            {
-                Console.Write(eq.GetValue(item) + " ");
-            }
-            Console.WriteLine();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("Host=localhost; Database=Shop; Username=postgres; Password=super");
         }
     }
 }
