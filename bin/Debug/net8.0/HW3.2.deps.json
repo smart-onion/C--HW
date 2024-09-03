@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "HW3/1.0.0": {
+      "HW3.2/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8"
         },
         "runtime": {
-          "HW3.dll": {}
+          "HW3.2.dll": {}
         }
       },
       "Azure.Core/1.35.0": {
@@ -922,7 +922,7 @@
     }
   },
   "libraries": {
-    "HW3/1.0.0": {
+    "HW3.2/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

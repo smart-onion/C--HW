@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EF Core\\HW3\\HW3\\HW3.csproj": {}
+    "D:\\EF Core\\HW3.2\\HW3.2\\HW3.2.csproj": {}
   },
   "projects": {
-    "D:\\EF Core\\HW3\\HW3\\HW3.csproj": {
+    "D:\\EF Core\\HW3.2\\HW3.2\\HW3.2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EF Core\\HW3\\HW3\\HW3.csproj",
-        "projectName": "HW3",
-        "projectPath": "D:\\EF Core\\HW3\\HW3\\HW3.csproj",
+        "projectUniqueName": "D:\\EF Core\\HW3.2\\HW3.2\\HW3.2.csproj",
+        "projectName": "HW3.2",
+        "projectPath": "D:\\EF Core\\HW3.2\\HW3.2\\HW3.2.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\EF Core\\HW3\\HW3\\obj\\",
+        "outputPath": "D:\\EF Core\\HW3.2\\HW3.2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
