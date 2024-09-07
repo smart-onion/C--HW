@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EF Core\\HW4\\HW4\\HW4.csproj": {}
+    "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj": {}
   },
   "projects": {
-    "D:\\EF Core\\HW4\\HW4\\HW4.csproj": {
+    "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EF Core\\HW4\\HW4\\HW4.csproj",
-        "projectName": "HW4",
-        "projectPath": "D:\\EF Core\\HW4\\HW4\\HW4.csproj",
+        "projectUniqueName": "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj",
+        "projectName": "HW4.1",
+        "projectPath": "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\EF Core\\HW4\\HW4\\obj\\",
+        "outputPath": "D:\\EF Core\\HW4.1\\HW4.1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
