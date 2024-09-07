@@ -1,17 +1,34 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-class ApplicationContext : DbContext
+namespace HW42
 {
-    public DbSet<Company> Companies { get; set; }
-    public DbSet<Project> Projects { get; set; }
-    public DbSet<Employee> Employees { get; set; }
-    public DbSet<ProjectsTable> projectsTables{ get; set; }
-
-    public ApplicationContext() { }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class ApplicationContext : DbContext
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HW41;Trusted_Connection=True;");
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+
+        public ApplicationContext() { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HW42;Trusted_Connection=True;");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>()
+                .HasOne(e => e.Author)
+                .WithMany(e => e.Books)
+                .HasForeignKey(e => e.AuthorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Book>()
+                .HasOne(e => e.Publisher)
+                .WithMany(e => e.Books)
+                .HasForeignKey(e => e.PublisherId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
-

@@ -4110,11 +4110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj",
-      "projectName": "HW4.1",
-      "projectPath": "D:\\EF Core\\HW4.1\\HW4.1\\HW4.1.csproj",
+      "projectUniqueName": "D:\\EF Core\\HW42\\HW42\\HW42.csproj",
+      "projectName": "HW42",
+      "projectPath": "D:\\EF Core\\HW42\\HW42\\HW42.csproj",
       "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-      "outputPath": "D:\\EF Core\\HW4.1\\HW4.1\\obj\\",
+      "outputPath": "D:\\EF Core\\HW42\\HW42\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
