@@ -1,4 +1,4 @@
-﻿using HW5;
+﻿using HW51;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
@@ -9,63 +9,51 @@ internal class Program
         {
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            db.Guests.Add(new Guest { Name = "Roni", Age = 40 });
-            db.Events.Add(new Event { Name = "Fly", Description = "Some description" });
-            db.SaveChanges();
             Task1(db);
             Task2(db);
             Task3(db);
             Task4(db);
-            //Task5(db);
-            Task6(db);
-
+            Task5(db);
         }
     }
 
     static void Task1(ApplicationContext db)
     {
-        var jump = db.Events.FirstOrDefault(e => e.Id == 1);
-        var alex = db.Guests.FirstOrDefault(e => e.Id == 1);
-
-        db.GuestEvents.Add(new GuestEvent
+        db.Countries.Add(new Country
         {
-            GuestId = alex.Id,
-            EventId = jump.Id,
-            Roles = Roles.COMMON
+            Name = "UK"
         });
-
         db.SaveChanges();
-
     }
 
     static void Task2(ApplicationContext db)
     {
-        var gs = db.GuestEvents.Include(e => e.Guest).Where(e => e.Id == 1).ToList();
+        db.Airports.Add(new Airport
+        {
+            Name = "SomePort",
+            CountryId = 1
+        });
+        db.SaveChanges();
     }
 
     static void Task3(ApplicationContext db)
     {
-        var guest = db.GuestEvents.FirstOrDefault(e => e.Id == 1);
-        guest.Roles = Roles.SPEAKER;
+        db.Planes.Add(new Plane
+        {
+            Name = "NewPlane",
+            AirportId = 1
+        });
         db.SaveChanges();
     }
 
     static void Task4(ApplicationContext db)
     {
-        var events = db.GuestEvents.Include(e => e.Event).Where(e => e.GuestId == 1).ToList();
+        var all = db.Planes.Include(e => e.PlaneSpecification).Include(e => e.Airport).ThenInclude(e => e.Country).ToList();
     }
 
     static void Task5(ApplicationContext db)
     {
-        var even = db.Events.FirstOrDefault(e => e.Id == 1);
-        var guest = db.Guests.FirstOrDefault(e => e.Id == 1);
-
-        even.Guests.Remove(guest);
-        db.SaveChanges();
-    }
-
-    static void Task6(ApplicationContext db)
-    {
-        var events = db.GuestEvents.Include(e => e.Event).Where(e => e.Roles == Roles.SPEAKER);
+        var allC = db.Countries.Include(e => e.Airports).ThenInclude(e => e.Planes).ThenInclude(e => e.PlaneSpecification).ToList();
+        var allA = db.Airports.Include(e => e.Country).Include(e => e.Planes).ThenInclude(e => e.PlaneSpecification).ToList();
     }
 }
