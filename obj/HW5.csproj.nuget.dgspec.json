@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EF Core\\HW42\\HW42\\HW42.csproj": {}
+    "D:\\EF Core\\HW5\\HW5\\HW5.csproj": {}
   },
   "projects": {
-    "D:\\EF Core\\HW42\\HW42\\HW42.csproj": {
+    "D:\\EF Core\\HW5\\HW5\\HW5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EF Core\\HW42\\HW42\\HW42.csproj",
-        "projectName": "HW42",
-        "projectPath": "D:\\EF Core\\HW42\\HW42\\HW42.csproj",
+        "projectUniqueName": "D:\\EF Core\\HW5\\HW5\\HW5.csproj",
+        "projectName": "HW5",
+        "projectPath": "D:\\EF Core\\HW5\\HW5\\HW5.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\EF Core\\HW42\\HW42\\obj\\",
+        "outputPath": "D:\\EF Core\\HW5\\HW5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
