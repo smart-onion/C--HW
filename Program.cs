@@ -1,59 +1,50 @@
-﻿using HW51;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        using (ApplicationContext db = new())
+        using (ApplicationContext db = new ApplicationContext())
         {
+
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            Task1(db);
-            Task2(db);
-            Task3(db);
-            Task4(db);
-            Task5(db);
+
+            db.Menus.AddRange(
+                new Menu { Name = "File" },
+                new Menu { Name = "Edit"},
+                new Menu { Name = "View"}
+                );
+            db.SaveChanges();
+
+            db.Menus.FirstOrDefault(e => e.Name == "File")
+                .Childs.AddRange(new List<Menu> {
+                new Menu { Name = "Open" },
+                new Menu { Name = "Save"},
+                new Menu { Name = "Save As", Childs = new List<Menu> { new Menu { Name = "To Hard-drive.." }, new Menu { Name = "To online-drive.."} } }
+                });
+            db.SaveChanges();
+
+            var all = db.Menus.ToList();
         }
     }
+}
 
-    static void Task1(ApplicationContext db)
-    {
-        db.Countries.Add(new Country
-        {
-            Name = "UK"
-        });
-        db.SaveChanges();
-    }
+public class Menu
+{
+    public int id { get; set; }
+    public string Name { get; set; }
+    public int? ParentMenuId { get; set; }
+    public Menu? ParentMenu { get; set; }
+    public List<Menu> Childs { get; set; } = new();
+}
 
-    static void Task2(ApplicationContext db)
-    {
-        db.Airports.Add(new Airport
-        {
-            Name = "SomePort",
-            CountryId = 1
-        });
-        db.SaveChanges();
-    }
+public class ApplicationContext : DbContext
+{
+    public DbSet<Menu> Menus { get; set; }
 
-    static void Task3(ApplicationContext db)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        db.Planes.Add(new Plane
-        {
-            Name = "NewPlane",
-            AirportId = 1
-        });
-        db.SaveChanges();
-    }
-
-    static void Task4(ApplicationContext db)
-    {
-        var all = db.Planes.Include(e => e.PlaneSpecification).Include(e => e.Airport).ThenInclude(e => e.Country).ToList();
-    }
-
-    static void Task5(ApplicationContext db)
-    {
-        var allC = db.Countries.Include(e => e.Airports).ThenInclude(e => e.Planes).ThenInclude(e => e.PlaneSpecification).ToList();
-        var allA = db.Airports.Include(e => e.Country).Include(e => e.Planes).ThenInclude(e => e.PlaneSpecification).ToList();
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=HW5;Trusted_Connection=True;");
     }
 }
