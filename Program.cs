@@ -1,97 +1,70 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using HW7;
 
 internal class Program
 {
-    static event Func<bool> OnThreadHandler;
-    static List<char> threadLocalString = new List<char>();
-    static int threadLocalInt = 0;
     private static void Main(string[] args)
     {
-        //Task1();
-        Task2();
-    }
-    static void Temperature()
-    {
-        var rand = new Random();
-        while (OnThreadHandler.Invoke())
+        using (ApplicationContext db = new())
         {
-            //Console.Clear();
-            Console.WriteLine("Current temperature from Thread {0}: {1} degree", rand.Next(0, 100), Thread.CurrentThread.ManagedThreadId);
-            Thread.Sleep(rand.Next(1000, 1500));
-        }
-        
-    }
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
 
-    static void Task1()
-    {
-        List<Thread> threads = new List<Thread>
-        {
-        new Thread(Temperature),
-        new Thread(Temperature),
-        new Thread(Temperature),
-        new Thread(Temperature),
-        };
-        OnThreadHandler += () => true;
-        foreach (var thread in threads)
-        {
-            thread.Start();
-        }
-        Thread.Sleep(10000);
-        OnThreadHandler += () => false;
-
-        Console.WriteLine("All threads been finished");
-    }
-
-    static void Task2()
-    {
-        Thread thread = new(WordChecker);
-        OnThreadHandler += () => true;
-        thread.Start();
-        while (true)
-        {
-            DisplayString();
-            string input = Console.ReadLine();
-            threadLocalString.AddRange(input);
-            threadLocalString.Add(' ');
-            DisplayString();
-
-        }
-    }
-    static void DisplayString()
-    {
-        Console.Clear();
-        Console.WriteLine(ListToString(threadLocalString));
-        Console.WriteLine("Words match: {0}", threadLocalInt);
-    }
-    static string ListToString(List<char> list)
-    {
-        return new string(list.ToArray());
-    }
-
-    static void WordChecker()
-    {
-       while (OnThreadHandler.Invoke())
-       {
-            int start = 0;
-            int end = 1;
-            threadLocalInt = 0;
-            for (int i = 0; end <= threadLocalString.Count - 1; i++)
+            var clients = new List<Client>
             {
-                if (threadLocalString[end] == ' ')
-                {
+                new Client{Name = "Alex", Email = "test@test.t", Address = "new street 11"},
+                new Client{Name = "Bob", Email = "copy@test.t", Address = "old town 21"},
+                new Client{Name = "Michal", Email = "michal1@test.t", Address = "old town 321"},
 
-                    if (threadLocalString[start] == threadLocalString[end - 1])
-                    {
-                        threadLocalInt++;
-                    }
-                    start = ++end;
-                }
-                end++;
-            }
-            Thread.Sleep(100);
+            };
+
+            var products = new List<Product>
+            {
+                new Product { Name = "Apple", Price = 10.99 },
+                new Product { Name = "Meet", Price = 5.99 },
+                new Product { Name = "eggs", Price = 7.99 },
+                new Product { Name = "water", Price = 9.99 },
+            };
+            var orders = new List<Order>
+            {
+                new Order { ClientId = 1, OrderDate = DateTime.Now,  Address = "Some address 1"},
+                new Order { ClientId = 1, OrderDate = DateTime.Now, Address = "Some address 1"},
+                new Order { ClientId = 2, OrderDate = DateTime.Now , Address = "Some address 1"},
+            };
+            var orderDetails = new List<OrderDetails>
+            {
+                new OrderDetails {OrderId = 1, ProductId = 1},
+                new OrderDetails {OrderId = 1, ProductId = 2},
+                new OrderDetails {OrderId = 1, ProductId = 3},
+                new OrderDetails {OrderId = 2, ProductId = 3},
+                new OrderDetails {OrderId = 2, ProductId = 2},
+                new OrderDetails {OrderId = 2, ProductId = 1},
+            };
+
+            db.Clients.AddRange(clients);
+            db.Products.AddRange(products);
+            db.Orders.AddRange(orders);
+            db.SaveChanges();
+
+            db.OrderDetails.AddRange(orderDetails);
+            db.SaveChanges();
+
+            var query = db.Clients
+                .Select(client => new
+                {
+                    ClientName = client.Name,
+                    Email = client.Email,
+                    Address = client.Address,
+                    TotalOrders = client.Orders.Count(),
+                    TotalSpent = client.Orders
+                        .SelectMany(o => o.OrderDetails)
+                        .Sum(od => od.Product.Price),
+                    MostExpensiveProductName = client.Orders
+                        .SelectMany(o => o.OrderDetails)
+                        .OrderByDescending(od => od.Product.Price)
+                        .Select(od => od.Product.Name)
+                        .FirstOrDefault()
+                }).ToList();
+
         }
     }
-
- 
 }
