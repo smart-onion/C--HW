@@ -1,0 +1,14 @@
+D:\ASystemDev\Anthill\Anthill\bin\Debug\net8.0\Anthill.exe
+D:\ASystemDev\Anthill\Anthill\bin\Debug\net8.0\Anthill.deps.json
+D:\ASystemDev\Anthill\Anthill\bin\Debug\net8.0\Anthill.runtimeconfig.json
+D:\ASystemDev\Anthill\Anthill\bin\Debug\net8.0\Anthill.dll
+D:\ASystemDev\Anthill\Anthill\bin\Debug\net8.0\Anthill.pdb
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.AssemblyInfoInputs.cache
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.AssemblyInfo.cs
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.csproj.CoreCompileInputs.cache
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.dll
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\refint\Anthill.dll
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.pdb
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\Anthill.genruntimeconfig.cache
+D:\ASystemDev\Anthill\Anthill\obj\Debug\net8.0\ref\Anthill.dll
