@@ -1,40 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
-using Anthill;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-class Program
+﻿using HW4;
+
+internal class Program
 {
-    static void Main()
+    public static event Func<bool> OnEvent;
+    static object locker = new(); 
+    private static void Main(string[] args)
     {
-        Console.CursorVisible = false;
+        // task 1
+        //OnEvent += () => true;
+        //BankTask();
+        // task 2
+        MovingWords fwd = new MovingWords(true, "fwd");
+        MovingWords back = new MovingWords(false, "back");
+        Thread fwdThread = new Thread(fwd.Move);
+        Thread backThread = new Thread(back.Move);
+        fwdThread.Start();
+        backThread.Start();
+    }
 
-        Map map = new Map();
-        Ant.AsignMap(map);
-        Dictionary<Ant,Thread> threads = new();
-        AntIntelligence.ants.AddRange(new List<Ant>
-        {
-            new AntScout(),
-            new AntScout(),
-            new AntWorker(),
-            new AntUterus(),
-        });
+    private static void BankTask()
+    {
 
-        while (true)
+        Thread[] clients = new Thread[5];
+
+        for (int i = 0; i < clients.Length; i++)
         {
-            for (int i = 0; i < AntIntelligence.ants.Count; i++)
+            clients[i] = new Thread(new Client().ReceiveMoney);
+            clients[i].Start();
+        }
+        Thread.Sleep(20000);
+        OnEvent += () => false;
+    }
+
+    class Bank
+    {
+        protected static int bankAmount = 1000;
+        protected bool DestributeCash(int amount)
+        {
+            if (amount <= bankAmount)
             {
-                if (!threads.ContainsKey(AntIntelligence.ants[i]))
+                bankAmount -= amount;
+                return true;
+            }
+            return false;
+        }
+    }
+
+    class ATM : Bank
+    {
+        public int GetCash(int amount)
+        {
+            if (DestributeCash(amount))
+            {
+                Console.Write($"Clent {Thread.CurrentThread.ManagedThreadId} received {amount}$\t Bank balance: {bankAmount} ");
+                return amount;
+            }
+            Console.Write($"Client {Thread.CurrentThread.ManagedThreadId}. Opp... money exeed bank balance {bankAmount} ");
+            return 0;
+        }
+    }
+
+    class Client
+    {
+        public int balance;
+        Random rand = new Random();
+        ATM atm = new ATM();
+        public void ReceiveMoney()
+        {
+            while (OnEvent.Invoke())
+            {
+                lock (locker)
                 {
-                    threads[AntIntelligence.ants[i]] = new Thread(AntIntelligence.ants[i].Move);
-                }
-                else
-                {
-                    if (!threads[AntIntelligence.ants[i]].IsAlive) threads[AntIntelligence.ants[i]].Start();
+                    int time = rand.Next(1000, 2000);
+                    Thread.Sleep(time);
+                    balance += atm.GetCash(time / 10);
+                    Console.WriteLine("\t\tClient Balance: " + balance);
                 }
             }
-            Thread.Sleep(1000);
-
         }
-
     }
+
+
 }

@@ -1,0 +1,14 @@
+D:\ASystemDev\HW4\HW4\bin\Debug\net8.0\HW4.exe
+D:\ASystemDev\HW4\HW4\bin\Debug\net8.0\HW4.deps.json
+D:\ASystemDev\HW4\HW4\bin\Debug\net8.0\HW4.runtimeconfig.json
+D:\ASystemDev\HW4\HW4\bin\Debug\net8.0\HW4.dll
+D:\ASystemDev\HW4\HW4\bin\Debug\net8.0\HW4.pdb
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.AssemblyInfoInputs.cache
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.AssemblyInfo.cs
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.csproj.CoreCompileInputs.cache
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.dll
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\refint\HW4.dll
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.pdb
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\HW4.genruntimeconfig.cache
+D:\ASystemDev\HW4\HW4\obj\Debug\net8.0\ref\HW4.dll

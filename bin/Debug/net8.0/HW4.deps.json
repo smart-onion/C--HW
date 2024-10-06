@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Anthill/1.0.0": {
+      "HW4/1.0.0": {
         "runtime": {
-          "Anthill.dll": {}
+          "HW4.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Anthill/1.0.0": {
+    "HW4/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

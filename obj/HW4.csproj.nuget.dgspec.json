@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASystemDev\\Anthill\\Anthill\\Anthill.csproj": {}
+    "D:\\ASystemDev\\HW4\\HW4\\HW4.csproj": {}
   },
   "projects": {
-    "D:\\ASystemDev\\Anthill\\Anthill\\Anthill.csproj": {
+    "D:\\ASystemDev\\HW4\\HW4\\HW4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASystemDev\\Anthill\\Anthill\\Anthill.csproj",
-        "projectName": "Anthill",
-        "projectPath": "D:\\ASystemDev\\Anthill\\Anthill\\Anthill.csproj",
+        "projectUniqueName": "D:\\ASystemDev\\HW4\\HW4\\HW4.csproj",
+        "projectName": "HW4",
+        "projectPath": "D:\\ASystemDev\\HW4\\HW4\\HW4.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ASystemDev\\Anthill\\Anthill\\obj\\",
+        "outputPath": "D:\\ASystemDev\\HW4\\HW4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
