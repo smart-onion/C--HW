@@ -1,0 +1,14 @@
+D:\ASystemDev\HW5\HW5\bin\Debug\net8.0\HW5.exe
+D:\ASystemDev\HW5\HW5\bin\Debug\net8.0\HW5.deps.json
+D:\ASystemDev\HW5\HW5\bin\Debug\net8.0\HW5.runtimeconfig.json
+D:\ASystemDev\HW5\HW5\bin\Debug\net8.0\HW5.dll
+D:\ASystemDev\HW5\HW5\bin\Debug\net8.0\HW5.pdb
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.AssemblyInfoInputs.cache
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.AssemblyInfo.cs
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.csproj.CoreCompileInputs.cache
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.dll
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\refint\HW5.dll
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.pdb
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\HW5.genruntimeconfig.cache
+D:\ASystemDev\HW5\HW5\obj\Debug\net8.0\ref\HW5.dll
