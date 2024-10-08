@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "HW5/1.0.0": {
+      "HW6/1.0.0": {
         "runtime": {
-          "HW5.dll": {}
+          "HW6.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "HW5/1.0.0": {
+    "HW6/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

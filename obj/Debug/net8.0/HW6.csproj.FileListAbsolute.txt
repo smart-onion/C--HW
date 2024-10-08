@@ -1,0 +1,14 @@
+D:\ASystemDev\HW6\HW6\bin\Debug\net8.0\HW6.exe
+D:\ASystemDev\HW6\HW6\bin\Debug\net8.0\HW6.deps.json
+D:\ASystemDev\HW6\HW6\bin\Debug\net8.0\HW6.runtimeconfig.json
+D:\ASystemDev\HW6\HW6\bin\Debug\net8.0\HW6.dll
+D:\ASystemDev\HW6\HW6\bin\Debug\net8.0\HW6.pdb
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.AssemblyInfoInputs.cache
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.AssemblyInfo.cs
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.csproj.CoreCompileInputs.cache
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.dll
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\refint\HW6.dll
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.pdb
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\HW6.genruntimeconfig.cache
+D:\ASystemDev\HW6\HW6\obj\Debug\net8.0\ref\HW6.dll
