@@ -1,72 +1,123 @@
-﻿internal class Program
+﻿using HW7;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Data;
+using System.Text.RegularExpressions;
+
+internal class Program
 {
     private static async Task Main(string[] args)
     {
         // Task 1
-        //string text = await ReadFromFileAsync("");
-        //Console.WriteLine(text.Length);
+        //try
+        //{
+        //    User? u = await GetUserFromDbAsync(1, 10);
+        //    Console.WriteLine(u?.ToString());
+        //}
+        //catch (Exception ex)
+        //{
+        //    Console.WriteLine(ex);
+        //}
 
         // Task 2
-        //var pathToDownload = "https://fs1.itstep.org/api/v1/files/mp0Kr-U5o3Wi7YpmPH0bDkgvPAtQ452W?inline=true";
-        //DonwlaodFileAsync(pathToDownload, "test2.docx");
-        //Console.ReadKey();
+        //List<Exception?> exps = new List<Exception?>();
+        //exps.Add(await CheckNames(new string[] { "Alex", "Bob", "Sam" }));
+        //exps.Add(await CheckNames(new string[] { "Sam", "Bob", "Sam" }));
+        //exps.Add(await CheckNames(new string[] { "Rob", "Bob", "Sam" }));
+
+        //foreach (var ex in exps)
+        //{
+        //    Console.WriteLine(ex?.Message);
+        //}
 
         // Task 3
-        GetPrimeNumbers(100);
-        Console.WriteLine("Simulate another job");
-        Console.ReadKey();
+        ChangeDirectory();
     }
 
-    static async Task<string> ReadFromFileAsync(string path)
+
+    static async Task<User?> GetUserFromDbAsync(int userId, int timeout)
     {
-        return await File.ReadAllTextAsync(path);
-    }
+        using var db = new UserDbContext();
+        using var cts = new CancellationTokenSource(timeout);
 
-    static async void DonwlaodFileAsync(string pathToFile, string destionationPath)
-    {
-        using var client = new HttpClient();
-        var file = await client.GetAsync(pathToFile);
-
-
-        FileStream fileStream = new FileStream(destionationPath, FileMode.Create, FileAccess.Write);
-        await file.Content.CopyToAsync(fileStream );
-        Console.WriteLine("File downloaded successfully!");
-    }
-
-    static async void GetPrimeNumbers(int maxNumber)
-    {
-        var arr = await GeneratePrimeNumberAsync(maxNumber);
-    
-        foreach (var number in arr)
+        CancellationToken token = cts.Token;
+        User? user = null;
+        try
         {
-            Console.Write(number + " ");
+            // Simulate server timeout error
+            Task.Delay(10000);
+            user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId, token);
         }
+        catch (TaskCanceledException)
+        {
+            Console.WriteLine("Timeout exceed!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        return user;
+
     }
 
-    static async Task<List<int>> GeneratePrimeNumberAsync(int maxNumber)
+    static async Task<Exception?> CheckNames(string[] names)
     {
         return await Task.Run(() =>
         {
-            List<int> primeNumbers = new();
+            var uniqNames = names.ToHashSet();
 
-            for (int i = 2; i <= maxNumber; i++)
+            if (uniqNames.Count != names.Length) return new Exception("String contain same names");
+            else if (names.Contains("Alex")) return new Exception("Name not allowed");
+            else
             {
-                bool isPrime = true;
-                for (int j = 2; j <= Math.Sqrt(i); j++)
-                {
-                    if (i % j == 0)
-                    {
-                        isPrime = false;
-                        break;
-                    }
-                }
-                if (isPrime)
-                {
-                    primeNumbers.Add(i);
-                }
+                foreach (var name in names) Console.WriteLine(name);
+                return null;
             }
 
-            return primeNumbers;
         });
+    }
+
+    static void ChangeDirectory()
+    {
+        var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
+        string[] commands = new string[10];
+        var ShowDir = () =>
+        {
+            foreach(var dir in directory.GetDirectories())
+            {
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine(dir.Name);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            foreach(var file in directory.GetFiles())
+            {
+                Console.WriteLine(file.Name);
+            }
+        };
+
+        while (commands[0] != "exit")
+        {
+            Console.Write(directory.FullName + "$");
+            commands = Console.ReadLine().Split(" ");
+            if (commands[0] == "cd")
+            {
+                if (Path.Exists(commands[1]))
+                {
+                    Directory.SetCurrentDirectory(Path.GetFullPath(commands[1]));
+                    directory = new DirectoryInfo(Path.GetFullPath(commands[1]));
+                }
+                else
+                {
+                    Console.WriteLine("Path not exist!");
+                }
+            }
+            else if (commands[0] == "ls")
+            {
+                ShowDir();
+            }
+            else if (commands[0] == "pwd") Console.WriteLine(Directory.GetCurrentDirectory());
+            else if (commands[0] == "clear") Console.Clear();
+        }
     }
 }
