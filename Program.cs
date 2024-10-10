@@ -1,123 +1,143 @@
-﻿using HW7;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Data;
-using System.Text.RegularExpressions;
+﻿using Microsoft.Win32;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 
 internal class Program
 {
-    private static async Task Main(string[] args)
+    static string regPath = @"Software\MyApp";
+
+    private static void Main(string[] args)
     {
         // Task 1
-        //try
-        //{
-        //    User? u = await GetUserFromDbAsync(1, 10);
-        //    Console.WriteLine(u?.ToString());
-        //}
-        //catch (Exception ex)
-        //{
-        //    Console.WriteLine(ex);
-        //}
+        //Task1();
 
         // Task 2
-        //List<Exception?> exps = new List<Exception?>();
-        //exps.Add(await CheckNames(new string[] { "Alex", "Bob", "Sam" }));
-        //exps.Add(await CheckNames(new string[] { "Sam", "Bob", "Sam" }));
-        //exps.Add(await CheckNames(new string[] { "Rob", "Bob", "Sam" }));
-
-        //foreach (var ex in exps)
-        //{
-        //    Console.WriteLine(ex?.Message);
-        //}
+        //Task2();
 
         // Task 3
-        ChangeDirectory();
+        Task3();
     }
 
-
-    static async Task<User?> GetUserFromDbAsync(int userId, int timeout)
+    static void Task1()
     {
-        using var db = new UserDbContext();
-        using var cts = new CancellationTokenSource(timeout);
+        Console.WriteLine("Welcome to MyApp");
 
-        CancellationToken token = cts.Token;
-        User? user = null;
-        try
+        if (!RegEntryIsExist(regPath))
         {
-            // Simulate server timeout error
-            Task.Delay(10000);
-            user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId, token);
+            Console.Write("Please Enter Your Name: ");
+            WriteRegistryValue<string>(regPath, "name", Console.ReadLine());
+            Console.Write("Please enter your age: ");
+            WriteRegistryValue<int>(regPath, "age", Convert.ToInt32(Console.ReadLine()));
+            Console.Write("Please enter your email: ");
+            WriteRegistryValue<string>(regPath, "email", Console.ReadLine());
         }
-        catch (TaskCanceledException)
+
+        UserProperties userProperties = new UserProperties()
         {
-            Console.WriteLine("Timeout exceed!");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-        }
-        return user;
-
-    }
-
-    static async Task<Exception?> CheckNames(string[] names)
-    {
-        return await Task.Run(() =>
-        {
-            var uniqNames = names.ToHashSet();
-
-            if (uniqNames.Count != names.Length) return new Exception("String contain same names");
-            else if (names.Contains("Alex")) return new Exception("Name not allowed");
-            else
-            {
-                foreach (var name in names) Console.WriteLine(name);
-                return null;
-            }
-
-        });
-    }
-
-    static void ChangeDirectory()
-    {
-        var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
-        string[] commands = new string[10];
-        var ShowDir = () =>
-        {
-            foreach(var dir in directory.GetDirectories())
-            {
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine(dir.Name);
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            foreach(var file in directory.GetFiles())
-            {
-                Console.WriteLine(file.Name);
-            }
+            Name = ReadRegistryValue<string>(regPath, "name", "User"),
+            Age = ReadRegistryValue<int>(regPath, "age", 18),
+            Email = ReadRegistryValue<string>(regPath, "email", "")
         };
 
-        while (commands[0] != "exit")
+        PrintUserProp(userProperties);
+    }
+    static bool RegEntryIsExist(string regPath)
+    {
+        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(regPath))
         {
-            Console.Write(directory.FullName + "$");
-            commands = Console.ReadLine().Split(" ");
-            if (commands[0] == "cd")
-            {
-                if (Path.Exists(commands[1]))
-                {
-                    Directory.SetCurrentDirectory(Path.GetFullPath(commands[1]));
-                    directory = new DirectoryInfo(Path.GetFullPath(commands[1]));
-                }
-                else
-                {
-                    Console.WriteLine("Path not exist!");
-                }
-            }
-            else if (commands[0] == "ls")
-            {
-                ShowDir();
-            }
-            else if (commands[0] == "pwd") Console.WriteLine(Directory.GetCurrentDirectory());
-            else if (commands[0] == "clear") Console.Clear();
+            if (key != null) return true;
+            else return false;
         }
+    }
+
+    static void PrintUserProp(UserProperties us)
+    {
+        Console.WriteLine($"Name:  {us.Name}");
+        Console.WriteLine($"Age:   {us.Age}");
+        Console.WriteLine($"Email: {us.Email}");
+    }
+
+    static T ReadRegistryValue<T>(string keyPath, string valueName, T defaultValue)
+    {
+        using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath))
+        {
+            if (key != null)
+            {
+                object value = key.GetValue(valueName);
+                if (value != null)
+                {
+                    return (T)Convert.ChangeType(value, typeof(T));
+                }
+            }
+        }
+        return defaultValue;
+    }
+
+    static void WriteRegistryValue<T>(string keyPath, string valueName, T value)
+    {
+        using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+        {
+            if (key != null)
+            {
+                key.SetValue(valueName, value);
+            }
+        }
+    }
+
+    unsafe static void Task2()
+    {
+        double val = 10;
+
+        byte* ptr = (byte*)&val;
+
+        *(ptr++) = 1;
+        *(ptr++) = (byte)'A';
+        *(ptr++) = 0;
+        *(ptr++) = 2;
+        *(ptr++) = 0;
+        *(ptr++) = 0;
+        *(ptr++) = 0;
+        *(ptr) = 3;
+
+        Console.WriteLine(val.ToString());
+
+        
+
+        
+    }
+
+    unsafe static void Task3()
+    {
+        Random rnd = new Random();
+
+        int first = rnd.Next();
+        int second = rnd.Next();
+        int third = 0;
+
+        short* sptr = (short*)&second;
+
+        sptr++;
+
+        short* tptr = (short*)&third;
+
+        *tptr++ = *(short*)&first;
+        *tptr = *sptr;
+
+        ShowMemory<int>(first);
+        ShowMemory<int>(second);
+        ShowMemory<int>(third);
+
+    }
+
+    unsafe static void ShowMemory<T>(T value)
+    {
+        byte* ptr = (byte*)&value;
+        Console.Write($"Value = {value}. Memory: ");
+        for (int i = 0; i < sizeof(T);i++)
+        {
+            Console.Write($"{*(ptr++):X2} ");
+        }
+        Console.WriteLine();
+
     }
 }

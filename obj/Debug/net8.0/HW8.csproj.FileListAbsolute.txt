@@ -1,0 +1,14 @@
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.AssemblyInfoInputs.cache
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.AssemblyInfo.cs
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.csproj.CoreCompileInputs.cache
+D:\ASystemDev\HW8\HW8\bin\Debug\net8.0\HW8.exe
+D:\ASystemDev\HW8\HW8\bin\Debug\net8.0\HW8.deps.json
+D:\ASystemDev\HW8\HW8\bin\Debug\net8.0\HW8.runtimeconfig.json
+D:\ASystemDev\HW8\HW8\bin\Debug\net8.0\HW8.dll
+D:\ASystemDev\HW8\HW8\bin\Debug\net8.0\HW8.pdb
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.dll
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\refint\HW8.dll
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.pdb
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\HW8.genruntimeconfig.cache
+D:\ASystemDev\HW8\HW8\obj\Debug\net8.0\ref\HW8.dll
