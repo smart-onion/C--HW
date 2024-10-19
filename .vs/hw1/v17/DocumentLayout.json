@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ANetworkStep\\hw1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2B5A5B72-2C5F-43ED-90BB-720ACDADA420}|hw1\\hw1.csproj|d:\\anetworkstep\\hw1\\hw1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5A5B72-2C5F-43ED-90BB-720ACDADA420}|hw1\\hw1.csproj|solutionrelative:hw1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD1BCB7E-2FFA-4212-8936-543A62A51AB2}|hw1Server\\hw1Server.csproj|d:\\anetworkstep\\hw1\\hw1server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD1BCB7E-2FFA-4212-8936-543A62A51AB2}|hw1Server\\hw1Server.csproj|solutionrelative:hw1server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11BBC795-CCD4-4917-B1DA-EE870F85CEB9}|Shared\\Shared.csproj|d:\\anetworkstep\\hw1\\shared\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11BBC795-CCD4-4917-B1DA-EE870F85CEB9}|Shared\\Shared.csproj|solutionrelative:shared\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Utility.cs",
+              "DocumentMoniker": "D:\\ANetworkStep\\hw1\\Shared\\Utility.cs",
+              "RelativeDocumentMoniker": "Shared\\Utility.cs",
+              "ToolTip": "D:\\ANetworkStep\\hw1\\Shared\\Utility.cs",
+              "RelativeToolTip": "Shared\\Utility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T12:37:58.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ANetworkStep\\hw1\\hw1Server\\Program.cs",
+              "RelativeDocumentMoniker": "hw1Server\\Program.cs",
+              "ToolTip": "D:\\ANetworkStep\\hw1\\hw1Server\\Program.cs",
+              "RelativeToolTip": "hw1Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:19:40.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ANetworkStep\\hw1\\hw1\\Program.cs",
+              "RelativeDocumentMoniker": "hw1\\Program.cs",
+              "ToolTip": "D:\\ANetworkStep\\hw1\\hw1\\Program.cs*",
+              "RelativeToolTip": "hw1\\Program.cs*",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:19:02.448Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
