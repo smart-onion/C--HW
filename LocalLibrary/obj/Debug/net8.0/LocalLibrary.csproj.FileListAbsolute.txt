@@ -1,0 +1,11 @@
+D:\ANetworkStep\hw3\LocalLibrary\bin\Debug\net8.0\LocalLibrary.deps.json
+D:\ANetworkStep\hw3\LocalLibrary\bin\Debug\net8.0\LocalLibrary.dll
+D:\ANetworkStep\hw3\LocalLibrary\bin\Debug\net8.0\LocalLibrary.pdb
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.AssemblyInfoInputs.cache
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.AssemblyInfo.cs
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.csproj.CoreCompileInputs.cache
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.dll
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\refint\LocalLibrary.dll
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\LocalLibrary.pdb
+D:\ANetworkStep\hw3\LocalLibrary\obj\Debug\net8.0\ref\LocalLibrary.dll
