@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj",
+      "projectUniqueName": "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj",
       "projectName": "LocalLibrary",
-      "projectPath": "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj",
+      "projectPath": "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj",
       "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-      "outputPath": "D:\\ANetworkStep\\hw3\\LocalLibrary\\obj\\",
+      "outputPath": "D:\\ANetworkStep\\hw4\\LocalLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",

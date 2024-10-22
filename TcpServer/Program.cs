@@ -1,73 +1,132 @@
-﻿using System.Net.Sockets;
+﻿using LocalLibrary;
+using System.Net.Sockets;
 using System.Net;
-using System.Text;
-using LocalLibrary;
 using System.Text.Json;
+using System.Text;
 internal class Program
 {
-    static Dictionary<string, TcpClient> clients = new Dictionary<string, TcpClient>();
+    static object obj = new object();
+    static Queue<Order?> orders = new Queue<Order?>();
     private static async Task Main(string[] args)
     {
-        TcpListener server = new TcpListener(IPAddress.Any, 8080);
-        server.Start();
-        Console.WriteLine("Server listening at port 8080");
+        TcpListener tcpListener = new TcpListener(IPAddress.Any, 8080);
+        tcpListener.Start();
 
         while (true)
         {
-            var client = await server.AcceptTcpClientAsync();
-            Console.WriteLine($"Established connection from {client.Client.RemoteEndPoint}");
-            Task.Run(() => HandleClientAsync(client));
+            try
+            {
+                var client = await tcpListener.AcceptTcpClientAsync();
+                Console.WriteLine($"New connection {client.Client.RemoteEndPoint} established.");
+                Task.Run(() => HandleClientAsync(client));
+                Task.Run(() => HandleOrdersAsync(client));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
     }
 
-    static async void HandleClientAsync(TcpClient client)
+    static async void HandleOrdersAsync(TcpClient tcpClient)
     {
-        while (client.Connected)
+        var stream = tcpClient.GetStream();
+        while (tcpClient.Connected)
         {
-            var stream = client.GetStream();
-            var user = await ReadMessageAsync(stream);
-
-            if (!clients.ContainsKey(user.Id)) clients.Add(user.Id, client);
-
-            BroadcastNewUsers(user.Id);
-            if (user.ReceiverId != null)
+            
+            for (int i = 0; i < orders.Count; i++) 
             {
-                var receiver = clients.Where(c => c.Key == user.Id).Select(c => c.Value).FirstOrDefault();
-
-                if (receiver == null) await stream.WriteAsync(Encoding.UTF8.GetBytes("User not found\0"));
-                else
+                Order? result;
+                lock (obj)
                 {
-                    var receiverStream = receiver.GetStream();
-                    receiverStream.WriteAsync(Encoding.UTF8.GetBytes(new Message(user).ToString()));
+                    orders.TryDequeue(out result);
+                }
+
+                await Task.Delay(2000); // simulating work
+                if (result != null)
+                {
+                    result.isReady = true;
+                    stream.WriteByte(5);
+                    var jsonString = JsonSerializer.Serialize(result);
+                    jsonString += '\0';
+                    var data = Encoding.UTF8.GetBytes(jsonString);
+
+                    await stream.WriteAsync(data);
+                    SendMessageAsync(stream, $"Ored: {result!.Id} ready!");
                 }
             }
-
-
+            
         }
     }
 
-    static void BroadcastNewUsers(string username)
+    static async void HandleClientAsync(TcpClient tcpClient)
     {
-        foreach (var user in clients)
+        var stream = tcpClient.GetStream();
+        while (tcpClient.Connected)
         {
-            if (user.Key == user.Key) continue;
-            var stream = user.Value.GetStream();
-            stream.Write(Encoding.UTF8.GetBytes(username + '\0'));
+            try
+            {
+                int action = stream.ReadByte();
+
+                switch (action)
+                {
+                    case 1: // new order
+                        var newOrder = await ReceiveOrderAsync(stream);
+                        lock (obj) orders.Enqueue(newOrder);
+                        Console.WriteLine(newOrder + " added");
+                        SendMessageAsync(stream, $"Order {newOrder.Id} in queue");
+                        break;
+                    case 2: // edit order
+                        newOrder = await ReceiveOrderAsync(stream);
+                        var order = orders.FirstOrDefault(o => o.Id == newOrder.Id);
+                        order.Name = newOrder.Name;
+                        Console.WriteLine(newOrder + " edit");
+
+                        SendMessageAsync(stream, $"Order {newOrder.Id} has been edit.");
+
+                        break;
+                    case 3: //remove order
+                        newOrder = await ReceiveOrderAsync(stream);
+                        order = orders.FirstOrDefault(o => o.Id == newOrder.Id);
+                        order = null;
+                        Console.WriteLine(newOrder + " removed");
+
+                        SendMessageAsync(stream, $"Order {newOrder.Id} has been removed.");
+
+                        break;
+                    default:
+                        SendMessageAsync(stream, $"Bad request!");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                stream.Close();
+                tcpClient.Close();
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 
-    private static async Task<User> ReadMessageAsync(NetworkStream stream)
+    static async Task<Order> ReceiveOrderAsync(NetworkStream stream)
     {
         var data = new List<byte>();
         int currentByte;
+
         do
         {
             currentByte = stream.ReadByte();
             if (currentByte == '\0') break;
             data.Add((byte)currentByte);
-        }
-        while (currentByte != '\0');
+        } while (true);
+        Order order = JsonSerializer.Deserialize<Order>(data.ToArray());
 
-        return JsonSerializer.Deserialize<User>(data.ToArray());
+        return order;
+    }
+
+    static async void SendMessageAsync(NetworkStream stream, string message)
+    {
+        await stream.WriteAsync(Encoding.UTF8.GetBytes(message + '\0'));
     }
 }

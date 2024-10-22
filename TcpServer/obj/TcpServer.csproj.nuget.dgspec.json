@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ANetworkStep\\hw3\\TcpServer\\TcpServer.csproj": {}
+    "D:\\ANetworkStep\\hw4\\TcpServer\\TcpServer.csproj": {}
   },
   "projects": {
-    "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj": {
+    "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj",
+        "projectUniqueName": "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj",
         "projectName": "LocalLibrary",
-        "projectPath": "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj",
+        "projectPath": "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ANetworkStep\\hw3\\LocalLibrary\\obj\\",
+        "outputPath": "D:\\ANetworkStep\\hw4\\LocalLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +65,14 @@
         }
       }
     },
-    "D:\\ANetworkStep\\hw3\\TcpServer\\TcpServer.csproj": {
+    "D:\\ANetworkStep\\hw4\\TcpServer\\TcpServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ANetworkStep\\hw3\\TcpServer\\TcpServer.csproj",
+        "projectUniqueName": "D:\\ANetworkStep\\hw4\\TcpServer\\TcpServer.csproj",
         "projectName": "TcpServer",
-        "projectPath": "D:\\ANetworkStep\\hw3\\TcpServer\\TcpServer.csproj",
+        "projectPath": "D:\\ANetworkStep\\hw4\\TcpServer\\TcpServer.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ANetworkStep\\hw3\\TcpServer\\obj\\",
+        "outputPath": "D:\\ANetworkStep\\hw4\\TcpServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +90,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj": {
-                "projectPath": "D:\\ANetworkStep\\hw3\\LocalLibrary\\LocalLibrary.csproj"
+              "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj": {
+                "projectPath": "D:\\ANetworkStep\\hw4\\LocalLibrary\\LocalLibrary.csproj"
               }
             }
           }

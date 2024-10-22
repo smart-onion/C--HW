@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LocalLibrary
-build_property.ProjectDir = D:\ANetworkStep\hw3\LocalLibrary\
+build_property.ProjectDir = D:\ANetworkStep\hw4\LocalLibrary\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
