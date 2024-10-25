@@ -1,0 +1,14 @@
+D:\ANetworkStep\Net5\Net5\bin\Debug\net8.0\Net5.exe
+D:\ANetworkStep\Net5\Net5\bin\Debug\net8.0\Net5.deps.json
+D:\ANetworkStep\Net5\Net5\bin\Debug\net8.0\Net5.runtimeconfig.json
+D:\ANetworkStep\Net5\Net5\bin\Debug\net8.0\Net5.dll
+D:\ANetworkStep\Net5\Net5\bin\Debug\net8.0\Net5.pdb
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.GeneratedMSBuildEditorConfig.editorconfig
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.AssemblyInfoInputs.cache
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.AssemblyInfo.cs
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.csproj.CoreCompileInputs.cache
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.dll
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\refint\Net5.dll
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.pdb
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\Net5.genruntimeconfig.cache
+D:\ANetworkStep\Net5\Net5\obj\Debug\net8.0\ref\Net5.dll
