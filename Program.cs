@@ -13,22 +13,13 @@ app.Run(async (context) =>
     var path = context.Request.Path.ToString();
     var response = context.Response;
     var request = context.Request;
+    var part = Path.GetFileName(path);
 
-    if (context.Request.Path == "/query")
+    if (request.Path == $"/api/length/{part}")
     {
-        string? name = request.Query["name"];
-        string? email = request.Query["email"];
-        string? phone = request.Query["phone"];
+        await response.WriteAsync($"Length = {part.Length}");
+    }
 
-        await context.Response.WriteAsync($"<div><p>Name: {name}</p><br/>" +
-            $"<p>Email: {email}</p><br/>" +
-            $"<p>Phone: {phone}</p></div>"
-            );
-    }
-    else
-    {
-        await context.Response.WriteAsync("User path with query: /query?name=Alex&email=email@mail.local&phone=+321654987");
-    }
 });
 app.UseDeveloperExceptionPage();
 
