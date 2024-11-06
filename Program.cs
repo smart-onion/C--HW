@@ -1,59 +1,38 @@
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var persons = new List<Person>()
-{
-    new Person { Id = 1, FirstName = "Alex", LastName = "LAlex", Age = 18, Email = "alex@mail.local"},
-    new Person { Id = 2, FirstName = "Tom", LastName = "LTom", Age = 19, Email = "tom@mail.local"},
-    new Person { Id = 3, FirstName = "Bob", LastName = "LBob", Age = 20, Email = "bob@mail.local"},
-    new Person { Id = 4, FirstName = "Jon", LastName = "LLon", Age = 21, Email = "lon@mail.local"},
-    new Person { Id = 5, FirstName = "Lini", LastName = "LLini", Age = 22, Email = "lini@mail.local"}
-};
-
 app.UseStaticFiles();
+
+
 
 app.Run(async (context) =>
 {
+    context.Response.ContentType = "text/html; charset=utf-8";
+    var path = context.Request.Path.ToString();
     var response = context.Response;
-    await response.WriteAsJsonAsync(persons);
+    var request = context.Request;
+
+    if (context.Request.Path == "/query")
+    {
+        string? name = request.Query["name"];
+        string? email = request.Query["email"];
+        string? phone = request.Query["phone"];
+
+        await context.Response.WriteAsync($"<div><p>Name: {name}</p><br/>" +
+            $"<p>Email: {email}</p><br/>" +
+            $"<p>Phone: {phone}</p></div>"
+            );
+    }
+    else
+    {
+        await context.Response.WriteAsync("User path with query: /query?name=Alex&email=email@mail.local&phone=+321654987");
+    }
 });
-
-//app.Run(async (context) =>
-//{
-//    context.Response.ContentType = "text/html; charset=utf-8";
-//    if (context.Request.Path == "/")
-//    {
-//        await context.Response.SendFileAsync("wwwroot/index.html");
-//    }
-//    else if (context.Request.Path == "/uploadimage" && context.Request.Method == "POST")
-//    {
-//        IFormFile file = context.Request.Form.Files.GetFile("file");
-//        if (file != null && file.Length > 0)
-//        {
-//            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "uploads", file.FileName);
-//            using (var stream = new FileStream(filePath, FileMode.Create))
-//            {
-//                await file.CopyToAsync(stream);
-//            }
-//            await context.Response.WriteAsync($"File {file.FileName} uploaded successfully!");
-//        }
-//        else
-//        {
-//            context.Response.StatusCode = 400;
-//            await context.Response.WriteAsync("No file uploaded.");
-//        }
-//    }
-//});
-
 app.UseDeveloperExceptionPage();
 
 
 app.Run();
-class Person
-{
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public int Age { get; set; }
-    public string Email { get; set; }
-}
+
