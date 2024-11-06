@@ -7,7 +7,6 @@ var app = builder.Build();
 app.UseStaticFiles();
 
 
-
 app.Run(async (context) =>
 {
     context.Response.ContentType = "text/html; charset=utf-8";
