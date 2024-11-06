@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "WtEGn9wP8S+Sz85goIOoJmR+UBowL+rn0eozHs4Wg/k=",
+  "Source": "Lesson1",
+  "BasePath": "_content/Lesson1",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Lesson1\\wwwroot",
+      "Source": "Lesson1",
+      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
+      "BasePath": "_content/Lesson1",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\image\\1.png",
+      "SourceId": "Lesson1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
+      "BasePath": "_content/Lesson1",
+      "RelativePath": "image/1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\1.png"
+    },
+    {
+      "Identity": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\index.html",
+      "SourceId": "Lesson1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
+      "BasePath": "_content/Lesson1",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
