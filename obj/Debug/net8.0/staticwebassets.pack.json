@@ -1,28 +1,36 @@
 {
   "Files": [
     {
-      "Id": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\image\\1.png",
-      "PackagePath": "staticwebassets\\image\\1.png"
+      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\fillup.html",
+      "PackagePath": "staticwebassets\\fillup.html"
     },
     {
-      "Id": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\index.html",
+      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\greet.html",
+      "PackagePath": "staticwebassets\\greet.html"
+    },
+    {
+      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Lesson1.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\styles\\index.css",
+      "PackagePath": "staticwebassets\\styles\\index.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.hw1.props",
+      "PackagePath": "build\\hw1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.hw1.props",
+      "PackagePath": "buildMultiTargeting\\hw1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.hw1.props",
+      "PackagePath": "buildTransitive\\hw1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.hw1.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Lesson1.props",
-      "PackagePath": "build\\Lesson1.props"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Lesson1.props",
-      "PackagePath": "buildMultiTargeting\\Lesson1.props"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Lesson1.props",
-      "PackagePath": "buildTransitive\\Lesson1.props"
     }
   ],
   "ElementsToRemove": []

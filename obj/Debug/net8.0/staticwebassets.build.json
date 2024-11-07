@@ -1,28 +1,28 @@
 {
   "Version": 1,
-  "Hash": "WtEGn9wP8S+Sz85goIOoJmR+UBowL+rn0eozHs4Wg/k=",
-  "Source": "Lesson1",
-  "BasePath": "_content/Lesson1",
+  "Hash": "jvsWycnRNdKM9WVzYbyOik6CJkxLOUL21POWS+gPhGU=",
+  "Source": "hw1",
+  "BasePath": "_content/hw1",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Lesson1\\wwwroot",
-      "Source": "Lesson1",
-      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
-      "BasePath": "_content/Lesson1",
+      "Name": "hw1\\wwwroot",
+      "Source": "hw1",
+      "ContentRoot": "D:\\ASP\\hw1\\hw1\\wwwroot\\",
+      "BasePath": "_content/hw1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\image\\1.png",
-      "SourceId": "Lesson1",
+      "Identity": "D:\\ASP\\hw1\\hw1\\wwwroot\\fillup.html",
+      "SourceId": "hw1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
-      "BasePath": "_content/Lesson1",
-      "RelativePath": "image/1.png",
+      "ContentRoot": "D:\\ASP\\hw1\\hw1\\wwwroot\\",
+      "BasePath": "_content/hw1",
+      "RelativePath": "fillup.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,14 +33,33 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\image\\1.png"
+      "OriginalItemSpec": "wwwroot\\fillup.html"
     },
     {
-      "Identity": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\index.html",
-      "SourceId": "Lesson1",
+      "Identity": "D:\\ASP\\hw1\\hw1\\wwwroot\\greet.html",
+      "SourceId": "hw1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ASP\\Lesson1\\Lesson1\\wwwroot\\",
-      "BasePath": "_content/Lesson1",
+      "ContentRoot": "D:\\ASP\\hw1\\hw1\\wwwroot\\",
+      "BasePath": "_content/hw1",
+      "RelativePath": "greet.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\greet.html"
+    },
+    {
+      "Identity": "D:\\ASP\\hw1\\hw1\\wwwroot\\index.html",
+      "SourceId": "hw1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\hw1\\hw1\\wwwroot\\",
+      "BasePath": "_content/hw1",
       "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -53,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\ASP\\hw1\\hw1\\wwwroot\\styles\\index.css",
+      "SourceId": "hw1",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\hw1\\hw1\\wwwroot\\",
+      "BasePath": "_content/hw1",
+      "RelativePath": "styles/index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\styles\\index.css"
     }
   ]
 }

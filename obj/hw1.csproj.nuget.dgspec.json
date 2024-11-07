@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASP\\Lesson1\\Lesson1\\Lesson1.csproj": {}
+    "D:\\ASP\\hw1\\hw1\\hw1.csproj": {}
   },
   "projects": {
-    "D:\\ASP\\Lesson1\\Lesson1\\Lesson1.csproj": {
+    "D:\\ASP\\hw1\\hw1\\hw1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASP\\Lesson1\\Lesson1\\Lesson1.csproj",
-        "projectName": "Lesson1",
-        "projectPath": "D:\\ASP\\Lesson1\\Lesson1\\Lesson1.csproj",
+        "projectUniqueName": "D:\\ASP\\hw1\\hw1\\hw1.csproj",
+        "projectName": "hw1",
+        "projectPath": "D:\\ASP\\hw1\\hw1\\hw1.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ASP\\Lesson1\\Lesson1\\obj\\",
+        "outputPath": "D:\\ASP\\hw1\\hw1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
