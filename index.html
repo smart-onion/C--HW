@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form action="/deleteuser" method="post">
+        <input type="hidden" name="id" value="" />
+    </form>
+    <a href="button">vutton</a>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a id="prevPage"><button class="page-link" >Previous</button></a>
+            </li>
+            <li class="page-item">
+                <a id="nextPage"><button class="page-link">Next</button></a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const page = params.get('page');
+            return page;
+        }
+
+        function changePagination() {
+            let page = getQueryParams();
+            let prevPage = page - 1;
+            let nextPage = Number(page) + 1;
+            prevPage <= 0 ? prevPage = 1 : prevPage;
+            document.getElementById("prevPage").setAttribute("href", `/?page=${prevPage}`)
+            document.getElementById("nextPage").setAttribute("href", `/?page=${nextPage}`)
+        }
+        changePagination()
+    </script>
+</body>
+</html>
