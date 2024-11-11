@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Upload</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+ <link href="styles/StyleSheet.css" rel="stylesheet" />
+ <style>
+     .uploaded {
+         background-color: #d4edda;
+         border-color: #c3e6cb;
+     }
+ </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">MyApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2 class="mb-4">Upload Files</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="form" class="form-group">
+            <div class="form-group" id="file-inputs">
+                <label for="file-0">Choose file to upload:</label>
+                <input type="file" name="file" id="file-0" class="form-control-file" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById("file-inputs").addEventListener("change", function (event) {
+            if (event.target && event.target.matches("input[type='file']")) {
+                // Change appearance of the previous input
+                event.target.classList.add("uploaded");
+
+                // Create a new file input
+                let newInput = document.createElement("input");
+                newInput.type = "file";
+                newInput.className = "form-control-file mt-2";
+
+                // Append the new input to the form
+                document.getElementById("file-inputs").appendChild(newInput);
+            }
+        });
+    </script>
+</body>
+</html>

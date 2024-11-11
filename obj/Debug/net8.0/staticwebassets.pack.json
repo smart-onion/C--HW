@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\ASP\\hw2_2\\hw2_2\\wwwroot\\download.html",
+      "PackagePath": "staticwebassets\\download.html"
+    },
+    {
+      "Id": "D:\\ASP\\hw2_2\\hw2_2\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\ASP\\hw2_2\\hw2_2\\wwwroot\\styles\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\styles\\StyleSheet.css"
+    },
+    {
+      "Id": "D:\\ASP\\hw2_2\\hw2_2\\wwwroot\\upload.html",
+      "PackagePath": "staticwebassets\\upload.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.hw2_2.props",
+      "PackagePath": "build\\hw2_2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.hw2_2.props",
+      "PackagePath": "buildMultiTargeting\\hw2_2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.hw2_2.props",
+      "PackagePath": "buildTransitive\\hw2_2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.hw2_2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
