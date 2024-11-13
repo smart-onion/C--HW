@@ -1,57 +1,53 @@
+using Lesson2.Middleware;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.UseStaticFiles();
+string date = "";
 
-app.Run(async (context) =>
-{
-    var responce = context.Response;
-    var request = context.Request;
-    responce.ContentType = "text/html;charset=utf8";
-    if (request.Path == "/")
-    {
-        await responce.SendFileAsync("wwwroot/index.html");
-    }
-    else if (request.Path == "/upload/" && request.Method == HttpMethods.Get)
-    {
-        await responce.SendFileAsync("wwwroot/upload.html");
-    }
-    else if (request.Path == "/upload" && request.Method == HttpMethods.Post)
-    {
-        IFormFileCollection files = request.Form.Files;
-        var uploadPath = $"{Directory.GetCurrentDirectory()}/uploads";
-        if (!Directory.Exists(uploadPath)) Directory.CreateDirectory(uploadPath);
 
-        foreach (var file in files)
-        {
-            string fullPath = Path.Combine(uploadPath, file.FileName);
-            using (var fileStream = new FileStream(fullPath, FileMode.Create))
-            {
-                await file.CopyToAsync(fileStream);
-            }
-        }
-        responce.Redirect("/download");
-    }
-    else if (request.Path == "/download")
-    {
-        await responce.SendFileAsync("wwwroot/download.html");
-    }
-    else if (request.Path == "/files" && request.Method == HttpMethods.Get)
-    {
-        List<string> files = new();
-        var a = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "uploads"));
-        foreach (var file in a)
-        {
-            files.Add(Path.GetFileName(file));
-        }
-        await responce.WriteAsJsonAsync(files);
-    }
-    else
-    {
-        responce.StatusCode = 404;
-        await responce.WriteAsync("Not found");
-    }
-
-});
-
+app.Use(LogRequest);
+app.Use(LogHeaders);
+app.Use(LogErrors);
+app.Run(async context => await context.Response.WriteAsync("Hi"));
 app.Run();
+
+static async Task LogRequest(HttpContext context, RequestDelegate next)
+{
+    var request = context.Request;
+    var log = new StringBuilder();
+    log.Append($"{DateTime.Now.ToString()} method: {request.Method} path: {request.Path} endpoint: {request.Host}");
+    Console.WriteLine(log);
+    await next.Invoke(context);
+}
+
+static async Task LogHeaders(HttpContext context, RequestDelegate next)
+{
+    var response = context.Response;
+    var log = new StringBuilder();
+
+    foreach ( var header in response.Headers)
+    {
+        log.AppendLine($"{header.Key} - {header.Value}");
+    }
+    await next.Invoke(context);
+}
+
+static async Task LogErrors(HttpContext context, RequestDelegate next)
+{
+    var request = context.Request;
+    var path = request.Path;
+    var log = new StringBuilder();
+
+    if (path == "/error-page")
+    {
+        log.AppendLine($"Restricted access: {path}");
+    }
+    else if (request.Query["error"] == "true")
+    {
+        log.AppendLine($"Restricted query: {request.Query["error"]}");
+    }
+    else await next.Invoke(context);
+
+}
