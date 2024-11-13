@@ -1,53 +1,75 @@
 using Lesson2.Middleware;
+using Microsoft.AspNetCore.Builder;
 using System.Text;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-string date = "";
+app.Use(CheckMethods);
+
+app.MapWhen(
+    context => context.Request.Method == HttpMethods.Get,
+    appbuilder =>
+    {
+        appbuilder.Use(IfGetOnly);
+    });
 
 
-app.Use(LogRequest);
-app.Use(LogHeaders);
-app.Use(LogErrors);
+app.Use(IfPostAndJson);
+app.Use(IsPersonObj);
+
 app.Run(async context => await context.Response.WriteAsync("Hi"));
 app.Run();
 
-static async Task LogRequest(HttpContext context, RequestDelegate next)
+static async Task CheckMethods(HttpContext context, RequestDelegate next)
 {
-    var request = context.Request;
-    var log = new StringBuilder();
-    log.Append($"{DateTime.Now.ToString()} method: {request.Method} path: {request.Path} endpoint: {request.Host}");
-    Console.WriteLine(log);
+    if (context.Request.Method == HttpMethods.Get || context.Request.Method == HttpMethods.Post)
+    {
+        await next.Invoke(context);
+    }
+    else
+    {
+        context.Response.StatusCode = 404;
+        await context.Response.WriteAsync($"{context.Request.Method} restricted");
+    }
+}
+
+static async Task IfGetOnly(HttpContext context, RequestDelegate next)
+{
+    if (context.Request.Method == HttpMethods.Get)
+    {
+        context.Response.StatusCode = 200;
+        await context.Response.WriteAsync("Welcome to Person API!");
+    }
+}
+
+static async Task IfPostAndJson(HttpContext context, RequestDelegate next)
+{
+    if (context.Request.ContentType == "application/json") await next.Invoke(context);
+    else
+    {
+        context.Response.StatusCode = 401;
+        await context.Response.WriteAsync($"{context.Request.ContentType} restricted");
+    }
+}
+
+static async Task IsPersonObj(HttpContext context, RequestDelegate next)
+{
+    string jsonString;
+    using (var reader = new StreamReader(context.Request.Body))
+    {
+        jsonString = await reader.ReadToEndAsync();
+    }
+    var person = JsonSerializer.Deserialize<Person>(jsonString);
+    if (person == null)
+    {
+        context.Response.StatusCode = 401;
+        await context.Response.WriteAsync($"{jsonString} bad format");
+        return;
+    }
+    Console.WriteLine($"Person name: {person.Name}, Age: {person.Age}");
     await next.Invoke(context);
 }
+record Person(string Name, int Age);
 
-static async Task LogHeaders(HttpContext context, RequestDelegate next)
-{
-    var response = context.Response;
-    var log = new StringBuilder();
-
-    foreach ( var header in response.Headers)
-    {
-        log.AppendLine($"{header.Key} - {header.Value}");
-    }
-    await next.Invoke(context);
-}
-
-static async Task LogErrors(HttpContext context, RequestDelegate next)
-{
-    var request = context.Request;
-    var path = request.Path;
-    var log = new StringBuilder();
-
-    if (path == "/error-page")
-    {
-        log.AppendLine($"Restricted access: {path}");
-    }
-    else if (request.Query["error"] == "true")
-    {
-        log.AppendLine($"Restricted query: {request.Query["error"]}");
-    }
-    else await next.Invoke(context);
-
-}
