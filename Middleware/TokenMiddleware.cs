@@ -1,28 +1,36 @@
-﻿namespace Lesson2.Middleware
+﻿using hw3.Model;
+using Microsoft.EntityFrameworkCore;
+
+namespace hw3.Middleware
 {
     public class TokenMiddleware
     {
-        private readonly RequestDelegate next;
-        private string token;
-        public TokenMiddleware(RequestDelegate next, string token) 
-        { 
-            this.next = next;
-            this.token = token;
-        }
-
+        private RequestDelegate next;
+        public TokenMiddleware(RequestDelegate next) { this.next = next; }
         public async Task InvokeAsync(HttpContext context)
         {
-            var token = context.Request.Query["token"];
-            if (token != this.token)
+            string? tokenString = context.Request.Query["token"];
+            Token? token;
+            if (tokenString == null)
             {
-                context.Response.StatusCode = 403;
-                await context.Response.WriteAsync("Token is not valid");
+                await context.Response.WriteAsync("No token provided");
+                return;
+            }
+
+            using (var db = new ApplicationContext())
+            {
+                token = db.Tokens.FirstOrDefault(t => t.MyToken == tokenString);
+            }
+
+            if (token == null)
+            {
+                await context.Response.WriteAsync($"Invalid token");
+                return;
             }
             else
             {
                 await next.Invoke(context);
             }
-
         }
     }
 }

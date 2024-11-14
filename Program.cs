@@ -1,75 +1,74 @@
-using Lesson2.Middleware;
-using Microsoft.AspNetCore.Builder;
-using System.Text;
-using System.Text.Json;
+using hw3.Middleware;
+using hw3.Model;
+using Microsoft.EntityFrameworkCore;
+using hw3.Html;
+using Microsoft.AspNetCore.Html;
+using Microsoft.Extensions.Primitives;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-
-app.Use(CheckMethods);
+await CreateDatabase();
 
 app.MapWhen(
-    context => context.Request.Method == HttpMethods.Get,
-    appbuilder =>
+    context => context.Request.Path == "/regester-token",
+    appbuilder => {
+         appbuilder.UseMiddleware<RegesterTokenMiddleware>();
+});
+
+app.MapWhen(
+    context => context.Request.Path == "/allbooks",
+    async appbuilder =>
     {
-        appbuilder.Use(IfGetOnly);
+        appbuilder.Run(async context =>
+        {
+            context.Response.ContentType = "text/html";
+            List<Book> books = new List<Book>();
+            using (var db = new ApplicationContext())
+            {
+                books = await db.Books.ToListAsync();
+            }
+            await context.Response.WriteAsync(HtmlBuilder.AllBooksPage(books));
+        });
+        
+
     });
 
+app.UseMiddleware<TokenMiddleware>();
 
-app.Use(IfPostAndJson);
-app.Use(IsPersonObj);
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/getbook")
+    {
+        StringValues title;
+        context.Request.Query.TryGetValue("title", out title);
+        Book? book;
+        using (var db = new ApplicationContext())
+        {
+            book = db.Books.FirstOrDefault(b => b.Title == title.ToString());
+        }
+        if (book == null) await context.Response.WriteAsync("not found");
+        else await context.Response.WriteAsync(HtmlBuilder.BuildHtmlTemplate(book.Title, HtmlBuilder.ShowBook(book)));
 
-app.Run(async context => await context.Response.WriteAsync("Hi"));
+    }
+    else await next.Invoke();
+});
+
 app.Run();
 
-static async Task CheckMethods(HttpContext context, RequestDelegate next)
+
+static async Task CreateDatabase()
 {
-    if (context.Request.Method == HttpMethods.Get || context.Request.Method == HttpMethods.Post)
+    using (ApplicationContext db = new ApplicationContext())
     {
-        await next.Invoke(context);
-    }
-    else
-    {
-        context.Response.StatusCode = 404;
-        await context.Response.WriteAsync($"{context.Request.Method} restricted");
+        await db.Database.EnsureDeletedAsync();
+        await db.Database.EnsureCreatedAsync();
+
+        db.Books.AddRange(new List<Book>()
+        {
+            new Book() {Title="Sherlok Holms", Author = "Arthur Conan Doyle",  Text = "here your Sherlok Holms book"},
+            new Book() {Title="Romeo and Juliet", Author = "Shakespeare",  Text = "here your Romeo and Juliet book"},
+            new Book() {Title="Test", Author = "Shakespeare",  Text = "here your Romeo and Juliet book"}
+        });
+        await db.SaveChangesAsync();
     }
 }
-
-static async Task IfGetOnly(HttpContext context, RequestDelegate next)
-{
-    if (context.Request.Method == HttpMethods.Get)
-    {
-        context.Response.StatusCode = 200;
-        await context.Response.WriteAsync("Welcome to Person API!");
-    }
-}
-
-static async Task IfPostAndJson(HttpContext context, RequestDelegate next)
-{
-    if (context.Request.ContentType == "application/json") await next.Invoke(context);
-    else
-    {
-        context.Response.StatusCode = 401;
-        await context.Response.WriteAsync($"{context.Request.ContentType} restricted");
-    }
-}
-
-static async Task IsPersonObj(HttpContext context, RequestDelegate next)
-{
-    string jsonString;
-    using (var reader = new StreamReader(context.Request.Body))
-    {
-        jsonString = await reader.ReadToEndAsync();
-    }
-    var person = JsonSerializer.Deserialize<Person>(jsonString);
-    if (person == null)
-    {
-        context.Response.StatusCode = 401;
-        await context.Response.WriteAsync($"{jsonString} bad format");
-        return;
-    }
-    Console.WriteLine($"Person name: {person.Name}, Age: {person.Age}");
-    await next.Invoke(context);
-}
-record Person(string Name, int Age);
-
