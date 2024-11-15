@@ -23,3 +23,6 @@ D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\refint\Lesson2.dll
 D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\Lesson2.pdb
 D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\Lesson2.genruntimeconfig.cache
 D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\ref\Lesson2.dll
+D:\ASP\Lesson2\Lesson2\bin\Debug\net8.0\Humanizer.dll
+D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\Lesson2.csproj.AssemblyReference.cache
+D:\ASP\Lesson2\Lesson2\obj\Debug\net8.0\Lesson2.csproj.Up2Date
