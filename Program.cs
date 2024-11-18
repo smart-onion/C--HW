@@ -1,37 +1,49 @@
-using Lesson2.Middleware;
-using Microsoft.AspNetCore.Builder;
-using System.Text;
-using System.Text.Json;
+using hw4.Services;
+using hw4.Middleware;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Environment.EnvironmentName = "AdditionalTask";
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
+
+builder.Services.AddAuthorization();
+
+if (builder.Environment.EnvironmentName == "MainTask")
+{
+    builder.Services.AddDataService();
+}
+else if (builder.Environment.EnvironmentName == "AdditionalTask")
+{
+    builder.Services.AddEFCoreService();
+}
+
 var app = builder.Build();
 
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDirectoryBrowser();
-    app.UseDeveloperExceptionPage();
-    app.Run(async context => await context.Response.WriteAsync("You on Develepment stage"));
+app.UseErrorHandler();
 
-}
-else if (app.Environment.IsStaging())
-{
-    app.UseDirectoryBrowser();
-    app.Run(async context => await context.Response.WriteAsync("You on Staging stage.Some tools can be blocked"));
-}
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-else if (!app.Environment.IsProduction())
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseMyRouting();
+
+if (builder.Environment.EnvironmentName == "AdditionalTask")
 {
-    app.Run(async context =>
-    {
-        Console.WriteLine($"{DateTime.Now} path: {context.Request.Path}");
-        if (context.Request.Path == "/wwwroot")
-        {
-            await context.Response.WriteAsync("Not allowed on production");
-        }
-    });
+    app.UseStoreRouting();
 }
 
 app.Run();
-
-
