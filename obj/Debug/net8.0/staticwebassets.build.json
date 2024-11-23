@@ -1,11 +1,77 @@
 {
   "Version": 1,
-  "Hash": "4kgHVZUCiDn89UkwNITUHmJX3UMJqFecyGVasP8PLbc=",
-  "Source": "hw4",
-  "BasePath": "_content/hw4",
+  "Hash": "VjjzKvxiUK3I6zIqAlJpoQI8tyBaGYEjGXRXNyzVyAo=",
+  "Source": "hw5",
+  "BasePath": "_content/hw5",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "hw5\\wwwroot",
+      "Source": "hw5",
+      "ContentRoot": "D:\\ASP\\hw5\\hw5\\wwwroot\\",
+      "BasePath": "_content/hw5",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\ASP\\hw5\\hw5\\wwwroot\\home.html",
+      "SourceId": "hw5",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\hw5\\hw5\\wwwroot\\",
+      "BasePath": "_content/hw5",
+      "RelativePath": "home.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\home.html"
+    },
+    {
+      "Identity": "D:\\ASP\\hw5\\hw5\\wwwroot\\login.html",
+      "SourceId": "hw5",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\hw5\\hw5\\wwwroot\\",
+      "BasePath": "_content/hw5",
+      "RelativePath": "login.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\login.html"
+    },
+    {
+      "Identity": "D:\\ASP\\hw5\\hw5\\wwwroot\\register.html",
+      "SourceId": "hw5",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP\\hw5\\hw5\\wwwroot\\",
+      "BasePath": "_content/hw5",
+      "RelativePath": "register.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\register.html"
+    }
+  ]
 }

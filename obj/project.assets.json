@@ -2813,11 +2813,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASP\\hw4\\hw4\\hw4.csproj",
-      "projectName": "hw4",
-      "projectPath": "D:\\ASP\\hw4\\hw4\\hw4.csproj",
+      "projectUniqueName": "D:\\ASP\\hw5\\hw5\\hw5.csproj",
+      "projectName": "hw5",
+      "projectPath": "D:\\ASP\\hw5\\hw5\\hw5.csproj",
       "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-      "outputPath": "D:\\ASP\\hw4\\hw4\\obj\\",
+      "outputPath": "D:\\ASP\\hw5\\hw5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
