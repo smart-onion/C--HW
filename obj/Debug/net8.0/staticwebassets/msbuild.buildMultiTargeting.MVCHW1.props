@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MVCHW1.props" />
+</Project>
