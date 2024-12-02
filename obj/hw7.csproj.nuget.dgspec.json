@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASP\\hw6\\hw6\\hw6.csproj": {}
+    "D:\\ASP\\hw7\\hw7\\hw7.csproj": {}
   },
   "projects": {
-    "D:\\ASP\\hw6\\hw6\\hw6.csproj": {
+    "D:\\ASP\\hw7\\hw7\\hw7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASP\\hw6\\hw6\\hw6.csproj",
-        "projectName": "hw6",
-        "projectPath": "D:\\ASP\\hw6\\hw6\\hw6.csproj",
+        "projectUniqueName": "D:\\ASP\\hw7\\hw7\\hw7.csproj",
+        "projectName": "hw7",
+        "projectPath": "D:\\ASP\\hw7\\hw7\\hw7.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ASP\\hw6\\hw6\\obj\\",
+        "outputPath": "D:\\ASP\\hw7\\hw7\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",

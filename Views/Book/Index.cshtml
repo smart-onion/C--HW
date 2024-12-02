@@ -1,0 +1,24 @@
+﻿@using hw7.ViewModels
+@model IEnumerable<BookViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table>
+    <tr>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Year</td>
+        <td>Genre</td>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <th>@book.Title</th>
+            <th>@book.Author</th>
+            <th>@book.Year</th>
+            <th>@book.Genre</th>
+        </tr>
+    }
+</table>
+

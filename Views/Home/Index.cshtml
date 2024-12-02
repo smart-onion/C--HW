@@ -2,42 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@{
-    double amount = 0;
-    double currFrom = 0;
-    double currTo = 0;
-
-    double result = 0;
-    if (Context.Request.Method == "POST")
-    {
-        amount = double.Parse(Context.Request.Form["amount"]);
-        currFrom = double.Parse(Context.Request.Form["from"]);
-        currTo = double.Parse(Context.Request.Form["to"]);
-
-        result = (currFrom * currTo) * amount;
-    }
-}
-
-<form method="post">
-    <label>Select amout and currency to exchange</label>
-    <input type="number" name="amount"/>
-    <label>From</label>
-    <select name="from">
-        <option value="1">USD</option>
-        <option value="0.94">EUR</option>
-        <option value="40.1">UAH</option>
-    </select>
-<label>To</label>
-    <select name="to">
-        <option value="1">USD</option>
-        <option value="0.94">EUR</option>
-        <option value="40.1">UAH</option>
-    </select>
-    <input type="submit" name="submit" value="Send" />
-</form>
-
-<div>
-    @if (result != 0){
-        <h1>Result: @result</h1>
-    }
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
