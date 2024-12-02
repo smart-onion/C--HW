@@ -1,32 +1,29 @@
-using hw7.Models;
+using hw7_1.Models;
+using hw7_1.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace hw7.Controllers
+namespace hw7_1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly EmployeeService employeeService;
+        public HomeController(EmployeeService employeeService)
         {
-            _logger = logger;
+            this.employeeService = employeeService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(employeeService.Employees);
+        }
+        [HttpPost]
+        public IActionResult Index(IEnumerable<Employee> employees)
+        {
+            employeeService.Employees = employees.ToList();
+            return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

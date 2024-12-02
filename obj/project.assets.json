@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASP\\hw7\\hw7\\hw7.csproj",
-      "projectName": "hw7",
-      "projectPath": "D:\\ASP\\hw7\\hw7\\hw7.csproj",
+      "projectUniqueName": "D:\\ASP\\hw7_1\\hw7_1\\hw7_1.csproj",
+      "projectName": "hw7_1",
+      "projectPath": "D:\\ASP\\hw7_1\\hw7_1\\hw7_1.csproj",
       "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-      "outputPath": "D:\\ASP\\hw7\\hw7\\obj\\",
+      "outputPath": "D:\\ASP\\hw7_1\\hw7_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",

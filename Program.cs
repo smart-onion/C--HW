@@ -1,10 +1,10 @@
-using hw7.Services;
+using hw7_1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<BookService>();
+builder.Services.AddSingleton<EmployeeService>();
 var app = builder.Build();
 
 app.UseStaticFiles();

@@ -1,4 +1,4 @@
-namespace hw7.Models
+namespace hw7_1.Models
 {
     public class ErrorViewModel
     {
