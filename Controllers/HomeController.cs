@@ -1,8 +1,8 @@
+using hw6.Models;
 using Microsoft.AspNetCore.Mvc;
-using MVCHW1.Models;
 using System.Diagnostics;
 
-namespace MVCHW1.Controllers
+namespace hw6.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,15 +18,10 @@ namespace MVCHW1.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult GetNames()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return Json(new { names = new[] { "Lex", "Alex" } });
         }
     }
 }

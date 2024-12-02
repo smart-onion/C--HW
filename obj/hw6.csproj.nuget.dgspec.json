@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASP\\MVCHW1\\MVCHW1\\MVCHW1.csproj": {}
+    "D:\\ASP\\hw6\\hw6\\hw6.csproj": {}
   },
   "projects": {
-    "D:\\ASP\\MVCHW1\\MVCHW1\\MVCHW1.csproj": {
+    "D:\\ASP\\hw6\\hw6\\hw6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASP\\MVCHW1\\MVCHW1\\MVCHW1.csproj",
-        "projectName": "MVCHW1",
-        "projectPath": "D:\\ASP\\MVCHW1\\MVCHW1\\MVCHW1.csproj",
+        "projectUniqueName": "D:\\ASP\\hw6\\hw6\\hw6.csproj",
+        "projectName": "hw6",
+        "projectPath": "D:\\ASP\\hw6\\hw6\\hw6.csproj",
         "packagesPath": "C:\\Users\\fff\\.nuget\\packages\\",
-        "outputPath": "D:\\ASP\\MVCHW1\\MVCHW1\\obj\\",
+        "outputPath": "D:\\ASP\\hw6\\hw6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fff\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,12 +45,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

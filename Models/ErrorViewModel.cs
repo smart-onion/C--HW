@@ -1,4 +1,4 @@
-namespace MVCHW1.Models
+namespace hw6.Models
 {
     public class ErrorViewModel
     {
