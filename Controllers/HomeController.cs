@@ -1,26 +1,43 @@
-using hw7_1.Models;
-using hw7_1.Services;
+using hw8.Models;
+using hw8.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace hw7_1.Controllers
+namespace hw8.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly EmployeeService employeeService;
-        public HomeController(EmployeeService employeeService)
+        ProductService productService;
+        public HomeController(ProductService productService)
         {
-            this.employeeService = employeeService;
+            this.productService = productService;
         }
 
         public IActionResult Index()
         {
-            return View(employeeService.Employees);
+            return View(productService.GetProducts());
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        public IActionResult Edit(int id)
+        {
+            var product = productService.GetProduct(id);
+            return View(product);
         }
         [HttpPost]
-        public IActionResult Index(IEnumerable<Employee> employees)
+        public IActionResult Create(Product product)
         {
-            employeeService.Employees = employees.ToList();
+            productService.Add(product);
+            return RedirectToAction(nameof(Index));
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            productService.Update(product);
             return RedirectToAction(nameof(Index));
         }
 

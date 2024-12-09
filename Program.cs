@@ -1,16 +1,13 @@
-using hw7_1.Services;
+using hw8.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<EmployeeService>();
+builder.Services.AddSingleton<ProductService>();
 var app = builder.Build();
 
 app.UseStaticFiles();
-
-app.UseRouting();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
