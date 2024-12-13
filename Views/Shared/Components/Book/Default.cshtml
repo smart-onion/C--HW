@@ -1,0 +1,15 @@
+﻿@using hw9.ViewModels;
+@model IEnumerable<BookViewModel>
+
+<div id="books">
+@foreach(var book in Model) 
+{
+        <a asp-action="GetBook" asp-route-id="@book.Id">
+    <div id="book_@book.Id" class="bookViewModel">
+        <img src="@book.PicturePath" />
+        <p>Title: @book.Title</p>
+        <p>@book.Author</p>
+    </div>
+        </a>
+}   
+</div>

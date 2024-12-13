@@ -1,8 +1,0 @@
-﻿table tr {
-    width: 500px;
-    background-color: yellow;
-}
-form{
-    display:flex;
-    flex-direction: column;
-}

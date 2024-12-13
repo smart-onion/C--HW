@@ -1,46 +1,37 @@
-using hw8.Models;
-using hw8.Services;
+using hw9.Models;
+using hw9.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
-namespace hw8.Controllers
+namespace hw9.Controllers
 {
     public class HomeController : Controller
     {
-        ProductService productService;
-        public HomeController(ProductService productService)
-        {
-            this.productService = productService;
-        }
-
-        public IActionResult Index()
-        {
-            return View(productService.GetProducts());
-        }
-
-        public IActionResult Create()
+        private readonly BookContext bookContext;
+        public HomeController(BookContext bookContext) { this.bookContext = bookContext; }
+        public async Task<IActionResult> Index()
         {
             return View();
         }
-        public IActionResult Edit(int id)
+
+        public async Task<IActionResult> GetBook(int id)
         {
-            var product = productService.GetProduct(id);
-            return View(product);
-        }
-        [HttpPost]
-        public IActionResult Create(Product product)
-        {
-            productService.Add(product);
-            return RedirectToAction(nameof(Index));
-        }
-        
-        [HttpPost]
-        public IActionResult Edit(Product product)
-        {
-            productService.Update(product);
-            return RedirectToAction(nameof(Index));
+            var book = await bookContext.Books.FirstOrDefaultAsync(x => x.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return View(book);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> GetBook(Comment comment)
+        {
+            bookContext.Comments.Add(comment);
+            await bookContext.SaveChangesAsync();
+            return RedirectToAction(nameof(GetBook), new {id = comment.BookId});
+        }
 
     }
 }
