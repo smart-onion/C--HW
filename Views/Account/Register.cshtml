@@ -1,0 +1,54 @@
+﻿@using hw10.ViewModel
+@model RegisterViewModel
+
+<form asp-action="Register" >
+    <label asp-for="Username"></label>
+    <input asp-for="Username" />
+    <span asp-validation-for="Username"></span>
+
+     <label asp-for="FirstName"></label>
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span>
+
+     <label asp-for="LastName"></label>
+    <input asp-for="LastName" />
+    <span asp-validation-for="LastName"></span>
+
+     <label asp-for="Age"></label>
+    <input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+
+     <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="CreditCard"></label>
+    <input asp-for="CreditCard" />
+    <span asp-validation-for="CreditCard"></span>
+
+    <label asp-for="Website"></label>
+    <input asp-for="Website" />
+    <span asp-validation-for="Website"></span>
+
+    <label asp-for="Phone"></label>
+    <input asp-for="Phone" />
+    <span asp-validation-for="Phone"></span>
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <label asp-for="PasswordConfirm"></label>
+    <input asp-for="PasswordConfirm" />
+    <span asp-validation-for="PasswordConfirm"></span>
+
+    <input type="submit" value="Register"/>
+
+</form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,37 +1,32 @@
-using hw9.Models;
-using hw9.Services;
+using hw10.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
-namespace hw9.Controllers
+namespace hw10.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly BookContext bookContext;
-        public HomeController(BookContext bookContext) { this.bookContext = bookContext; }
-        public async Task<IActionResult> Index()
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
         {
             return View();
         }
 
-        public async Task<IActionResult> GetBook(int id)
+        public IActionResult Privacy()
         {
-            var book = await bookContext.Books.FirstOrDefaultAsync(x => x.Id == id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-            return View(book);
+            return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> GetBook(Comment comment)
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            bookContext.Comments.Add(comment);
-            await bookContext.SaveChangesAsync();
-            return RedirectToAction(nameof(GetBook), new {id = comment.BookId});
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }
