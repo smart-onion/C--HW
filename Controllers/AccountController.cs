@@ -1,6 +1,7 @@
 ﻿using hw10.Data;
 using hw10.Models;
 using hw10.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,6 +48,17 @@ namespace hw10.Controllers
             }
 
             return View(register);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> UsernameIsExist(string username)
+        {
+            var existedUser = await context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (existedUser != null)
+            {
+                return Json(false);
+            }
+            return Json(true);
         }
     }
 }
