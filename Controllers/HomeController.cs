@@ -1,32 +1,22 @@
-using hw10.Models;
+using hw11.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace hw10.Controllers
+namespace hw11.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
+            ViewBag.Theme = Request.Cookies["theme"] ?? ThemeColor.White.ToString();
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult ChangeTheme(ThemeColor theme)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Response.Cookies.Append("theme", theme.ToString());
+            return RedirectToAction(nameof(Index));
         }
     }
 }

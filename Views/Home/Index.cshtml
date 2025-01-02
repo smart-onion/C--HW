@@ -1,8 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var theme = Context.Request.Cookies["theme"] ?? "While";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+
+<form asp-action="ChangeTheme" method="post">
+    @* asp-items="Html.GetEnumSelectList<ThemeColor>()" *@
+     <select name="theme"  class="form-control"> 
+        <option selected>@ViewBag.Theme</option>
+
+        @foreach (var item in Enum.GetValues(typeof(ThemeColor)))
+        {
+            if(ViewBag.Theme != item.ToString())
+            {
+                <option>@item</option>
+            }
+        }
+    </select>
+    <input type="submit" value="Change" class="form-control" />
+</form>
