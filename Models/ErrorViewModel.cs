@@ -1,4 +1,4 @@
-namespace hw11.Models
+namespace AuthenticationHW.Models
 {
     public class ErrorViewModel
     {

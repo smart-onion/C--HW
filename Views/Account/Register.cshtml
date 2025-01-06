@@ -1,0 +1,17 @@
+﻿@model Account;
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Register" class="form-control">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <label asp-for="EmailAddress"></label>
+    <input asp-for="EmailAddress" />
+    <span asp-validation-for="EmailAddress"></span>
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <input type="submit" />
+</form>
+
+<a asp-action="Login">Login</a>

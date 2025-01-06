@@ -1,22 +1,10 @@
-﻿@{
+﻿@using System.Security.Claims;
+
+@{
     ViewData["Title"] = "Home Page";
-    var theme = Context.Request.Cookies["theme"] ?? "While";
 }
 
+<h2>Welcome @Context.User.Identity!.Name</h2>
+<h4>Email: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value</h4>
 
-
-<form asp-action="ChangeTheme" method="post">
-    @* asp-items="Html.GetEnumSelectList<ThemeColor>()" *@
-     <select name="theme"  class="form-control"> 
-        <option selected>@ViewBag.Theme</option>
-
-        @foreach (var item in Enum.GetValues(typeof(ThemeColor)))
-        {
-            if(ViewBag.Theme != item.ToString())
-            {
-                <option>@item</option>
-            }
-        }
-    </select>
-    <input type="submit" value="Change" class="form-control" />
-</form>
+<a asp-action="Logout" asp-controller="Account">Logout</a>
