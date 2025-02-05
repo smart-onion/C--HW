@@ -1,10 +1,8 @@
-﻿@using System.Security.Claims;
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<h2>Welcome @Context.User.Identity!.Name</h2>
-<h4>Email: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value</h4>
-
-<a asp-action="Logout" asp-controller="Account">Logout</a>
+<a asp-action="Index" asp-controller="Blog">Blog</a>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

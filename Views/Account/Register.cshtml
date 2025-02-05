@@ -1,17 +1,27 @@
-﻿@model Account;
+﻿@using AspIdentityHW1.ViewModels
+@model RegisterViewModel
 
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<form asp-action="Register" class="form-control">
-    <label asp-for="Name"></label>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name"></span>
-    <label asp-for="EmailAddress"></label>
-    <input asp-for="EmailAddress" />
-    <span asp-validation-for="EmailAddress"></span>
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-    <input type="submit" />
+<form asp-action="Register" asp-asp-controller="Account">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label asp-for="UserName" class="control-label"></label>
+    <input asp-for="UserName" class="form-control" />
+    <span asp-validation-for="UserName" class="text-danger"></span>
+
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+    <label asp-for="Password" class="control-label"></label>
+    <input asp-for="Password" class="form-control" />
+    <span asp-validation-for="Password" class="text-danger"></span>
+
+    <label asp-for="PasswordConfirm" class="control-label"></label>
+    <input asp-for="PasswordConfirm" class="form-control" />
+    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+
+    <br />
+    <input type="submit" value="Register" class="btn btn-primary" />
+    <a asp-action="Login" asp-controller="Account">Login</a>
+
 </form>
-
-<a asp-action="Login">Login</a>

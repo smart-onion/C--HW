@@ -1,0 +1,14 @@
+﻿@using AspIdentityHW1.ViewModels
+@model EditArticleViewModel
+
+<h1>Edit Article page</h1>
+<form asp-action="EditArticle">
+    
+    <label asp-for="Title"></label>
+    <input asp-for="Title" value="@Model.Title"/>
+
+    <label asp-for="Description"></label>
+    <input asp-for="Description" value="@Model.Description" />
+
+    <input type="submit" value="Edit"/>
+</form>

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Article>
+
+<a asp-action="CreateArticle">Create new article </a>
+<h2>Available articles</h2>
+
+@foreach (var item in Model)
+{
+    <a asp-action="GetArticle" asp-route-id="@item.Id">@item.Title</a>
+}
+@User.Identity.Name

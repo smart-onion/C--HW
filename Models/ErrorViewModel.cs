@@ -1,4 +1,4 @@
-namespace AuthenticationHW.Models
+namespace AspIdentityHW1.Models
 {
     public class ErrorViewModel
     {

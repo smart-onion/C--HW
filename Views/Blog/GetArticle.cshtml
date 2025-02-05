@@ -1,0 +1,13 @@
+﻿@model Article
+
+<h1>@Model.Title</h1>
+<p>@Model.Description</p>
+<p>Author @Model.Author</p>
+<p>Created at @Model.CreatedAt</p>
+
+@if(User.Identity.Name == Model.Author)
+{
+    <a asp-action="EditArticle" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="DeleteArticle" asp-route-id="@Model.Id">Delete</a>
+
+}

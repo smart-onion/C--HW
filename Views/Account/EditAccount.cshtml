@@ -1,0 +1,20 @@
+﻿@using AspIdentityHW1.ViewModels
+@model EditAccountViewModel
+
+<form asp-action="EditAccount">
+    <label asp-for="Username"></label>
+    <input asp-for="Username" value="@Model.Username" />
+
+     <label asp-for="Email"></label>
+    <input asp-for="Email" value="@Model.Email" />
+
+     <label asp-for="OldPassword"></label>
+    <input asp-for="OldPassword" />
+
+     <label asp-for="NewPassword"></label>
+    <input asp-for="NewPassword" />
+
+    <br/>
+    <input type="submit" value="Edit"/>
+
+</form>

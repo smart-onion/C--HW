@@ -1,0 +1,16 @@
+﻿@using AspIdentityHW1.ViewModels
+@model InformationViewModel
+
+<h1>Profile info</h1>
+
+<h4>Username: @User.Identity.Name</h4>
+
+
+<h4>Email: @Model.Email</h4>
+<h3>Created articles</h3>
+@foreach(var article in Model.Articles)
+{
+    <a asp-action="GetArticle" asp-controller="Blog" asp-route-id="@article.Id">@article.Title</a>
+}    
+
+<a asp-action="EditAccount"> Edit Account</a>
