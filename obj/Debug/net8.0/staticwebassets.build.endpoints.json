@@ -1,115 +1,19 @@
 {
   "Version": 1,
-  "Hash": "8Es5PpxsWvQ8L6js5Hv2dwGLC/55m/ja/hI6ff4D1uY=",
-  "Source": "hw1",
-  "BasePath": "_content/hw1",
-  "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "hw1\\wwwroot",
-      "Source": "hw1",
-      "ContentRoot": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\",
-      "BasePath": "_content/hw1",
-      "Pattern": "**"
-    }
-  ],
-  "Assets": [
-    {
-      "Identity": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\fillup.html",
-      "SourceId": "hw1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\",
-      "BasePath": "_content/hw1",
-      "RelativePath": "fillup#[.{fingerprint}]?.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "aaaf2fpblt",
-      "Integrity": "0g9cLIhViMt/UR0qfY0ugBG5WUechb2ej5nhhtRLlB4=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fillup.html"
-    },
-    {
-      "Identity": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\greet.html",
-      "SourceId": "hw1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\",
-      "BasePath": "_content/hw1",
-      "RelativePath": "greet#[.{fingerprint}]?.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "xbj8rzz04z",
-      "Integrity": "3ao9JHJyYHRl8l6LYY0Ojlnn+JQI6u6URONzXbNg/aI=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\greet.html"
-    },
-    {
-      "Identity": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\index.html",
-      "SourceId": "hw1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\",
-      "BasePath": "_content/hw1",
-      "RelativePath": "index#[.{fingerprint}]?.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "tstp6k06lr",
-      "Integrity": "44ZIzo//Mdrh+H7uBkun6DX/vFIJQ7z7dnCuMlDawwE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
-    },
-    {
-      "Identity": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\styles\\index.css",
-      "SourceId": "hw1",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\",
-      "BasePath": "_content/hw1",
-      "RelativePath": "styles/index#[.{fingerprint}]?.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "rvqcy023v7",
-      "Integrity": "F1VEVVzz32YwMu71d0dfiSfjFu5w+TMKdKo/91+c+F0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\styles\\index.css"
-    }
-  ],
   "Endpoints": [
     {
       "Route": "fillup.aaaf2fpblt.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\fillup.html",
+      "AssetFile": "fillup.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
@@ -126,10 +30,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
@@ -138,23 +38,27 @@
           "Value": "aaaf2fpblt"
         },
         {
-          "Name": "label",
-          "Value": "fillup.html"
-        },
-        {
           "Name": "integrity",
           "Value": "sha256-0g9cLIhViMt/UR0qfY0ugBG5WUechb2ej5nhhtRLlB4="
+        },
+        {
+          "Name": "label",
+          "Value": "fillup.html"
         }
       ]
     },
     {
       "Route": "fillup.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\fillup.html",
+      "AssetFile": "fillup.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
@@ -171,10 +75,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
@@ -186,12 +86,16 @@
     },
     {
       "Route": "greet.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\greet.html",
+      "AssetFile": "greet.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
@@ -208,10 +112,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
@@ -223,12 +123,16 @@
     },
     {
       "Route": "greet.xbj8rzz04z.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\greet.html",
+      "AssetFile": "greet.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
@@ -245,10 +149,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
@@ -257,23 +157,27 @@
           "Value": "xbj8rzz04z"
         },
         {
-          "Name": "label",
-          "Value": "greet.html"
-        },
-        {
           "Name": "integrity",
           "Value": "sha256-3ao9JHJyYHRl8l6LYY0Ojlnn+JQI6u6URONzXbNg/aI="
+        },
+        {
+          "Name": "label",
+          "Value": "greet.html"
         }
       ]
     },
     {
       "Route": "index.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\index.html",
+      "AssetFile": "index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
@@ -290,10 +194,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
@@ -305,12 +205,16 @@
     },
     {
       "Route": "index.tstp6k06lr.html",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\index.html",
+      "AssetFile": "index.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
@@ -327,10 +231,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
@@ -339,23 +239,27 @@
           "Value": "tstp6k06lr"
         },
         {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
           "Name": "integrity",
           "Value": "sha256-44ZIzo//Mdrh+H7uBkun6DX/vFIJQ7z7dnCuMlDawwE="
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
         }
       ]
     },
     {
       "Route": "styles/index.css",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\styles\\index.css",
+      "AssetFile": "styles/index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Length",
@@ -372,10 +276,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         }
       ],
       "EndpointProperties": [
@@ -387,12 +287,16 @@
     },
     {
       "Route": "styles/index.rvqcy023v7.css",
-      "AssetFile": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\styles\\index.css",
+      "AssetFile": "styles/index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
           "Name": "Accept-Ranges",
           "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Length",
@@ -409,10 +313,6 @@
         {
           "Name": "Last-Modified",
           "Value": "Wed, 16 Jul 2025 09:54:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
         }
       ],
       "EndpointProperties": [
@@ -421,12 +321,12 @@
           "Value": "rvqcy023v7"
         },
         {
-          "Name": "label",
-          "Value": "styles/index.css"
-        },
-        {
           "Name": "integrity",
           "Value": "sha256-F1VEVVzz32YwMu71d0dfiSfjFu5w+TMKdKo/91+c+F0="
+        },
+        {
+          "Name": "label",
+          "Value": "styles/index.css"
         }
       ]
     }

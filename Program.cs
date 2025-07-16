@@ -7,12 +7,15 @@ var users = new List<User>();
 
 app.UseStaticFiles();
 
-app.Run(async context =>
+
+
+app.MapGet("/",async context =>
 {
     context.Response.ContentType = "text/html; charset=utf-8";
     var path = context.Request.Path;
 
 	switch (path)
+    
 	{
 		case "/":
             await context.Response.SendFileAsync("wwwroot/index.html");
@@ -51,6 +54,11 @@ app.Run(async context =>
 	}
 });
 
+app.MapGet("/api/length/{str}", async (string str, HttpContext context) =>
+{
+    context.Response.ContentType = "application/json; charset=utf-8";
+    await context.Response.WriteAsJsonAsync(new { String=str, Length=str.Length });
+});
 app.UseDeveloperExceptionPage();
 
 app.Run();

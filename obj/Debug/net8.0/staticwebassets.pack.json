@@ -1,19 +1,19 @@
 {
   "Files": [
     {
-      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\fillup.html",
+      "Id": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\fillup.html",
       "PackagePath": "staticwebassets\\fillup.html"
     },
     {
-      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\greet.html",
+      "Id": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\greet.html",
       "PackagePath": "staticwebassets\\greet.html"
     },
     {
-      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\index.html",
+      "Id": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\ASP\\hw1\\hw1\\wwwroot\\styles\\index.css",
+      "Id": "C:\\Users\\fff\\RiderProjects\\C--HW\\wwwroot\\styles\\index.css",
       "PackagePath": "staticwebassets\\styles\\index.css"
     },
     {
@@ -27,6 +27,10 @@
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.hw1.props",
       "PackagePath": "buildTransitive\\hw1.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.hw1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.hw1.Microsoft.AspNetCore.StaticWebAssets.props",
