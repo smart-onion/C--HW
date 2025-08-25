@@ -1,0 +1,11 @@
+﻿@model IEnumerable<User>
+@{
+    var conut = 1;
+}
+<h1>Top 10 Users</h1>
+<ol>
+@foreach (var user in Model)
+{
+    <li>Name: @user.Name | Score: @user.Score</li>
+}
+</ol>
