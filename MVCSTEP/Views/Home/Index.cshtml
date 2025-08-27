@@ -1,12 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    User user = new User() { Name = "Alex", Age = 18 };
+﻿@model Product?
+ 
+<form asp-antiforgery="true" asp-action="Create" asp-controller="Home">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" name="id" value="@Model.Id"/>
+        <div>
+            <label asp-for="Name"></label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Category"></label><br />
+            <input asp-for="Category" />
+            <span asp-validation-for="Category"></span>
+        </div>
+        <div>
+            <label asp-for="Price"></label><br />
+            <input asp-for="Price" />
+            <span asp-validation-for="Price"></span>
+        </div>
+        <div>
+            <label asp-for="Discount"></label><br />
+            <input asp-for="Discount" />
+            <span asp-validation-for="Discount"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label><br />
+            <input asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save"  />
+        </div>
+    </div>
+</form>
+ 
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-@await Component.InvokeAsync("Time")
-<vc:top-rated></vc:top-rated>

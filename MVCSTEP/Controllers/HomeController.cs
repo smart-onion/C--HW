@@ -13,19 +13,20 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
-        return View();
+        return View(new Product());
     }
-
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult Index(Product product)
     {
-        return View();
+        if (!ModelState.IsValid)
+        {
+            return Json(product);
+        }
+        return View(product);
     }
+   
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }
