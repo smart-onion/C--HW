@@ -1,12 +1,16 @@
-﻿@{
+﻿@model User
+
+@{
     ViewData["Title"] = "Home Page";
-    User user = new User() { Name = "Alex", Age = 18 };
+    var bagUser = ViewBag.User as User;
+    var dataUser = ViewData["user"] as User;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Model</h1>    
+<p>Name: @Model.Name Age: @Model.Age</p>
 
-@await Component.InvokeAsync("Time")
-<vc:top-rated></vc:top-rated>
+<h1>ViewBag</h1>
+<p>Name: @bagUser.Name Age: @bagUser.Age</p>
+
+<h1>ViewData</h1>
+<p>Name: @dataUser.Name Age: @dataUser.Age</p>
