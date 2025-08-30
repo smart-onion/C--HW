@@ -1,41 +1,26 @@
-﻿@model Product?
- 
-<form asp-antiforgery="true" asp-action="Create" asp-controller="Home">
-    <div>
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-        <input type="hidden" name="id" value="@Model.Id"/>
-        <div>
-            <label asp-for="Name"></label><br />
-            <input type="text" asp-for="Name" />
-            <span asp-validation-for="Name"></span>
-        </div>
-        <div>
-            <label asp-for="Category"></label><br />
-            <input asp-for="Category" />
-            <span asp-validation-for="Category"></span>
-        </div>
-        <div>
-            <label asp-for="Price"></label><br />
-            <input asp-for="Price" />
-            <span asp-validation-for="Price"></span>
-        </div>
-        <div>
-            <label asp-for="Discount"></label><br />
-            <input asp-for="Discount" />
-            <span asp-validation-for="Discount"></span>
-        </div>
-        <div>
-            <label asp-for="Description"></label><br />
-            <input asp-for="Description" />
-            <span asp-validation-for="Description"></span>
-        </div>
-        <div>
-            <input type="submit" value="Save"  />
-        </div>
-    </div>
-</form>
- 
-@section Scripts
-{
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+﻿@using MVCSTEP.Enums
+@model MVCSTEP.ViewModels.MatrixViewModel
+
+@{
+    var first = Model.First ?? new Matrix() {AxisX = 3, AxisY = 3};
+    var second = Model.Second ?? new Matrix() {AxisX = 3, AxisY = 3};
+    
 }
+
+<form asp-action="Calculate" method="post">
+    <h3>Select action:</h3>
+    <select name="Action" asp-for="Action" asp-items="@Html.GetEnumSelectList<MatrixAction>()" >
+    </select>
+    <h1>Matrix A</h1>
+    <matrix matrix="@first" name="First"></matrix>
+
+    <h1>Matrix B</h1>
+    <matrix matrix="@second" name="Second"></matrix>
+    <input type="submit" value="send"/>
+</form>
+@if (Model.Result != null)
+{
+    <h1>Matrix Result</h1>
+    <matrix matrix="@Model.Result" name="Result"></matrix> 
+}
+
