@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MVCSTEP.Views.Home;
+namespace MVCSTEP.Views.Admin;
 
-public class Login : PageModel
+public class Edit : PageModel
 {
     public void OnGet()
     {

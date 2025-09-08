@@ -21,7 +21,6 @@
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/scopedcss/bundle/MVCSTEP.styles.css
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/scopedcss/projectbundle/MVCSTEP.bundle.scp.css
-/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/compressed/xo9dyf3rmy-lugek5hnai.gz
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/compressed/tmj79hl537-61n19gt1b8.gz
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/compressed/4z6savhmfh-fr7q2aak1r.gz
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/compressed/e5cye4u94d-bqjiyaj88i.gz
@@ -196,3 +195,9 @@
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/MVCSTEP.csproj.AssemblyReference.cache
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/MVCSTEP.csproj.Up2Date
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.Extensions.Identity.Core.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/compressed/xo9dyf3rmy-u3m7q0untb.gz

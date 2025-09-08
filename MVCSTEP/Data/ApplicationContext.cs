@@ -1,14 +1,15 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MVCSTEP.Models;
 
 namespace MVCSTEP.Data;
 
-public class ApplicationContext:DbContext
+public class ApplicationContext : IdentityDbContext<User>
 {
-    public ApplicationContext(DbContextOptions<ApplicationContext> context):base(context)
+    public DbSet<Membership> Memberships { get; set; }
+    public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        : base(options)
     {
- 
+        Database.EnsureCreated();
     }
-    
-    
 }
