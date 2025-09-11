@@ -2,7 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Send email to you in future!</h1>
+<form asp-action="SendEmail">
+    <div style="display: flex; flex-direction: column">
+        <label for="body">Body</label>
+        <textarea id="body" name="body">Hi,</textarea>
+        <label for="to">To</label>
+        <input name="to"/>
+        <label for="subject">Subject</label>
+        <input name="subject"/>
+        <label for="body">Select years to be send</label>
+        <select name="delay">
+            <option value="@TimeSpan.FromDays(1 * 365)">1 year</option>
+            <option value="@TimeSpan.FromDays(5 * 365)">5 years</option>
+            <option value="@TimeSpan.FromDays(10 * 365)">10 years</option>
+        </select>
+        <input type="submit" value="Send"/>
+    </div>
+</form>

@@ -1,9 +1,22 @@
+using MVCSTEP.Filters;
+using MVCSTEP.Models;
+using MVCSTEP.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opts =>
+{
+    opts.Filters.Add<ModelValidateFilter>();
+});
+
+var service = builder.Configuration.GetSection("EmailSettings").Get<EmailSettings>();
+builder.Services.AddSingleton(service);
+
+builder.Services.AddScoped<EmailSenderService>();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

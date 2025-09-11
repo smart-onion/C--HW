@@ -1,16 +1,18 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCSTEP.Models;
+using MVCSTEP.Services;
 
 namespace MVCSTEP.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly EmailSenderService  _emailSenderService;
+    public HomeController(ILogger<HomeController> logger, EmailSenderService  emailSenderService)
     {
         _logger = logger;
+        _emailSenderService = emailSenderService;
     }
 
     public IActionResult Index()
@@ -18,14 +20,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult SendEmail(Message message)
     {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        _emailSenderService.SendMessageAsync(message);
+        return Content("ok");
     }
 }

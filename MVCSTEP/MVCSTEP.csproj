@@ -6,4 +6,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\User\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\RegisterSuccess.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MailKit" Version="4.13.0" />
+    </ItemGroup>
+
 </Project>
