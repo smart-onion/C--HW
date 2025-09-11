@@ -7,55 +7,57 @@ namespace MVCSTEP.Repositories;
 
 public class MembershipRepository : IMembership
 {
-    private readonly ApplicationContext _context;
+    private readonly ApplicationContext _applicationContext;
 
-    public MembershipRepository(ApplicationContext context)
+    public MembershipRepository(ApplicationContext applicationContext)
     {
-        _context = context;
+        _applicationContext = applicationContext;
     }
     public async Task<IEnumerable<Membership>> GetAllMembershipsAsync()
     {
-        return await _context.Memberships.ToListAsync();
+        return await _applicationContext.Memberships.OrderByDescending(e => e.Id).ToListAsync();
     }
-
+ 
     public async Task<Membership> GetMembershipAsync(int id)
     {
-        return await _context.Memberships.FindAsync(id);
+        return await _applicationContext.Memberships.FirstOrDefaultAsync(e => e.Id == id);
     }
-
-    public async Task<bool> ExistsMembershipByCodeAsync(string code)
-    {
-        return await _context.Memberships.AnyAsync(m => m.Code == code);
-    }
-
-    public async Task<bool> EnableCodeMembershipByCodeAsync(string code)
-    {
-        var member = await _context.Memberships.FirstOrDefaultAsync(m => m.Code == code);
-        if (member == null) return false;
-        member.IsEnable =  true;
-        await _context.SaveChangesAsync();
-        return true;
-        
-    }
-
-    public async Task DisableMembershipCodeAsync(string code)
-    {
-        var member = await _context.Memberships.FirstOrDefaultAsync(m => m.Code == code);
-        if (member == null) return;
-        member.IsEnable =  false;
-        await _context.SaveChangesAsync();
-    }
-
+ 
     public async Task AddMembershipAsync(Membership membership)
     {
-        _context.Memberships.Add(membership);
-        await _context.SaveChangesAsync();
+        _applicationContext.Memberships.Add(membership);
+        await _applicationContext.SaveChangesAsync();
     }
-
+ 
     public async Task DeleteMembershipAsync(Membership membership)
     {
-        _context.Memberships.Remove(membership);
-        await _context.SaveChangesAsync();
+        _applicationContext.Memberships.Remove(membership);
+        await _applicationContext.SaveChangesAsync();
+    }
+ 
+    public async Task<bool> ExistsMembershipByCodeAsync(string code)
+    {
+        return await _applicationContext.Memberships.AnyAsync(e => e.Code.Equals(code));
+    }
+ 
+    public async Task DisableMembershipCodeAsync(string code)
+    {
+        var currentMemberShip = await _applicationContext.Memberships.FirstOrDefaultAsync(e => e.Code.Equals(code));
+        if (currentMemberShip != null)
+        {
+            currentMemberShip.IsEnable = false;
+            await _applicationContext.SaveChangesAsync();
+        }
+    }
+ 
+    public async Task<bool> EnableCodeMembershipByCodeAsync(string code)
+    {
+        var currentMemberShip = await _applicationContext.Memberships.FirstOrDefaultAsync(e => e.Code.Equals(code));
+        if (currentMemberShip != null)
+        {
+            return currentMemberShip.IsEnable;
+        }
+        return false;
     }
     
 }

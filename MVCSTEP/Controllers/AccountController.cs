@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVCSTEP.Interfaces;
 using MVCSTEP.Models;
 using MVCSTEP.ViewModels;
 
@@ -58,5 +60,122 @@ public class AccountController : Controller
         // удаляем аутентификационные куки
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index","Home");
+    }
+    
+    [Route("register")]
+    [HttpGet]
+    public async Task<IActionResult> Register([FromServices] IMembership membership, string? code)
+    {
+        if (!User.Identity.IsAuthenticated || code != null)
+        {
+            if (await membership.ExistsMembershipByCodeAsync(code))
+            {
+                if (await membership.EnableCodeMembershipByCodeAsync(code))
+                {
+                    return View(new RegisterUserViewModel { Code = code });
+                }
+            }
+        }
+        return RedirectToAction("Index", "Home");
+    }
+ 
+    [Route("register")]
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> Register([FromServices] IMembership membership, RegisterUserViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var userCheck = await _userManager.FindByEmailAsync(model.Email);
+            if (userCheck != null)
+            {
+                ModelState.AddModelError("Email", "Такой email адрес уже есть!");
+                return View(model);
+            }
+            User user = new User { Email = model.Email, UserName = model.Email, Name = model.Name, PhoneNumber = model.Phone };
+            // добавляем пользователя
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                //Установки роли. Сама роль находится в таблице AspNetRoles
+                //если таблица пустая, получим ошибку. Обязательно заполняем роли!
+                await _userManager.AddToRoleAsync(user, "Editor");
+                //используем приглашение
+                await membership.DisableMembershipCodeAsync(model.Code);
+                //установка куки
+                await _signInManager.SignInAsync(user, true);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+        }
+        return View(model);
+    }
+    
+    [Route("settings")]
+    [HttpGet]
+    public async Task<IActionResult> Settings()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null)
+        {
+            return NotFound();
+        }
+        var currentUser = await _userManager.FindByIdAsync(userId);
+        return View(currentUser);
+    }
+ 
+    [Route("change-password")]
+    [HttpGet]
+    public async Task<IActionResult> ChangePassword(string id)
+    {
+        User user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+        ChangePasswordViewModel model = new ChangePasswordViewModel { Id = user.Id, Email = user.Email };
+        return View(model);
+    }
+ 
+    [Route("change-password")]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            User user = await _userManager.FindByIdAsync(model.Id);
+            if (user != null)
+            {
+                IdentityResult result =
+                    await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Settings");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        if(error.Description.Equals("Incorrect password."))
+                        {
+                            ModelState.AddModelError(string.Empty, "Введен неверный текущий пароль.");
+                            continue;
+                        }
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }                    }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Пользователь не найден");
+            }
+        }
+        return View(model);
     }
 }

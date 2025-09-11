@@ -21,7 +21,7 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
- 
+
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Главная</a>
@@ -34,33 +34,43 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="" asp-action="">@User.Identity.Name</a>
+                                <a class="nav-link text-dark" asp-controller="Account"
+                                   asp-action="Settings">@User.Identity.Name</a>
                             </li>
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Index">Пользователи</a>
+                                    <a class="nav-link text-dark" asp-controller="Admin"
+                                       asp-action="Index">Пользователи</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="Membership" asp-action="Index" class="btn btn-primary">Приглашения</a>
                                 </li>
                             }
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Content" asp-action="Index"> Материал</a>
+                            </li>
                             <li class="nav-item">
                                 <form method="post" asp-controller="Account" asp-action="Logout">
                                     @*Добавляем стили, чтобы кнопка выглядела как ссылка*@
                                     <style>
-                        .mybtn {
-                            background: none !important;
-                            border: none;
-                            cursor: pointer;
-                        }
-                    </style>
+                                        .mybtn {
+                                            background: none !important;
+                                            border: none;
+                                            cursor: pointer;
+                                        }
+                                    </style>
                                     @*Применяем класс стилей для кнопки*@
-                                    <input class="nav-link text-dark mybtn" type="submit" value="Выход" />
+                                    <input class="nav-link text-dark mybtn" type="submit" value="Выход"/>
                                 </form>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Авторизация</a>
+                                <a class="nav-link text-dark" asp-controller="Account"
+                                   asp-action="Login">Авторизация</a>
                             </li>
                         }
                     </ul>

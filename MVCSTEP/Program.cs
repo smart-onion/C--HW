@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVCSTEP.Data;
+using MVCSTEP.Interfaces;
 using MVCSTEP.Models;
+using MVCSTEP.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,10 @@ builder.Services.AddIdentity<User, IdentityRole>(opts =>
     })
     .AddEntityFrameworkStores<ApplicationContext>();
 
+builder.Services.AddScoped<IMembership, MembershipRepository>();
+builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IPublication, PublicationRepository>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -38,6 +44,9 @@ using (var scope = app.Services.CreateScope())
         var userManager = services.GetRequiredService<UserManager<User>>();
         var rolesManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         await RoleInitializer.InitializeAsync(userManager, rolesManager);
+        
+        var applicationContext = services.GetRequiredService<ApplicationContext>();
+        await ContentInitializer.InitializeAsync(applicationContext);
     }
     catch (Exception ex)
     {
