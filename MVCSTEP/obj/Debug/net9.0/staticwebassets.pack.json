@@ -1,0 +1,881 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\MVCSTEP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MVCSTEP.s5gvxi1tmn.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_editor.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_editor.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_editor.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_editor.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_editor.pkgd.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_editor.pkgd.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_editor.pkgd.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_editor.pkgd.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_style.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_style.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\froala_style.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\froala_style.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins.pkgd.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins.pkgd.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins.pkgd.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins.pkgd.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\char_counter.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\char_counter.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\char_counter.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\char_counter.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\code_view.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\code_view.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\code_view.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\code_view.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\colors.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\colors.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\colors.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\colors.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\draggable.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\draggable.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\draggable.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\draggable.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\emoticons.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\emoticons.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\emoticons.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\emoticons.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\file.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\file.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\file.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\file.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\files_manager.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\files_manager.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\files_manager.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\files_manager.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\filestack.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\filestack.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\filestack.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\filestack.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\fullscreen.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\fullscreen.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\fullscreen.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\fullscreen.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\help.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\help.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\help.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\help.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\image.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\image.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\image.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\image.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\image_manager.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\image_manager.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\image_manager.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\image_manager.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\line_breaker.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\line_breaker.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\line_breaker.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\line_breaker.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\markdown.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\markdown.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\markdown.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\markdown.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\quick_insert.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\quick_insert.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\quick_insert.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\quick_insert.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\special_characters.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\special_characters.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\special_characters.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\special_characters.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\table.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\table.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\table.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\table.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\trim_video.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\trim_video.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\trim_video.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\trim_video.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\video.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\video.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\plugins\\video.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\plugins\\video.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\dark.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\dark.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\dark.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\dark.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\gray.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\gray.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\gray.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\gray.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\royal.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\royal.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\themes\\royal.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\themes\\royal.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\embedly.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\embedly.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\embedly.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\embedly.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\font_awesome.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\font_awesome.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\font_awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\font_awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\image_tui.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\image_tui.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\image_tui.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\image_tui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\spell_checker.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\spell_checker.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\forala\\third_party\\spell_checker.min.css",
+      "PackagePath": "staticwebassets\\css\\forala\\third_party\\spell_checker.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\category.js",
+      "PackagePath": "staticwebassets\\js\\category.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\froala_editor.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\froala_editor.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\froala_editor.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\froala_editor.pkgd.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ar.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ar.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\bs.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\bs.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\cs.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\cs.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\da.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\da.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\de.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\de.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\el.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\el.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\en_ca.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\en_ca.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\en_gb.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\en_gb.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\es.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\es.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\et.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\et.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\fa.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\fa.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\fi.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\fi.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\fr.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\fr.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\he.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\he.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\hr.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\hr.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\hu.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\hu.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\id.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\id.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\it.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\it.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ja.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ja.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ko.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ko.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ku.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ku.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\me.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\me.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\nb.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\nb.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\nl.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\nl.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\pl.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\pl.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\pt_br.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\pt_br.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\pt_pt.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\pt_pt.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ro.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ro.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\ru.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\ru.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\sk.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\sk.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\sl.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\sl.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\sr.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\sr.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\sv.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\sv.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\th.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\th.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\tr.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\tr.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\uk.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\uk.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\vi.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\vi.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\zh_cn.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\zh_cn.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\languages\\zh_tw.js",
+      "PackagePath": "staticwebassets\\js\\forala\\languages\\zh_tw.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins.pkgd.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\align.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\align.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\char_counter.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\char_counter.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\code_beautifier.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\code_beautifier.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\code_view.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\code_view.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\colors.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\colors.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\cryptojs.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\cryptojs.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\draggable.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\draggable.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\edit_in_popup.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\edit_in_popup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\emoticons.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\emoticons.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\entities.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\entities.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\file.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\file.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\files_manager.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\files_manager.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\filestack.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\filestack.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\font_family.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\font_family.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\font_size.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\font_size.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\forms.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\forms.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\fullscreen.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\fullscreen.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\help.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\help.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\image.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\image.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\image_manager.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\image_manager.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\inline_class.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\inline_class.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\inline_style.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\inline_style.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\line_breaker.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\line_breaker.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\line_height.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\line_height.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\link.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\link.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\lists.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\lists.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\markdown.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\markdown.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\paragraph_format.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\paragraph_format.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\paragraph_style.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\paragraph_style.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\print.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\print.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\quick_insert.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\quick_insert.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\quote.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\quote.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\save.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\save.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\special_characters.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\special_characters.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\table.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\table.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\track_changes.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\track_changes.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\trim_video.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\trim_video.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\url.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\url.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\video.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\video.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\word_counter.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\word_counter.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\plugins\\word_paste.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\plugins\\word_paste.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\third_party\\embedly.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\third_party\\embedly.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\third_party\\font_awesome.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\third_party\\font_awesome.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\third_party\\image_tui.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\third_party\\image_tui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\third_party\\showdown.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\third_party\\showdown.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\forala\\third_party\\spell_checker.min.js",
+      "PackagePath": "staticwebassets\\js\\forala\\third_party\\spell_checker.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\fff\\RiderProjects\\CHW\\MVCSTEP\\wwwroot\\publicationImagesae2bf2ea-b154-45aa-aab8-4b79c6221d12bill shufar.png",
+      "PackagePath": "staticwebassets\\publicationImagesae2bf2ea-b154-45aa-aab8-4b79c6221d12bill shufar.png"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MVCSTEP.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.MVCSTEP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.MVCSTEP.props",
+      "PackagePath": "build\\MVCSTEP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.MVCSTEP.props",
+      "PackagePath": "buildMultiTargeting\\MVCSTEP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.MVCSTEP.props",
+      "PackagePath": "buildTransitive\\MVCSTEP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

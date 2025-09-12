@@ -11,21 +11,27 @@
             <a asp-controller="Content" asp-action="CreateCategory" class="btn btn-primary">Добавить категорию</a>
             <a asp-controller="Content" asp-action="CreatePublication" class="btn btn-primary">Добавить публикацию</a>
         </div>
- 
+
         <h3>Категории</h3>
- 
+
         <div class="p-5 mb-4 bg-light rounded-3 ovx">
             <table class="table table-hover">
-                <tr><th>Название категории</th><th></th><th></th></tr>
+                <tr>
+                    <th>Название категории</th>
+                    <th></th>
+                    <th></th>
+                </tr>
                 @foreach (var category in Model.Categories)
                 {
                     <tr>
                         <td>@category.Name</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" asp-controller="Content" asp-action="EditCategory" asp-route-id="@category.Id">Изменить</a>
+                            <a class="btn btn-sm btn-primary" asp-controller="Content" asp-action="EditCategory"
+                               asp-route-id="@category.Id">Изменить</a>
                         </td>
                         <td>
-                            <form asp-controller="Content" asp-action="DeleteCategory" asp-route-id="@category.Id" method="post">
+                            <form asp-controller="Content" asp-action="DeleteCategory" asp-route-id="@category.Id"
+                                  method="post">
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
                             </form>
@@ -34,12 +40,18 @@
                 }
             </table>
         </div>
- 
+
         <h3>Публикации</h3>
- 
+
         <div class="p-5 mb-4 bg-light rounded-3 ovx">
             <table class="table table-hover">
-                <tr><th>Название записи</th><th>Категории</th><th>Всего просмотров</th><th></th><th></th></tr>
+                <tr>
+                    <th>Название записи</th>
+                    <th>Категории</th>
+                    <th>Всего просмотров</th>
+                    <th></th>
+                    <th></th>
+                </tr>
                 @foreach (var publication in Model.Publications)
                 {
                     <tr>
@@ -53,6 +65,7 @@
                                     {
                                         st.Append($"{category.Name}, ");
                                     }
+
                                     st.Remove(st.Length - 2, 2);
                                 }
                                 else
@@ -64,10 +77,12 @@
                         </td>
                         <td>@publication.TotalViews</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" asp-controller="Content" asp-action="EditPublication" asp-route-id="@publication.Id">Изменить</a>
+                            <a class="btn btn-sm btn-primary" asp-controller="Content" asp-action="EditPublication"
+                               asp-route-id="@publication.Id">Изменить</a>
                         </td>
                         <td>
-                            <form asp-controller="Content" asp-action="DeletePublication" asp-route-id="@publication.Id" method="post">
+                            <form asp-controller="Content" asp-action="DeletePublication" asp-route-id="@publication.Id"
+                                  method="post">
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
                             </form>
@@ -76,6 +91,9 @@
                 }
             </table>
         </div>
- 
+        <div class="text-center">
+            @await Html.PartialAsync("Pages", Model)
+        </div>
     </div>
+
 </div>
