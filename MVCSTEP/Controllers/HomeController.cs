@@ -13,20 +13,4 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return View(new Product());
-    }
-    [HttpPost]
-    public IActionResult Index(Product product)
-    {
-        if (!ModelState.IsValid)
-        {
-            return Json(product);
-        }
-        return View(product);
-    }
-   
-
 }

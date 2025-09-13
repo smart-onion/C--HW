@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace MVCSTEP.Models;
 
-public class User
+public class User : IdentityUser
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public int Score { get; set; }
+
 }
