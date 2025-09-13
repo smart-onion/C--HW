@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MVCSTEP.Models;
 
@@ -11,4 +11,6 @@ public class ApplicationContext:IdentityDbContext<User>
     {
         Database.EnsureCreated();
     }
+
+public DbSet<MVCSTEP.Models.Note> Note { get; set; } = default!;
 }

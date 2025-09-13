@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVCSTEP.Data;
+using MVCSTEP.Filters;
 using MVCSTEP.Models;
 using MVCSTEP.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opts => { opts.Filters.Add<ModelValidateFilter>(); });
 
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseInMemoryDatabase("db"));
 
-builder.Services.AddIdentity<User, IdentityRole>(opts => { opts.SignIn.RequireConfirmedAccount = true; })
-    .AddDefaultTokenProviders()
+builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>();
 
 var app = builder.Build();
