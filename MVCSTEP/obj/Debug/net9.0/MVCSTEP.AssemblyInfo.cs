@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MVCSTEP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d454d83c33dd05df8d3b5d2b272994f5469a761")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+170c05c94304f11ef93ed543d07ad776b74768f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MVCSTEP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MVCSTEP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

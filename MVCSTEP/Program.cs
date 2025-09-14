@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MVCSTEP.AuthHandlers;
+using MVCSTEP.AuthHandlers.Requirements;
 using MVCSTEP.Data;
 using MVCSTEP.Filters;
 using MVCSTEP.Models;
@@ -10,11 +13,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews(opts => { opts.Filters.Add<ModelValidateFilter>(); });
 
+builder.Services.AddScoped<IAuthorizationHandler, IsNoteOwnerHandler>();
+builder.Services.AddScoped<NoteOwnerAuthFilter>();
 builder.Services.AddDbContext<ApplicationContext>(options =>
     options.UseInMemoryDatabase("db"));
 
-builder.Services.AddIdentity<User, IdentityRole>()
+builder.Services.AddIdentity<User, IdentityRole>(opts => { opts.User.RequireUniqueEmail = true; })
     .AddEntityFrameworkStores<ApplicationContext>();
+
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization(opts =>
+{
+    opts.AddPolicy("NoteOwner", policy => policy.AddRequirements(new IsNoteOwnerRequirement()));
+});
 
 var app = builder.Build();
 
@@ -28,7 +39,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

@@ -4,7 +4,7 @@ using MVCSTEP.Models;
 
 namespace MVCSTEP.Data;
 
-public class ApplicationContext:IdentityDbContext<User>
+public class ApplicationContext : IdentityDbContext<User>
 {
     public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
@@ -12,5 +12,5 @@ public class ApplicationContext:IdentityDbContext<User>
         Database.EnsureCreated();
     }
 
-public DbSet<MVCSTEP.Models.Note> Note { get; set; } = default!;
+    public DbSet<MVCSTEP.Models.Note> Note { get; set; } = default!;
 }
