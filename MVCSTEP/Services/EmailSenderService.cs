@@ -1,16 +1,18 @@
 ﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Identity;
 using MimeKit;
+using MVCSTEP.Interfaces;
 
-namespace MVCSTEP.Helpers;
+namespace MVCSTEP.Services;
 
-public class EmailHelper
+public class EmailSenderService: IEmailSender
 {
-    public async Task<bool> SendEmailRegistrationConfirm(string userEmail, string link)
+    public async Task<bool> SendEmailWithTokenAsync(string userEmail, string link)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("WebApplication1 Project", "enykoruna1@gmail.com"));
+        message.From.Add(new MailboxAddress("HW Identity", "sanyamart13@gmail.com"));
         message.To.Add(new MailboxAddress(name: userEmail, address: userEmail));
-        message.Subject = "Confirmation of registration on the WebApplication1 website";
+        message.Subject = "Confirmation of registration on the HW Identity website";
         message.Body = new TextPart("html")
         {
             Text = link,

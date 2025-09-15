@@ -1,0 +1,23 @@
+﻿@model MVCSTEP.ViewModels.EditUserViewModel
+
+@{
+    int index = 0;
+    var roles = ViewBag.Roles as List<string>;
+}
+
+<form asp-action="EditUser" method="post">
+    <input asp-for="Id" type="hidden"/>
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName"/>
+    <label asp-for="Email"></label>
+    <input asp-for="Email"/>
+
+    <select asp-for="Role">
+        @foreach (var role in roles)
+        {
+            <option value="@role">@role</option>
+        }
+    </select>
+    <input type="submit" value="Edit"/>
+
+</form>

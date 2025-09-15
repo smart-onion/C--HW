@@ -5,5 +5,5 @@ namespace MVCSTEP.Models;
 
 public class User : IdentityUser
 {
-
+    public List<User> Friends { get; set; } = new() ;
 }
