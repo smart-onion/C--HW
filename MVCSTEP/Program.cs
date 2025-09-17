@@ -1,99 +1,71 @@
-using Microsoft.EntityFrameworkCore;
-using MVCSTEP.Data;
-using MVCSTEP.Interfaces;
-using MVCSTEP.Models;
-using MVCSTEP.Repositories;
 
-IConfigurationRoot _configuration = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json").Build();
-    
-var services = new ServiceCollection()
-    .AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase("db"))
-    .AddScoped<IProduct, ProductRepository>()
-    .AddScoped<GetAllProductsQueryHandler>()
-    .AddScoped<GetAllProductsQueryHandler>()
-    .AddScoped<AddProductCommandHandler>();
-    
-using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-{
-    var addProductHandler = serviceProvider.GetRequiredService<AddProductCommandHandler>();
-    var getAllProductsHandler = serviceProvider.GetRequiredService<GetAllProductsQueryHandler>();
+ChatMediator chat = new ChatMediator();
  
-    // Добавляем продукты
-    addProductHandler.Handle(new AddProductCommand { Name = "Apple", Price = 32 });
-    addProductHandler.Handle(new AddProductCommand { Name = "Orange", Price = 56 });
-    addProductHandler.Handle(new AddProductCommand { Name = "Cherry", Price = 70 });
+User alice = new User(chat, "Alice");
+User bob = new User(chat, "Bob");
+User charlie = new User(chat, "Charlie");
  
-    // Получаем список продуктов
-    List<Product> products = getAllProductsHandler.Handle(new GetAllProductsQuery()).ToList();
-}
+chat.Register(alice);
+chat.Register(bob);
+chat.Register(charlie);
+ 
+alice.Send("Hello, people!");
+bob.Send("Hello, Alice!");
 
-// Команда для добавления нового продукта в каталог
-public class AddProductCommand
+
+public interface IMediator
 {
-    public string Name { get; set; }
-    public decimal Price { get; set; }
+    void SendMessage(string message, Colleague colleague);
 }
  
-// Обработчик команды для добавления нового продукта в каталог
-public class AddProductCommandHandler
+public abstract class Colleague
 {
-    private readonly IProduct _products;
-    public AddProductCommandHandler(IProduct products)
-    {
-        _products = products;
-    }
+    protected IMediator _mediator;
  
-    public void Handle(AddProductCommand command)
+    public Colleague(IMediator mediator)
     {
-        var product = new Product { Name = command.Name, Price = command.Price };
-        _products.AddProduct(product);
-    }
-}
- 
-// Запрос для получения списка всех продуктов в каталоге
-public class GetAllProductsQuery
-{
-}
- 
-// Обработчик запроса для получения списка всех продуктов в каталоге
-public class GetAllProductsQueryHandler
-{
-    private readonly IProduct _products;
-    public GetAllProductsQueryHandler(IProduct products)
-    {
-        _products = products;
-    }
- 
-    public IEnumerable<Product> Handle(GetAllProductsQuery query)
-    {
-        return _products.GetAllProducts();
+        _mediator = mediator;
     }
 }
 
-public class UpdateProductCommand
+public class User : Colleague
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-}
-public class UpdateProductCommandHandler
-{
-    private readonly IProduct _products;
-    public UpdateProductCommandHandler(IProduct products)
+    public string Name { get; }
+ 
+    public User(IMediator mediator, string name) : base(mediator)
     {
-        _products = products;
+        Name = name;
     }
  
-    public void Handle(UpdateProductCommand command)
+    public void Send(string message)
     {
-        Product product = new Product
+        Console.WriteLine($"{Name} sends a message: {message}");
+        _mediator.SendMessage(message, this);
+    }
+ 
+    public void Receive(string message)
+    {
+        Console.WriteLine($"{Name} received a message: {message}");
+    }
+}
+
+public class ChatMediator : IMediator
+{
+    private List<User> _users = new List<User>();
+ 
+    public void Register(User user)
+    {
+        _users.Add(user);
+    }
+ 
+    public void SendMessage(string message, Colleague sender)
+    {
+        foreach (var user in _users)
         {
-            Id = command.Id,
-            Name = command.Name,
-            Price = command.Price
-        };
-        _products.UpdateProduct(product);
+            if (user != sender)
+            {
+                user.Receive(message);
+            }
+        }
     }
 }
