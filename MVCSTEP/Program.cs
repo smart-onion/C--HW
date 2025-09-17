@@ -1,71 +1,20 @@
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using MVCSTEP.Data;
+using MVCSTEP.Interfaces;
+using MVCSTEP.Repositories;
 
-ChatMediator chat = new ChatMediator();
- 
-User alice = new User(chat, "Alice");
-User bob = new User(chat, "Bob");
-User charlie = new User(chat, "Charlie");
- 
-chat.Register(alice);
-chat.Register(bob);
-chat.Register(charlie);
- 
-alice.Send("Hello, people!");
-bob.Send("Hello, Alice!");
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IUser, UserRepository>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddDbContext<ApplicationContext>(opts => opts.UseInMemoryDatabase("db"));
+builder.Services.AddControllers();
 
 
-public interface IMediator
-{
-    void SendMessage(string message, Colleague colleague);
-}
- 
-public abstract class Colleague
-{
-    protected IMediator _mediator;
- 
-    public Colleague(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-}
+var app = builder.Build();
 
-public class User : Colleague
-{
-    public string Name { get; }
- 
-    public User(IMediator mediator, string name) : base(mediator)
-    {
-        Name = name;
-    }
- 
-    public void Send(string message)
-    {
-        Console.WriteLine($"{Name} sends a message: {message}");
-        _mediator.SendMessage(message, this);
-    }
- 
-    public void Receive(string message)
-    {
-        Console.WriteLine($"{Name} received a message: {message}");
-    }
-}
-
-public class ChatMediator : IMediator
-{
-    private List<User> _users = new List<User>();
- 
-    public void Register(User user)
-    {
-        _users.Add(user);
-    }
- 
-    public void SendMessage(string message, Colleague sender)
-    {
-        foreach (var user in _users)
-        {
-            if (user != sender)
-            {
-                user.Receive(message);
-            }
-        }
-    }
-}
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

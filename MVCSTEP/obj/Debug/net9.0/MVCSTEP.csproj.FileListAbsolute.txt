@@ -40,3 +40,9 @@
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/MVCSTEP.csproj.AssemblyReference.cache
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/MVCSTEP.sourcelink.json
 /Users/alex/RiderProjects/MVCSTEP/MVCSTEP/obj/Debug/net9.0/MVCSTEP.csproj.Up2Date
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/MediatR.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/MediatR.Contracts.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/alex/RiderProjects/MVCSTEP/MVCSTEP/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
