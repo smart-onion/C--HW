@@ -1,9 +1,0 @@
-﻿@model MVCSTEP.ViewModels.UserViewModel
-
-<p>@Model.Name</p>
-<p>@Model.Email</p>
-
-@foreach (var friend in Model.Friends)
-{
-    <a asp-action="GetProfile" asp-route="@friend.Id">@friend.UserName</a>
-}

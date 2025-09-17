@@ -1,0 +1,6 @@
+@MVCSTEP.WebAPI_HostAddress = http://localhost:5232
+
+GET {{MVCSTEP.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
