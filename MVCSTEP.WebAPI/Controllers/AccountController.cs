@@ -19,14 +19,14 @@ public class AccountController : Controller
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginUserCommand request)
     {
         var result = await _mediator.Send(request);
         return Ok(result);
     }
 
-    [HttpPost]
+    [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterUserCommand request)
     {
         var result = await _mediator.Send(request);

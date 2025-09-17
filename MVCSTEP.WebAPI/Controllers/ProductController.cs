@@ -24,20 +24,39 @@ public class ProductController : ControllerBase
         _mapper = mapper;
     }
     
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var products = await _mediator.Send(new GetAllProductsCommand());
+        return Ok(products);
+    }
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
         var product = await _mediator.Send(new GetProductByIdCommand() { Id = id });
-        if (product is null) return NotFound();
-        
-        return Ok(GetProductDto(product));
+        return Ok(product);
     }
     
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CreateProductCommand request)
     {
         var product = await _mediator.Send(request);
-        return Ok(GetProductDto(product));
+        return Ok(product);
+    }
+    
+    [HttpPut]
+    public async Task<IActionResult> Post([FromBody] UpdateProductCommand request)
+    {
+        var product = await _mediator.Send(request);
+        return Ok(product);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var product = await _mediator.Send(new DeleteProductCommand() { Id = id });
+        return Ok(product);
     }
     
     private ProductDto GetProductDto(Product product) => _mapper.Map<ProductDto>(product);

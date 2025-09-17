@@ -19,9 +19,9 @@ public class ReviewController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
-        var product = await _mediator.Send(new GetReviewByIdCommand() { Id = id });
-        if (product is null) return NotFound();
-        return Ok(product);
+        var review = await _mediator.Send(new GetReviewByIdCommand() { Id = id });
+        if (review is null) return NotFound();
+        return Ok(review);
     }
     
     [HttpPost]

@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using MVCSTEP.Application.DTOs;
 
 namespace MVCSTEP.Application.Commands.ReviewCommands;
 
-public class GetReviewByIdCommand: IRequest<Core.Entities.Review>
+public class GetReviewByIdCommand: IRequest<ReviewDto>
 {
     public int Id { get; set; }
 }

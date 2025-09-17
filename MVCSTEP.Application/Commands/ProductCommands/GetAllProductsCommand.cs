@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using MVCSTEP.Application.DTOs;
+using MVCSTEP.Core.Entities;
 
 namespace MVCSTEP.Application.Commands.ProductCommands;
 
-public class GetProductByIdCommand: IRequest<ProductDto>
+public class GetAllProductsCommand: IRequest<IEnumerable<ProductDto>>
 {
-    public int Id { get; set; }
+    
 }

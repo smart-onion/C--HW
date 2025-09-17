@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using MVCSTEP.Core.Entities;
 
 namespace MVCSTEP.Core.Interfaces;
@@ -11,7 +12,7 @@ public interface IAccountService
     Task<bool> CheckPasswordAsync(User user, string password);
     Task<string> GetAccessTokenAsync(User user);
     Task<User?> GetUserAsync();
-    Task<User?> CreateUserAsync(User user, string password);
+    Task<IdentityResult> CreateUserAsync(User user, string password);
     Task<bool> AddToRoleAsync(User user, string role);
     Task<bool> AddToRolesAsync(User user, IEnumerable<string> roles);
     

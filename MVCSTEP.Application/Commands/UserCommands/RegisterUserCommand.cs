@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using MVCSTEP.Application.DTOs;
 using MVCSTEP.Core.Entities;
 
 namespace MVCSTEP.Application.Commands.UserCommands;
 
-public class RegisterUserCommand: IRequest<RegisterDto>
+public class RegisterUserCommand: IRequest<IdentityResult>
 {
     [EmailAddress]
     [Required]

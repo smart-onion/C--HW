@@ -9,7 +9,7 @@ using MVCSTEP.Core.Interfaces;
 
 namespace MVCSTEP.Application.Handlers.UserHandlers;
 
-public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, RegisterDto>
+public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, IdentityResult>
 {
     private readonly IAccountService _accountService;
     private readonly IMapper _mapper;
@@ -20,10 +20,11 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, R
         _mapper = mapper;
     }
 
-    public async Task<RegisterDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+    public async Task<IdentityResult> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
         var user = _mapper.Map<User>(request);
-        var result = await _accountService.CreateUserAsync(user, request.Password);
-        return _mapper.Map<RegisterDto>(result);
+        
+        return await _accountService.CreateUserAsync(user, request.Password);
+        
     }
 }

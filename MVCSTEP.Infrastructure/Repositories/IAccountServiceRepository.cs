@@ -29,15 +29,9 @@ public class IAccountServiceRepository : IAccountService
     public Task<bool> CheckPasswordAsync(User user, string password) => _userManager.CheckPasswordAsync(user, password);
     public Task<string> GetAccessTokenAsync(User user) => Task.Run(() => _jwtService.CreateJwt(user));
     public Task<User?> GetUserAsync() =>  _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
-    public async Task<User?> CreateUserAsync(User user, string password)
+    public async Task<IdentityResult> CreateUserAsync(User user, string password)
     {
-        var newUser = await _userManager.CreateAsync(user, password);
-        if (newUser.Succeeded)
-        {
-            return await GetUserAsync();
-        }
-
-        return null;
+        return await _userManager.CreateAsync(user, password);
     }
 
     public async Task<bool> AddToRoleAsync(User user, string role)
