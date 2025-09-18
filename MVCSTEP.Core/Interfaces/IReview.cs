@@ -10,4 +10,5 @@ public interface IReview
     Task AddAsync(Review product);
     Task UpdateAsync(Review product);
     Task DeleteAsync(int id);
+    Task<decimal> GetRatingOfProduct(int  productId);
 }

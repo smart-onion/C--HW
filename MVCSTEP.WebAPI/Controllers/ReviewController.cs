@@ -19,9 +19,16 @@ public class ReviewController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetReviewsByProduct(GetReviewsByProductQuery request)
+    [Route("rating/{productId}")]
+    public async Task<IActionResult> GetRatingOfProduct(int productId)
     {
-        var reviews = await _mediator.Send(request);
+        var reviews = await _mediator.Send(new GetRatingOfProductQuery(productId));
+        return Ok(reviews);
+    }
+    [HttpGet("product/{productId}")]
+    public async Task<IActionResult> GetReviewsByProduct(int productId)
+    {
+        var reviews = await _mediator.Send(new  GetReviewsByProductQuery(productId));
         return Ok(reviews);
     }
 

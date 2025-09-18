@@ -23,6 +23,7 @@ public class ReviewRepository : IReview
     {
         return await _context.Reviews.Where(r => r.ProductId == id).ToListAsync();
     }
+
     public async Task<IEnumerable<Review>> GetReviewsByUserAsync(string id)
     {
         return await _context.Reviews.Where(r => r.UserId == id).ToListAsync();
@@ -49,5 +50,13 @@ public class ReviewRepository : IReview
             _context.Reviews.Remove(review);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public async Task<decimal> GetRatingOfProduct(int productId)
+    {
+        var review = await _context.Reviews
+            .Where(r => r.ProductId == productId)
+            .ToListAsync();
+        return review.Select(r => r.Rating).Sum();
     }
 }
