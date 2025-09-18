@@ -19,20 +19,25 @@ public class ReviewRepository : IReview
         return await _context.Reviews.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Review>> GetAllAsync()
+    public async Task<IEnumerable<Review>> GetReviewsByProductAsync(int id)
     {
-        return await _context.Reviews.ToListAsync();
+        return await _context.Reviews.Where(r => r.ProductId == id).ToListAsync();
+    }
+    public async Task<IEnumerable<Review>> GetReviewsByUserAsync(string id)
+    {
+        return await _context.Reviews.Where(r => r.UserId == id).ToListAsync();
     }
 
-    public async Task AddAsync(Review product)
+    public async Task AddAsync(Review review)
     {
-        await _context.Reviews.AddAsync(product);
+        await _context.Reviews.AddAsync(review);
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Review product)
+    public async Task UpdateAsync(Review review)
     {
-        _context.Reviews.Update(product);
+        review.Updated = DateTime.Now;
+        _context.Reviews.Update(review);
         await _context.SaveChangesAsync();
     }
 

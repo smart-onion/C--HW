@@ -46,6 +46,7 @@ public class ProductController : ControllerBase
     }
     
     [HttpPut]
+    [TypeFilter<ProductOwnerAuthorizationFilter>]
     public async Task<IActionResult> Post([FromBody] UpdateProductCommand request)
     {
         var product = await _mediator.Send(request);
@@ -53,6 +54,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [TypeFilter<ProductOwnerAuthorizationFilter>]
     public async Task<IActionResult> Delete(int id)
     {
         var product = await _mediator.Send(new DeleteProductCommand() { Id = id });

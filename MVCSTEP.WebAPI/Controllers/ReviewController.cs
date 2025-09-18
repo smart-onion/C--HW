@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MVCSTEP.Application.Commands.ProductCommands;
 using MVCSTEP.Application.Commands.ReviewCommands;
+using MVCSTEP.Application.DTOs;
+using MVCSTEP.WebAPI.Filter.Authorization;
 
 namespace MVCSTEP.WebAPI.Controllers;
 
@@ -16,6 +18,13 @@ public class ReviewController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetReviewsByProduct(GetReviewsByProductQuery request)
+    {
+        var reviews = await _mediator.Send(request);
+        return Ok(reviews);
+    }
+
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
@@ -23,11 +32,27 @@ public class ReviewController : ControllerBase
         if (review is null) return NotFound();
         return Ok(review);
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CreateReviewCommand request)
     {
         var review = await _mediator.Send(request);
+        return Ok(review);
+    }
+
+    [HttpPut]
+    [TypeFilter<ReviewOwnerAuthorizationFilter>]
+    public async Task<IActionResult> Put([FromBody] UpdateReviewCommand request)
+    {
+        var review = await _mediator.Send(request);
+        return Ok(review);
+    }
+
+    [HttpDelete("{id}")]
+    [TypeFilter<ReviewOwnerAuthorizationFilter>]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var review = await _mediator.Send(new DeleteReviewCommand(id));
         return Ok(review);
     }
 }
