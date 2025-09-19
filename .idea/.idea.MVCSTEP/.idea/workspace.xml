@@ -11,21 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="535f3dcf-5464-430d-9840-b0dedfe9b537" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Commands/ReviewCommands/DeleteReviewCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Commands/ReviewCommands/GetReviewsByProductQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Commands/ReviewCommands/UpdateReviewCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Handlers/ReviewHandlers/DeleteReviewCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Handlers/ReviewHandlers/GetReviewByProductQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Application/Handlers/ReviewHandlers/UpdateReviewCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.Infrastructure/MapperActions/UpdateReviewMapperAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MVCSTEP.WebAPI/Filter/Authorization/ReviewOwnerAuthorizationFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MVCSTEP/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MVCSTEP/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MVCSTEP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MVCSTEP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVCSTEP.Core/Interfaces/IReview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVCSTEP.Core/Interfaces/IReview.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVCSTEP.Infrastructure/Profiles/ReviewProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVCSTEP.Infrastructure/Profiles/ReviewProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVCSTEP.Infrastructure/Repositories/ReviewRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVCSTEP.Infrastructure/Repositories/ReviewRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVCSTEP.WebAPI/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVCSTEP.WebAPI/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVCSTEP.WebAPI/Controllers/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVCSTEP.WebAPI/Controllers/ReviewController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

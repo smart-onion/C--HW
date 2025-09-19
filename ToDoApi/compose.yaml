@@ -1,0 +1,32 @@
+﻿version: '3.8'
+services:
+  api:
+    build: ../TodoApi
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=todo;Username=postgres;Password=postgres
+      - Redis__Configuration=cache:6379
+    depends_on:
+      - db
+      - cache
+  
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  
+  cache:
+    image: redis:7
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redisdata:/data
+
+volumes:
+  pgdata:
+  redisdata:
