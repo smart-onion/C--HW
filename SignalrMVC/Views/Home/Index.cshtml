@@ -1,8 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<canvas id="drawingCanvas" style="border: 1px solid black; background-color: black;"></canvas>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.11/signalr.min.js"></script>
+<script>
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+    const connection = new signalR.HubConnectionBuilder().withUrl("/drawingHub").build();
+ 
+    canvas.width = 800;
+    canvas.height = 600;
+    context.strokeStyle = "white";
+    context.lineWidth = 2;
+ 
+    let drawing = false;
+    let lastX, lastY;
+ 
+    canvas.addEventListener('mousedown', (e) => {
+        drawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+    });
+ 
+    canvas.addEventListener('mousemove', (e) => {
+        if (!drawing) return;
+ 
+        const currentX = e.offsetX;
+        const currentY = e.offsetY;
+ 
+        drawLine(lastX, lastY, currentX, currentY);
+        connection.invoke("SendDrawData", lastX, lastY, currentX, currentY);
+ 
+        lastX = currentX;
+        lastY = currentY;
+    });
+ 
+    canvas.addEventListener('mouseup', () => drawing = false);
+ 
+    function drawLine(x1, y1, x2, y2) {
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.stroke();
+    }
+ 
+    connection.on("ReceiveDrawData", (x1, y1, x2, y2) => {
+        drawLine(x1, y1, x2, y2);
+    });
+ 
+    connection.start().catch(err => console.error(err.toString()));
+</script>

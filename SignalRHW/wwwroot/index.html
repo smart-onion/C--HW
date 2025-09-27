@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Site</title>
+</head>
+<body>
+<div id="userForm">
+    <p>Active users:<span id="activeUser">wait...</span></p>
+
+</div>
+
+<div id="chatroom"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script>
+    const hubConnection = new signalR.HubConnectionBuilder()
+        .withUrl("/active-users")
+        .build();
+
+
+    // получение сообщения от сервера
+    hubConnection.on("UserCount", (message) => {
+
+        // создаем элемент <b> для имени пользователя
+        const userNameElem = document.getElementById("activeUser");
+        userNameElem.textContent = `${message}`;
+
+    });
+
+    hubConnection.start()
+        .then(() => console.log("Connected"))
+        .catch((err) => console.error(err));
+</script>
+</body>
+</html>

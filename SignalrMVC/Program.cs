@@ -1,8 +1,10 @@
+using SignalrMVC.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,6 +21,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.MapHub<DrawingHub>("drawingHub");
 
 app.MapControllerRoute(
         name: "default",
