@@ -1,10 +1,12 @@
 using Kanban.Data;
+using Kanban.Interfaces;
+using Kanban.Repositories;
 using Kanban.Services;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -27,14 +29,17 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     ConnectionMultiplexer.Connect(builder.Configuration["Redis:Configuration"]));
 builder.Services.AddSingleton<RedisCacheService>();
 
+builder.Services.AddScoped<IBoard, BoardRepository>();
+builder.Services.AddScoped<ICard, CardRepository>();
+builder.Services.AddScoped<IList, ListRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.MapOpenApi();
-}
+// }
 
-app.UseHttpsRedirection();
-
+app.MapControllers();
 app.Run();

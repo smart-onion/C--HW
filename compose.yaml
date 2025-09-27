@@ -7,7 +7,7 @@ services:
     environment:
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=todo;Username=postgres;Password=postgres
-      - Redis__Configuration=cache:6379
+      - Redis__Configuration=redis:6379
     depends_on:
       - db
       - redis
