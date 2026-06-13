@@ -1,65 +1,62 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - step
+name: Build and Deploy to Azure Web App
 
 on:
   push:
-    branches:
-      - azure-db
+    branches: [ "azure-db" ]
   workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: step   # ← Change to your Azure Web App name
+  DOTNET_VERSION:    '10.0.x'
+  PROJECT_PATH:      './TaskWebApp/TaskWebApp.csproj'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read #This is required for actions/checkout
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
+      - name: Set up .NET ${{ env.DOTNET_VERSION }}
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Restore dependencies
+        run: dotnet restore ${{ env.PROJECT_PATH }}
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Build
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
 
-      - name: Upload artifact for deployment job
+      - name: Publish
+        run: dotnet publish ${{ env.PROJECT_PATH }} \
+               --configuration Release \
+               --output ./publish \
+               --no-build
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: webapp
+          path: ./publish
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_32B88F21B5EB400683407DC9F54EDA68 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8E5BD15271374AFDAF1864E21BF64D53 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EC17D8EBD39D46A5B38CA34EA9B3B071 }}
+          name: webapp
+          path: ./publish
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+        id: deploy
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'step'
-          slot-name: 'Production'
-          package: .
-          
+          app-name:    ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package:     ./publish
