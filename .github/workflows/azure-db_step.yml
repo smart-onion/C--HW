@@ -28,10 +28,7 @@ jobs:
         run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ${{ env.PROJECT_PATH }} \
-               --configuration Release \
-               --output ./publish \
-               --no-build
+        run: dotnet publish ./TaskWebApp/TaskWebApp.csproj --configuration Release --output ./publish --no-build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
