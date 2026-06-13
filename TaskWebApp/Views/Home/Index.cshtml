@@ -1,0 +1,139 @@
+﻿@model IEnumerable<TaskWebApp.Models.AppUser>
+@{
+    ViewData["Title"] = "Главная";
+    ViewData["Page"]  = "home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .page-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .page-header h1 {
+        font-size: 2rem; font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        margin-bottom: 0.4rem;
+    }
+    .page-header p { color: var(--muted); font-size: 0.95rem; }
+    .counter {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2);
+        padding: 0.3rem 0.9rem; border-radius: 999px;
+        font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+        color: var(--accent); margin-top: 1rem;
+    }
+
+    /* ── GRID ── */
+    .user-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem;
+    }
+
+    /* ── CARD ── */
+    .user-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        position: relative;
+        overflow: hidden;
+    }
+    .user-card::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        opacity: 0; transition: opacity 0.2s;
+    }
+    .user-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0,229,255,0.3);
+        box-shadow: 0 8px 32px rgba(0,229,255,0.08);
+    }
+    .user-card:hover::before { opacity: 1; }
+
+    .card-top {
+        display: flex; align-items: center; gap: 1rem;
+        margin-bottom: 1.25rem;
+    }
+    .avatar {
+        width: 52px; height: 52px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        background: var(--bg);
+        flex-shrink: 0;
+    }
+    .card-name { flex: 1; }
+    .nickname {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1rem; font-weight: 600;
+        color: var(--text);
+    }
+    .status-badge {
+        display: inline-block;
+        font-size: 0.75rem; margin-top: 0.25rem;
+        color: var(--muted);
+    }
+
+    .card-meta { display: flex; flex-direction: column; gap: 0.55rem; }
+    .meta-row {
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 0.82rem;
+    }
+    .meta-label { color: var(--muted); font-weight: 500; }
+    .meta-value {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--text); font-size: 0.8rem;
+    }
+    .meta-divider {
+        height: 1px; background: var(--border);
+        margin: 0.5rem 0;
+    }
+    .last-login { color: var(--accent) !important; }
+</style>
+
+<div class="page-header">
+    <h1>Пользователи</h1>
+    <p>Участники платформы NexusHub, загруженные из базы данных</p>
+    <div class="counter">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="6" cy="6" r="2" fill="currentColor"/>
+        </svg>
+        @Model.Count() пользователей в базе
+    </div>
+</div>
+
+<div class="user-grid">
+    @foreach (var user in Model)
+    {
+        <div class="user-card">
+            <div class="card-top">
+                <img class="avatar" src="@user.AvatarUrl" alt="@user.Nickname avatar" />
+                <div class="card-name">
+                    <div class="nickname">@@user.Nickname</div>
+                    <div class="status-badge">@user.Status</div>
+                </div>
+            </div>
+            <div class="card-meta">
+                <div class="meta-row">
+                    <span class="meta-label">Дата рождения</span>
+                    <span class="meta-value">@user.BirthDate.ToString("dd.MM.yyyy")</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-label">Регистрация</span>
+                    <span class="meta-value">@user.RegisteredDate.ToString("dd.MM.yyyy")</span>
+                </div>
+                <div class="meta-divider"></div>
+                <div class="meta-row">
+                    <span class="meta-label">Последний вход</span>
+                    <span class="meta-value last-login">@user.LastLoginDate.ToString("dd.MM.yyyy HH:mm")</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

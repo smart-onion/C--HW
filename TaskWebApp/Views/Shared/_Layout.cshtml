@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] — NexusHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:       #0a0e1a;
+            --surface:  #111827;
+            --border:   #1e2a3a;
+            --accent:   #00e5ff;
+            --accent2:  #7c3aed;
+            --text:     #e2e8f0;
+            --muted:    #64748b;
+            --online:   #22c55e;
+            --busy:     #f59e0b;
+            --dnd:      #ef4444;
+            --offline:  #475569;
+            --radius:   12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* ── NAV ── */
+        nav {
+            background: rgba(17,24,39,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100;
+            padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: auto;
+            display: flex; align-items: center;
+            height: 64px; gap: 2rem;
+        }
+        .nav-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem; font-weight: 600;
+            color: var(--accent); text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-brand span { color: var(--text); }
+        .nav-links { display: flex; gap: 0.25rem; margin-left: auto; }
+        .nav-links a {
+            color: var(--muted); text-decoration: none;
+            padding: 0.5rem 1rem; border-radius: 8px;
+            font-size: 0.9rem; font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text);
+            background: rgba(0,229,255,0.08);
+        }
+        /* ── MAIN ── */
+        main { flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; padding: 2rem; }
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a class="nav-brand" href="/">Nexus<span>Hub</span></a>
+        <div class="nav-links">
+            <a href="/" class="@(ViewData["Page"]?.ToString()=="home"?"active":"")">Главная</a>
+            <a href="/Home/About"   class="@(ViewData["Page"]?.ToString()=="about"?"active":"")">О нас</a>
+            <a href="/Home/Contact" class="@(ViewData["Page"]?.ToString()=="contact"?"active":"")">Контакты</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    @RenderBody()
+</main>
+
+<footer>
+    &copy; @DateTime.Now.Year NexusHub — built with ASP.NET Core &amp; Azure
+</footer>
+</body>
+</html>

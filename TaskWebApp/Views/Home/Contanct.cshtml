@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Контакты";
+    ViewData["Page"]  = "contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 2.5rem;
+        padding-top: 2rem;
+    }
+    .contact-info h1 {
+        font-size: 2rem; font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        margin-bottom: 0.75rem;
+    }
+    .contact-info p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+    .info-item {
+        display: flex; align-items: flex-start; gap: 1rem;
+        padding: 1rem 0; border-bottom: 1px solid var(--border);
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-icon {
+        width: 36px; height: 36px; border-radius: 8px;
+        background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.2);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1rem; flex-shrink: 0;
+    }
+    .info-text { flex: 1; }
+    .info-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .info-value {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem; color: var(--text);
+    }
+
+    .contact-form-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+    }
+    .contact-form-card h2 {
+        font-size: 1.1rem; font-weight: 600;
+        margin-bottom: 1.5rem; color: var(--text);
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+        display: block; font-size: 0.8rem; color: var(--muted);
+        margin-bottom: 0.4rem; font-weight: 500;
+    }
+    .form-control {
+        width: 100%; padding: 0.65rem 0.9rem;
+        background: var(--bg); border: 1px solid var(--border);
+        border-radius: 8px; color: var(--text);
+        font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+    }
+    .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0,229,255,0.1);
+    }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+    .btn-send {
+        width: 100%; padding: 0.8rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border: none; border-radius: 8px;
+        color: #0a0e1a; font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.95rem; font-weight: 700; cursor: pointer;
+        transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-send:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    @@media (max-width: 700px) {
+        .contact-layout { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div class="contact-layout">
+    <div class="contact-info">
+        <h1>Контакты</h1>
+        <p>Есть вопросы или предложения? Мы на связи — напишите нам или воспользуйтесь формой обратной связи.</p>
+
+        <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-text">
+                <div class="info-label">Email</div>
+                <div class="info-value">hello@nexushub.dev</div>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+                <div class="info-label">Офис</div>
+                <div class="info-value">г. Алматы, ул. Байтурсынова, 89</div>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-text">
+                <div class="info-label">Часы работы</div>
+                <div class="info-value">Пн–Пт, 09:00–18:00 (UTC+5)</div>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div class="info-text">
+                <div class="info-label">Telegram</div>
+                @* <div class="info-value">@nexushub_support</div> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form-card">
+        <h2>Отправить сообщение</h2>
+        <div class="form-group">
+            <label>Имя</label>
+            <input type="text" class="form-control" placeholder="Ваше имя" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+            <label>Тема</label>
+            <input type="text" class="form-control" placeholder="Коротко о теме" />
+        </div>
+        <div class="form-group">
+            <label>Сообщение</label>
+            <textarea class="form-control" placeholder="Опишите ваш вопрос..."></textarea>
+        </div>
+        <button class="btn-send">Отправить →</button>
+    </div>
+</div>
