@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "О нас";
+    ViewData["Page"]  = "about";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .about-hero {
+        text-align: center;
+        padding: 4rem 0 3rem;
+        position: relative;
+    }
+    .about-hero::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse at center, rgba(0,229,255,0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .about-hero h1 {
+        font-size: 2.8rem; font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+    }
+    .about-hero p {
+        font-size: 1.05rem; color: var(--muted);
+        max-width: 600px; margin: 0 auto; line-height: 1.7;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.25rem;
+        margin-top: 3rem;
+    }
+    .feature-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+        transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+        border-color: rgba(0,229,255,0.25);
+        transform: translateY(-3px);
+    }
+    .feature-icon {
+        font-size: 2rem; margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+        font-size: 1rem; font-weight: 600;
+        margin-bottom: 0.5rem; color: var(--text);
+    }
+    .feature-card p {
+        font-size: 0.85rem; color: var(--muted); line-height: 1.6;
+    }
+
+    .about-stats {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 1px; background: var(--border);
+        border: 1px solid var(--border); border-radius: var(--radius);
+        overflow: hidden; margin-top: 3rem;
+    }
+    .stat {
+        background: var(--surface); padding: 2rem; text-align: center;
+    }
+    .stat-num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 2.2rem; font-weight: 700;
+        color: var(--accent);
+    }
+    .stat-label {
+        font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem;
+    }
+</style>
+
+<div class="about-hero">
+    <h1>О нас</h1>
+    <p>NexusHub — платформа нового поколения для совместной работы, общения и управления проектами. Мы объединяем разработчиков, дизайнеров и менеджеров в единой экосистеме.</p>
+</div>
+
+<div class="about-stats">
+    <div class="stat">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Активных пользователей</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">2021</div>
+        <div class="stat-label">Год основания</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">99.9%</div>
+        <div class="stat-label">Uptime SLA</div>
+    </div>
+</div>
+
+<div class="about-grid">
+    <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Высокая производительность</h3>
+        <p>Построен на ASP.NET Core 8 и Azure — молниеносная загрузка и масштабируемость в облаке.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Безопасность данных</h3>
+        <p>End-to-end шифрование, Azure Active Directory и соответствие стандартам GDPR.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🗄️</div>
+        <h3>CosmosDB + SQL Azure</h3>
+        <p>Два уровня хранения данных — реляционная СУБД и документное NoSQL-хранилище для гибкой архитектуры.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>CI/CD на GitHub Actions</h3>
+        <p>Автоматическая сборка и деплой при каждом пуше в main — нулевое время простоя.</p>
+    </div>
+</div>
