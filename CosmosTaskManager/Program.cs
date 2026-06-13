@@ -9,7 +9,7 @@ namespace CosmosTaskManager
     {
         // ⚠️ Replace with your actual CosmosDB connection values from Azure Portal
         private static readonly string EndpointUri = "https://db-step.documents.azure.com:443/";
-        private static readonly string PrimaryKey   = "8UsHzGOWjnYcc941W5EjGxsfRrCbFpLXQXISl6UH8VozVyxh8FnNijWv8eesRYN9u6yi52TfcdlhACDbCO8Xqg==";
+        private static readonly string PrimaryKey   = "key";
         private static readonly string DatabaseId   = "TasksDB";
         private static readonly string ContainerId  = "TasksDB";
 
