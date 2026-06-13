@@ -7,7 +7,7 @@ builder.Services.AddControllersWithViews();
 
 // Use SQL Server (replace connection string in appsettings.json for Azure deployment)
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 
 
 
@@ -17,6 +17,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
     db.Database.Migrate();
 }
 
